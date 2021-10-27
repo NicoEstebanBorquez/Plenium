@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaAlojamientosController">
+   <top>
+      <HBox prefHeight="80.0" prefWidth="1000.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <children>
+             <fx:include fx:id="headerNico" source="comunes/Cabecero.fxml" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <top>
+             <HBox prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+                 <children>
+                     <Button mnemonicParsing="false" text="Panel de Control">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Alojamientos">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Clientes">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Reservas">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Tarifas">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Propietarios">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                     <Button mnemonicParsing="false" text="Planning">
+                         <HBox.margin>
+                             <Insets left="5.0" top="10.0" />
+                         </HBox.margin>
+                     </Button>
+                 </children>
+             </HBox>
+         </top>
+         <center>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Nombre / Referencia:" />
+                        <Label text="Población:" GridPane.rowIndex="1" />
+                        <TextField GridPane.columnIndex="1" />
+                        <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" text="Buscar" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets top="20.0" />
+                     </padding>
+                  </GridPane>
+               </top>
+               <center>
+                  <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                      <TableColumn prefWidth="88.0" text="Referencia" />
+                      <TableColumn prefWidth="269.0" text="Alojamiento" />
+                        <TableColumn prefWidth="138.0" text="Clase" />
+                        <TableColumn prefWidth="146.0" text="Capacidad" />
+                        <TableColumn prefWidth="250.0" text="Dirección" />
+                        <TableColumn prefWidth="151.0" text="Población" />
+                        <TableColumn prefWidth="157.0" text="Provincia" />
+                    </columns>
+                     <BorderPane.margin>
+                        <Insets top="20.0" />
+                     </BorderPane.margin>
+                  </TableView>
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>
