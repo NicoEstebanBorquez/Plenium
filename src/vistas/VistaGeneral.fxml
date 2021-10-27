@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="666.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.VistaGeneralController">
-    <!-- HEADER -->
+    <!-- HEADER (QUIZÁ PODRÍA METERLO EN UN COMPONENTE)-->
     <top>
         <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
             <left>
@@ -29,7 +29,7 @@
             <right>
                 <HBox alignment="TOP_RIGHT" fillHeight="false" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="834.0">
                     <children>
-                        <Label text="Usuario: Nicolás Esteban (&gt;Desde VistaGeneral)">
+                        <Label text="Usuario: Nicolás Esteban">
                             <HBox.margin>
                                 <Insets right="20.0" top="20.0" />
                             </HBox.margin>
@@ -104,70 +104,6 @@
         </BorderPane>
 
     </top>
-    <!-- FIN HEADER -->
-    <!--
-    <center>
-        <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-            <top>
-                <HBox prefHeight="50.0" prefWidth="1200.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
-            <children>
-                <Button mnemonicParsing="false" text="Panel de Control">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnAlojamientos" mnemonicParsing="false" text="Alojamientos">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnClientes" mnemonicParsing="false" text="Clientes">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnReservas" mnemonicParsing="false" text="Reservas">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnTarifas" mnemonicParsing="false" text="Tarifas">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnPropietarios" mnemonicParsing="false" text="Propietarios">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-                <Button fx:id="btnPlanning" mnemonicParsing="false" text="Planning">
-                    <HBox.margin>
-                        <Insets left="5.0" top="10.0" />
-                    </HBox.margin>
-                </Button>
-            </children>
-        </HBox>
-            </top>
-            <center>
-                <GridPane style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
-                    <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                    <children>
-                        <Label text="VISTA GENERAL" GridPane.rowIndex="1" />
-                    </children>
-                </GridPane>
-            </center>
-        </BorderPane>
-    </center>-->
-    
     <!-- CONTENIDO -->
     <center>
         <BorderPane fx:id="PanelContenido" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
