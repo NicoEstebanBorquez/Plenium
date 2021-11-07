@@ -22,7 +22,7 @@ public class VistaGeneralController implements Initializable {
 
     @FXML
     public void cargarPanel_Alojamientos(ActionEvent event) {
-        cargarPanel("PanelAlojamientos.fxml");
+        cargarPanel("alojamientos/panelAlojamientos.fxml");
     }
 
     @FXML
@@ -51,7 +51,7 @@ public class VistaGeneralController implements Initializable {
     }
 
     public void cargarPanel_NuevoAlojamiento(ActionEvent event) {
-        cargarPanel("PanelNuevoAlojamiento.fxml");
+        cargarPanel("alojamientos/PanelNuevoAlojamiento.fxml");
     }
     
     private void cargarPanel(String panel) {

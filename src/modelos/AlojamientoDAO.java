@@ -12,11 +12,11 @@ import java.util.logging.Logger;
 
 public class AlojamientoDAO {
 
-    private static final String SQL_SELECT = "SELECT id_alojamiento, nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento";
-    private static final String SQL_SELECT_POR_ID = "SELECT id_alojamiento, nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_alojamiento=?";
-    private static final String SQL_SELECT_POR_ID_PROPIETARIO = "SELECT id_alojamiento, nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_propietario=?";
-    private static final String SQL_INSERT = "INSERT INTO alojamiento (nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE alojamiento SET nombre=?, plazas=?, dormitorios=?, banos=?, terraza=?, piscina=?, aparcamiento=?, direccion=?, poblacion=?, provincia=?, id_propietario=?, id_usuario=? WHERE id_alojamiento=?";
+    private static final String SQL_SELECT = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento";
+    private static final String SQL_SELECT_POR_ID = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_alojamiento=?";
+    private static final String SQL_SELECT_POR_ID_PROPIETARIO = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_propietario=?";
+    private static final String SQL_INSERT = "INSERT INTO alojamientos (nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE alojamiento SET nombre=?, capacidad=?, dormitorios=?, banos=?, terraza=?, piscina=?, aparcamiento=?, direccion=?, poblacion=?, provincia=?, id_propietario=?, id_usuario=? WHERE id_alojamiento=?";
     private static final String SQL_DELETE = "DELETE FROM alojamiento WHERE id_alojamiento=?";
 
     /*
@@ -35,7 +35,7 @@ public class AlojamientoDAO {
             while (rs.next()) {
                 int idAlojamiento = rs.getInt(1);
                 String nombre = rs.getString(2);
-                int plazas = rs.getInt(3);
+                int capacidad = rs.getInt(3);
                 int dormitorios = rs.getInt(4);
                 int banos = rs.getInt(5);
                 String terraza = rs.getString(6);
@@ -47,7 +47,7 @@ public class AlojamientoDAO {
                 int idPropietario = rs.getInt(12);
                 int idUsuario = rs.getInt(13);
 
-                alojamiento = new Alojamiento(idAlojamiento, nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, idPropietario, idUsuario);
+                alojamiento = new Alojamiento(idAlojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, idPropietario, idUsuario);
                 lista.add(alojamiento);
             }
 
@@ -77,7 +77,7 @@ public class AlojamientoDAO {
             while (rs.next()) {
                 int idAlojamiento = rs.getInt(1);
                 String nombre = rs.getString(2);
-                int plazas = rs.getInt(3);
+                int capacidad = rs.getInt(3);
                 int dormitorios = rs.getInt(4);
                 int banos = rs.getInt(5);
                 String terraza = rs.getString(6);
@@ -91,7 +91,7 @@ public class AlojamientoDAO {
 
                 alojamiento.setIdAlojamiento(idAlojamiento);
                 alojamiento.setNombre(nombre);
-                alojamiento.setPlazas(plazas);
+                alojamiento.setCapacidad(capacidad);
                 alojamiento.setDormitorios(dormitorios);
                 alojamiento.setBanos(banos);
                 alojamiento.setTerraza(terraza);
@@ -131,7 +131,7 @@ public class AlojamientoDAO {
             while (rs.next()) {
                 int idAlojamiento = rs.getInt(1);
                 String nombre = rs.getString(2);
-                int plazas = rs.getInt(3);
+                int capacidad = rs.getInt(3);
                 int dormitorios = rs.getInt(4);
                 int banos = rs.getInt(5);
                 String terraza = rs.getString(6);
@@ -143,7 +143,7 @@ public class AlojamientoDAO {
                 int idPropietario = rs.getInt(12);
                 int idUsuario = rs.getInt(13);
 
-                alojamiento = new Alojamiento(idAlojamiento, nombre, plazas, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, idPropietario, idUsuario);
+                alojamiento = new Alojamiento(idAlojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, idPropietario, idUsuario);
                 lista.add(alojamiento);
             }
 
@@ -158,11 +158,15 @@ public class AlojamientoDAO {
         return lista;
     }*/
     // MODIFICADO SEGUN STANDARD SEGUIDO EN CLASE
-    public int insertar(Alojamiento alojamiento) throws ClassNotFoundException, SQLException {
+    public int insertar(Alojamiento alojamiento) {
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        final String URL = "jdbc:mysql://localhost/tienda";
+        final String URL = "jdbc:mysql://localhost/plenium";
         final String USER = "root";
         final String PASSWORD = "";
 
@@ -174,7 +178,7 @@ public class AlojamientoDAO {
             cn = DriverManager.getConnection(URL, USER, PASSWORD);
             ps = cn.prepareStatement(SQL_INSERT);
             ps.setString(1, alojamiento.getNombre());
-            ps.setInt(2, alojamiento.getPlazas());
+            ps.setInt(2, alojamiento.getCapacidad());
             ps.setInt(3, alojamiento.getDormitorios());
             ps.setInt(4, alojamiento.getBanos());
             ps.setInt(5, alojamiento.getTerraza());
@@ -191,8 +195,12 @@ public class AlojamientoDAO {
         } catch (SQLException ex) {
             Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
-            ps.close();
-            cn.close();
+            try {
+                ps.close();
+                cn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         return elementosInsertados;
@@ -207,7 +215,7 @@ public class AlojamientoDAO {
             cn = Conexion.getConnection();
             ps = cn.prepareStatement(SQL_UPDATE);
             ps.setString(1, alojamiento.getNombre());
-            ps.setInt(2, alojamiento.getPlazas());
+            ps.setInt(2, alojamiento.getCapacidad());
             ps.setInt(3, alojamiento.getDormitorios());
             ps.setInt(4, alojamiento.getBanos());
             ps.setString(5, alojamiento.getTerraza());

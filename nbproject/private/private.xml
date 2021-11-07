@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Nico/Desktop/FOC/Proyecto/Plenium/src/controladores/PanelAlojamientosController.java</file>
+            <file>file:/C:/Users/Nico/Desktop/FOC/Proyecto/Plenium/src/controladores/alojamientos/PanelAlojamientosController.java</file>
+            <file>file:/C:/Users/Nico/Desktop/FOC/Proyecto/Plenium/src/vistas/alojamientos/PanelNuevoAlojamiento.fxml</file>
+            <file>file:/C:/Users/Nico/Desktop/FOC/Proyecto/Plenium/src/controladores/alojamientos/PanelNuevoAlojamientoController.java</file>
+            <file>file:/C:/Users/Nico/Desktop/FOC/Proyecto/Plenium/src/plenium/VistaLoginController.java</file>
         </group>
     </open-files>
 </project-private>

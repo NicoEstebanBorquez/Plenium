@@ -4,7 +4,7 @@ public class Alojamiento {
 
     private int idAlojamiento;
     private String nombre;
-    private int plazas;
+    private int capacidad;
     private int dormitorios;
     private int banos;
     private int terraza;
@@ -19,9 +19,9 @@ public class Alojamiento {
     public Alojamiento() {
     }
 
-    public Alojamiento(String nombre, int plazas, int dormitorios, int banos, int terraza, int piscina, int aparcamiento, String direccion, String poblacion, String provincia, int idPropietario, int idUsuario) {
+    public Alojamiento(String nombre, int capacidad, int dormitorios, int banos, int terraza, int piscina, int aparcamiento, String direccion, String poblacion, String provincia, int idPropietario, int idUsuario) {
         this.nombre = nombre;
-        this.plazas = plazas;
+        this.capacidad = capacidad;
         this.dormitorios = dormitorios;
         this.banos = banos;
         this.terraza = terraza;
@@ -34,10 +34,10 @@ public class Alojamiento {
         this.idUsuario = idUsuario;
     }
 
-    public Alojamiento(int idAlojamiento, String nombre, int plazas, int dormitorios, int banos, int terraza, int piscina, int aparcamiento, String direccion, String poblacion, String provincia, int idPropietario, int idUsuario) {
+    public Alojamiento(int idAlojamiento, String nombre, int capacidad, int dormitorios, int banos, int terraza, int piscina, int aparcamiento, String direccion, String poblacion, String provincia, int idPropietario, int idUsuario) {
         this.idAlojamiento = idAlojamiento;
         this.nombre = nombre;
-        this.plazas = plazas;
+        this.capacidad = capacidad;
         this.dormitorios = dormitorios;
         this.banos = banos;
         this.terraza = terraza;
@@ -66,12 +66,12 @@ public class Alojamiento {
         this.nombre = nombre;
     }
 
-    public int getPlazas() {
-        return plazas;
+    public int getCapacidad() {
+        return capacidad;
     }
 
-    public void setPlazas(int plazas) {
-        this.plazas = plazas;
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
     }
 
     public int getDormitorios() {
