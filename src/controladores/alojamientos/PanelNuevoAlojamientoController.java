@@ -1,7 +1,6 @@
 package controladores.alojamientos;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import modelos.Alojamiento;
 import modelos.AlojamientoDAO;
+
 
 public class PanelNuevoAlojamientoController implements Initializable {
 
@@ -40,8 +40,8 @@ public class PanelNuevoAlojamientoController implements Initializable {
 
         Alojamiento alojamiento = new Alojamiento(nombre, capacidad, dormitorios, baños, terraza, piscina, aparcamiento, direccion, poblacion, provincia, propietario, usuario);
         AlojamientoDAO alojamientoDAO = new AlojamientoDAO();
-
         int alojamientoInsertado = alojamientoDAO.insertar(alojamiento);
+
         if (alojamientoInsertado != 0) {
             Alert mensaje = new Alert(Alert.AlertType.CONFIRMATION);
             mensaje.setTitle("Confirmación");
@@ -55,24 +55,21 @@ public class PanelNuevoAlojamientoController implements Initializable {
             mensaje.show();
             this.cerrarInterfaz(event);
         }
-        
-
     }
 
     @FXML
     public void cancelar(ActionEvent event) {
-        
+
         //PREGUNTAR POR CONFIRMACION
-        
         this.cerrarInterfaz(event);
     }
 
-    public void cerrarInterfaz(ActionEvent event){
+    public void cerrarInterfaz(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

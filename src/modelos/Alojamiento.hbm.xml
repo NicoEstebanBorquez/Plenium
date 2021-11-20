@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-nov-2021 19:15:04 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelos.Alojamiento" table="alojamiento" catalog="plenium" optimistic-lock="version">
+        <id name="idAlojamiento" type="int">
+            <column name="id_alojamiento" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="capacidad" type="int">
+            <column name="capacidad" not-null="true" />
+        </property>
+        <property name="dormitorios" type="int">
+            <column name="dormitorios" not-null="true" />
+        </property>
+        <property name="banos" type="int">
+            <column name="banos" not-null="true" />
+        </property>
+        <property name="terraza" type="int">
+            <column name="terraza" not-null="true" />
+        </property>
+        <property name="piscina" type="int">
+            <column name="piscina" not-null="true" />
+        </property>
+        <property name="aparcamiento" type="int">
+            <column name="aparcamiento" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="50" not-null="true" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="poblacion" length="50" not-null="true" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" length="50" not-null="true" />
+        </property>
+        <property name="idPropietario" type="int">
+            <column name="id_propietario" not-null="true" />
+        </property>
+        <property name="idUsuario" type="int">
+            <column name="id_usuario" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

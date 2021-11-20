@@ -8,26 +8,17 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<!--
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.PanelAlojamientosController">
-    <children>
-        <Button mnemonicParsing="false" text="Boton de PanelAlojamientos" />
-    </children>
-</AnchorPane>
--->
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1200.0" 
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelAlojamientosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelAlojamientosController">
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaAlojamientos" onMouseClicked="#seleccionar" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="95.0" resizable="false" text="Ref." />
-          <TableColumn prefWidth="363.0" resizable="false" text="Alojamiento" />
-            <TableColumn minWidth="0.0" prefWidth="104.0" resizable="false" text="Clase" />
-            <TableColumn prefWidth="102.0" resizable="false" text="Capacidad" />
-            <TableColumn prefWidth="138.0" resizable="false" text="Población" />
-            <TableColumn prefWidth="136.0" resizable="false" text="Provincia" />
-            <TableColumn prefWidth="261.0" resizable="false" text="Acciones" />
+          <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
+          <TableColumn fx:id="colAlojamiento" prefWidth="363.0" resizable="false" text="Alojamiento" />
+            <TableColumn fx:id="colClase" minWidth="0.0" prefWidth="104.0" resizable="false" text="Clase" />
+            <TableColumn fx:id="colCapacidad" prefWidth="102.0" resizable="false" text="Capacidad" />
+            <TableColumn fx:id="colPoblacion" prefWidth="138.0" resizable="false" text="Población" />
+            <TableColumn fx:id="colProvincia" prefWidth="136.0" resizable="false" text="Provincia" />
+            <TableColumn fx:id="colAcciones" prefWidth="261.0" resizable="false" text="Acciones" />
         </columns>
       </TableView>
    </center>
@@ -71,7 +62,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNuevoAlojamiento" onAction="#abrirNuevoAlojamiento" mnemonicParsing="false" text="Nuevo alojamiento" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btnNuevoAlojamiento" mnemonicParsing="false" onAction="#abrirNuevoAlojamiento" text="Nuevo alojamiento" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

@@ -76,7 +76,6 @@ public class VistaGeneralController implements Initializable {
 
             //Mensaje por consola cerciorándonos de que el panel se ha cargado
             //correctamente
-            System.out.println("Cargado el panel: " + panel);
         } catch (Exception ex) {
             System.err.println("No se ha cargado: " + panel + "\n" + ex.toString());
         }

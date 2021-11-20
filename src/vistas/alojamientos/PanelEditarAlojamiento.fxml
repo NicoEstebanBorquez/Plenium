@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" 
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelEditarAlojamientoController">
+   <content>
+      <GridPane prefHeight="550.0" prefWidth="690.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="52.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="294.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="64.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="232.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Piscina:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label text="Nombre:" GridPane.rowIndex="1" />
+            <Label text="Terraza:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Label text="Baños:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label text="Dormitorios:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label text="Capacidad:" GridPane.columnIndex="2" />
+            <Label text="Aparcamiento:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label text="Provincia:" GridPane.rowIndex="4" />
+            <Label text="Población:" GridPane.rowIndex="3" />
+            <Label text="Dirección:" GridPane.rowIndex="2" />
+            <Label text="Propietario:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="Usuario:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label text="Referencia:" />
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardar" text="Guardar" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <TextField fx:id="txtReferencia" prefHeight="31.0" prefWidth="10.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="txtDireccion" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPoblacion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="txtProvincia" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtCapacidad" GridPane.columnIndex="3" />
+            <TextField fx:id="txtDormitorios" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="txtBanos" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtTerraza" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <TextField fx:id="txtPiscina" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <TextField fx:id="txtAparcamiento" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <TextField fx:id="txtPropietario" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <TextField fx:id="txtUsuario" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+         </children>
+      </GridPane>
+   </content>
+</ScrollPane>
