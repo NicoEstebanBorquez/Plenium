@@ -40,6 +40,24 @@ public class Alojamiento  implements java.io.Serializable {
        this.idPropietario = idPropietario;
        this.idUsuario = idUsuario;
     }
+
+    public Alojamiento(int idAlojamiento, String nombre, int capacidad, int dormitorios, int banos, int terraza, int piscina, int aparcamiento, String direccion, String poblacion, String provincia, int idPropietario, int idUsuario) {
+        this.idAlojamiento = idAlojamiento;
+        this.nombre = nombre;
+        this.capacidad = capacidad;
+        this.dormitorios = dormitorios;
+        this.banos = banos;
+        this.terraza = terraza;
+        this.piscina = piscina;
+        this.aparcamiento = aparcamiento;
+        this.direccion = direccion;
+        this.poblacion = poblacion;
+        this.provincia = provincia;
+        this.idPropietario = idPropietario;
+        this.idUsuario = idUsuario;
+    }
+    
+    
    
     public int getIdAlojamiento() {
         return this.idAlojamiento;

@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import modelos.Alojamiento;
 import modelos.AlojamientoDAO;
 import modelos.SessionFactorySingleton;
@@ -51,8 +52,6 @@ public class PanelAlojamientosController implements Initializable {
 
     @FXML
     public void abrirNuevoAlojamiento(ActionEvent event) throws IOException {
-        System.out.println("ABRIR INTERFAZ NUEVO ALOJAMIENTO");
-
         //CARGAR VISTA "NUEVO ALOJAMIENTO"
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/alojamientos/PanelNuevoAlojamiento.fxml"));
         //Cargar el padre
@@ -67,7 +66,7 @@ public class PanelAlojamientosController implements Initializable {
         escenario.initOwner(((Node) event.getSource()).getScene().getWindow());
 
         //Elimina la barra superior con el boton de cerrar 
-        //escenario.initStyle(StageStyle.UNDECORATED);
+        escenario.initStyle(StageStyle.UNDECORATED);
         escenario.setResizable(false);
         escenario.setTitle("Nuevo alojamiento");
         escenario.show();
@@ -88,16 +87,10 @@ public class PanelAlojamientosController implements Initializable {
         * Esto tengo que ver como meterlo en AlojamientoDAO
         * De modo que al llamar a listar() me devuelve el List con los datos
         * Lo he metido aquí porque por algún motivo solo puedo usarlo una vez porque se me cierra la sesion
-        */
-        //Datos
+         */
         Alojamiento alojamiento = null;
-        List<Alojamiento> lista = null;
-
-        Session sesion = sf.openSession();
-        Transaction transaccion = sesion.beginTransaction();
-
-        Query query = sesion.createQuery("FROM Alojamiento");
-        lista = query.list();
+        AlojamientoDAO alojamientoDAO = new AlojamientoDAO();
+        List<Alojamiento> lista = alojamientoDAO.listar();
 
         Iterator iterador = lista.iterator();
         while (iterador.hasNext()) {
@@ -105,32 +98,32 @@ public class PanelAlojamientosController implements Initializable {
             this.listaObservable.add(alojamiento);
             this.tablaAlojamientos.setItems(listaObservable);
         }
-        sesion.close();
     }
 
     @FXML
     public void seleccionar() throws IOException {
         Alojamiento alojamientoSeleccionado = this.tablaAlojamientos.getSelectionModel().getSelectedItem();
         int seleccionado = alojamientoSeleccionado.getIdAlojamiento();
-        
+
         //Se envía el id del alojamiento seleccionado al controlador PanelInfoAlojamientoController
         PanelInfoAlojamientoController.alojamientoSeleccionado = seleccionado;
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/alojamientos/panelInfoAlojamiento.fxml"));
         //Cargar el padre
         Parent padre = loader.load();
         Scene escena = new Scene(padre);
         Stage escenario = new Stage();
         escenario.setScene(escena);
+        escenario.initStyle(StageStyle.UNDECORATED);
         escenario.setResizable(false);
         escenario.setTitle("Info alojamiento");
         escenario.show();
 
         /*
             *   Me faltaría ver como hacer para que la ventana Info Alojamiento fuese modal como la de Nuevo Alojamiento
-            *
-            *
-            *
+            * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
          */
     }
 

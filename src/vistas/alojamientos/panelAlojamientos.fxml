@@ -80,6 +80,11 @@
       </GridPane>
    </top>
    <bottom>
-      <Label text="Label" BorderPane.alignment="CENTER" />
+      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Actualizar: " />
+            <Button mnemonicParsing="false" text="-" />
+         </children>
+      </HBox>
    </bottom>
 </BorderPane>

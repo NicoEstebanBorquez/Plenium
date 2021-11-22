@@ -10,6 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,65 +20,113 @@ import org.hibernate.*;
 
 public class AlojamientoDAO {
 
-    private static final String SQL_SELECT = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento";
+   /* private static final String SQL_SELECT = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento";
     private static final String SQL_SELECT_POR_ID = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_alojamiento=?";
     private static final String SQL_SELECT_POR_ID_PROPIETARIO = "SELECT id_alojamiento, nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario FROM alojamiento WHERE id_propietario=?";
     private static final String SQL_INSERT = "INSERT INTO alojamiento (nombre, capacidad, dormitorios, banos, terraza, piscina, aparcamiento, direccion, poblacion, provincia, id_propietario, id_usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATE = "UPDATE alojamiento SET nombre=?, capacidad=?, dormitorios=?, banos=?, terraza=?, piscina=?, aparcamiento=?, direccion=?, poblacion=?, provincia=?, id_propietario=?, id_usuario=? WHERE id_alojamiento=?";
     private static final String SQL_DELETE = "DELETE FROM alojamiento WHERE id_alojamiento=?";
-
-    public int insertar(Alojamiento alojamiento) {
-
-        int confirmacion = 0;
-        SessionFactory sf = SessionFactorySingleton.getSessionFactory();
-        Session sesion = sf.openSession();
-        Transaction transaccion = sesion.beginTransaction();
-
+*/
+    public List listar() {
+        List<Alojamiento> lista = null;
+        SessionFactory sf = null;
+        Session sesion = null;
         try {
-            sesion.save(alojamiento);
-            transaccion.commit();
-            System.out.println("ALOJAMIENTO ALMACENADO CON HIBERNATE ///////////////////////////////////");
-            confirmacion = 1;
+            sf = SessionFactorySingleton.getSessionFactory();
+            sesion = sf.openSession();
+
+            Query query = sesion.createQuery("FROM Alojamiento");
+            lista = query.list();
         } catch (Exception e) {
-            System.out.println("Error al guardar alojamiento");
+            e.printStackTrace();
         } finally {
             sesion.close();
+            return lista;
         }
-
-        return confirmacion;
-    }
-
-    public List listar() {
-
-        List<Alojamiento> lista = null;
-
-        SessionFactory sf = SessionFactorySingleton.getSessionFactory();
-        Session sesion = sf.openSession();
-        Transaction transaccion = sesion.beginTransaction();
-
-        Query query = sesion.createQuery("FROM Alojamiento");
-        lista = query.list();
-
-        sesion.close();
-        sf.close();
-
-        return lista;
     }
 
     public Alojamiento obtenerPorId(int alojamientoSeleccionado) {
         Alojamiento alojamiento = null;
-
-        SessionFactory sf = SessionFactorySingleton.getSessionFactory();
-        Session sesion = sf.openSession();
-        Query consulta = sesion.createQuery("FROM Alojamiento WHERE idAlojamiento = " + alojamientoSeleccionado);
-        List<Alojamiento> lista = consulta.list();
-        Iterator iterador = lista.iterator();
-        while (iterador.hasNext()) {
-            alojamiento = (Alojamiento) iterador.next();
+        SessionFactory sf = null;
+        Session sesion = null;
+        try {
+            sf = SessionFactorySingleton.getSessionFactory();
+            sesion = sf.openSession();
+            Query consulta = sesion.createQuery("FROM Alojamiento WHERE idAlojamiento = " + alojamientoSeleccionado);
+            List<Alojamiento> lista = consulta.list();
+            Iterator iterador = lista.iterator();
+            while (iterador.hasNext()) {
+                alojamiento = (Alojamiento) iterador.next();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sesion.close();
+            return alojamiento;
         }
-        sesion.close();
-        //sf.close();
-        return alojamiento;
+    }
+
+    public int insertar(Alojamiento alojamiento) {
+
+        int confirmacion = 0;
+        SessionFactory sf = null;
+        Session sesion = null;
+        Transaction transaccion = null;
+        try {
+            sf = SessionFactorySingleton.getSessionFactory();
+            sesion = sf.openSession();
+            transaccion = sesion.beginTransaction();
+
+            sesion.save(alojamiento);
+            transaccion.commit();
+            confirmacion = 1;
+        } catch (Exception e) {
+            transaccion.rollback();
+            e.printStackTrace();
+        } finally {
+            sesion.close();
+            return confirmacion;
+        }
+    }
+
+    public int actualizar(Alojamiento alojamientoSeleccionado) {
+        int confirmacion = 0;
+        Alojamiento alojamientoActualizar = null;
+        SessionFactory sf = null;
+        Session sesion = null;
+        Transaction transaccion = null;
+        try {
+            sf = SessionFactorySingleton.getSessionFactory();
+            sesion = sf.openSession();
+            transaccion = sesion.beginTransaction();
+
+            //Se hace una consulta a la BD con "obtenerPorId", con lo que se obtiene de la BD
+            //el alojamiento que queremos modificar
+            alojamientoActualizar = this.obtenerPorId(alojamientoSeleccionado.getIdAlojamiento());
+            // Ahora se mofican los campos:
+            alojamientoActualizar.setNombre(alojamientoSeleccionado.getNombre());
+            alojamientoActualizar.setCapacidad(alojamientoSeleccionado.getCapacidad());
+            alojamientoActualizar.setDormitorios(alojamientoSeleccionado.getDormitorios());
+            alojamientoActualizar.setBanos(alojamientoSeleccionado.getBanos());
+            alojamientoActualizar.setTerraza(alojamientoSeleccionado.getTerraza());
+            alojamientoActualizar.setPiscina(alojamientoSeleccionado.getPiscina());
+            alojamientoActualizar.setAparcamiento(alojamientoSeleccionado.getAparcamiento());
+            alojamientoActualizar.setDireccion(alojamientoSeleccionado.getDireccion());
+            alojamientoActualizar.setPoblacion(alojamientoSeleccionado.getPoblacion());
+            alojamientoActualizar.setProvincia(alojamientoSeleccionado.getProvincia());
+            alojamientoActualizar.setIdPropietario(alojamientoSeleccionado.getIdPropietario());
+            alojamientoActualizar.setIdUsuario(alojamientoSeleccionado.getIdUsuario());
+            //Se hace el update
+            sesion.update(alojamientoActualizar);
+            transaccion.commit();
+            confirmacion = 1;
+        } catch (Exception e) {
+            transaccion.rollback();
+            e.printStackTrace();
+        } finally {
+            sesion.close();
+            return confirmacion;
+        }
     }
 
     /*
@@ -122,89 +172,8 @@ public class AlojamientoDAO {
         }
         return lista;
     }*/
-    // MODIFICADO SEGUN STANDARD SEGUIDO EN CLASE
-    /*
-    public int insertar(Alojamiento alojamiento) {
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        final String URL = "jdbc:mysql://localhost/plenium";
-        final String USER = "root";
-        final String PASSWORD = "";
-
-        Connection cn = null;
-        PreparedStatement ps = null;
-        int elementosInsertados = 0;
-
-        try {
-            cn = DriverManager.getConnection(URL, USER, PASSWORD);
-            ps = cn.prepareStatement(SQL_INSERT);
-            ps.setString(1, alojamiento.getNombre());
-            ps.setInt(2, alojamiento.getCapacidad());
-            ps.setInt(3, alojamiento.getDormitorios());
-            ps.setInt(4, alojamiento.getBanos());
-            ps.setInt(5, alojamiento.getTerraza());
-            ps.setInt(6, alojamiento.getPiscina());
-            ps.setInt(7, alojamiento.getAparcamiento());
-            ps.setString(8, alojamiento.getDireccion());
-            ps.setString(9, alojamiento.getPoblacion());
-            ps.setString(10, alojamiento.getProvincia());
-            ps.setInt(11, alojamiento.getIdPropietario());
-            ps.setInt(12, alojamiento.getIdUsuario());
-
-            elementosInsertados = ps.executeUpdate();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                ps.close();
-                cn.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        return elementosInsertados;
-    }
-     */
  /*
-    public int actualizar(Alojamiento alojamiento) {
-        Connection cn = null;
-        PreparedStatement ps = null;
-        int elementosActualizados = 0;
-
-        try {
-            cn = Conexion.getConnection();
-            ps = cn.prepareStatement(SQL_UPDATE);
-            ps.setString(1, alojamiento.getNombre());
-            ps.setInt(2, alojamiento.getCapacidad());
-            ps.setInt(3, alojamiento.getDormitorios());
-            ps.setInt(4, alojamiento.getBanos());
-            ps.setString(5, alojamiento.getTerraza());
-            ps.setString(6, alojamiento.getPiscina());
-            ps.setString(7, alojamiento.getAparcamiento());
-            ps.setString(8, alojamiento.getDireccion());
-            ps.setString(9, alojamiento.getPoblacion());
-            ps.setString(10, alojamiento.getProvincia());
-            ps.setInt(11, alojamiento.getIdPropietario());
-            ps.setInt(12, alojamiento.getIdUsuario());
-            ps.setInt(13, alojamiento.getIdAlojamiento());
-
-            elementosActualizados = ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(AlojamientoDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            Conexion.close(ps);
-            Conexion.close(cn);
-        }
-        return elementosActualizados;
-    }
-
+   
     public int eliminar(int id) {
         Connection cn = null;
         PreparedStatement ps = null;

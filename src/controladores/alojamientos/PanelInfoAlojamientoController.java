@@ -50,8 +50,6 @@ public class PanelInfoAlojamientoController implements Initializable {
 
     @FXML
     public void editarAlojamiento(ActionEvent event) throws IOException{
-        System.out.println("EDITAR");
-        
         //Se envía el id del alojamiento seleccionado al controlador PanelEditarAlojamientoController
         PanelEditarAlojamientoController.alojamientoSeleccionado = alojamientoSeleccionado;
         

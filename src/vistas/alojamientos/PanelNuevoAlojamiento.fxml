@@ -95,7 +95,7 @@
             <TextField fx:id="txtProvincia" maxWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="txtCapacidad" maxWidth="150.0" GridPane.columnIndex="3" />
             <TextField fx:id="txtDormitorios" maxWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="txtBaños" maxWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtBanos" maxWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <TextField fx:id="txtTerraza" maxWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
             <TextField fx:id="txtAparcamiento" maxWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="5" />
             <TextField fx:id="txtPropietario" maxWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="6" />
