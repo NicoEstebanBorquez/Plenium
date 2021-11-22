@@ -31,24 +31,15 @@ public class VistaGeneralController implements Initializable {
     }
 
     @FXML
-    public void cargarPanel_Reservas(ActionEvent event) {
-        cargarPanel("PanelReservas.fxml");
+    public void cargarPanel_Agenda(ActionEvent event) {
+        cargarPanel("PanelAgenda.fxml");
     }
 
     @FXML
-    public void cargarPanel_Tarifas(ActionEvent event) {
-        cargarPanel("PanelTarifas.fxml");
+    public void cargarPanel_Tareas(ActionEvent event) {
+        cargarPanel("PanelTareas.fxml");
     }
 
-    @FXML
-    public void cargarPanel_Propietarios(ActionEvent event) {
-        cargarPanel("PanelPropietarios.fxml");
-    }
-
-    @FXML
-    public void cargarPanel_Planning(ActionEvent event) {
-        cargarPanel("PanelPlanning.fxml");
-    }
 
     public void cargarPanel_NuevoAlojamiento(ActionEvent event) {
         cargarPanel("alojamientos/PanelNuevoAlojamiento.fxml");

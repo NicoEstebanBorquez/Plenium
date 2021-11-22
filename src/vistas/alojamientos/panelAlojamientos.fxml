@@ -8,9 +8,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelAlojamientosController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelAlojamientosController">
    <center>
-      <TableView fx:id="tablaAlojamientos" onMouseClicked="#seleccionar" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaAlojamientos" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
           <TableColumn fx:id="colAlojamiento" prefWidth="363.0" resizable="false" text="Alojamiento" />
@@ -80,7 +80,7 @@
       </GridPane>
    </top>
    <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="45.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Actualizar: " />
             <Button mnemonicParsing="false" text="-" />

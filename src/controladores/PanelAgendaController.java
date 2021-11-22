@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 
-public class PanelReservasController implements Initializable {
+public class PanelAgendaController implements Initializable {
 
 
     @Override

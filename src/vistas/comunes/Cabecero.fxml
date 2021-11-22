@@ -114,7 +114,7 @@
         </ImageView>
         <HBox alignment="TOP_RIGHT" fillHeight="false" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" prefWidth="834.0">
             <children>
-                <Label text="Usuario: Nicolás Esteban">
+                <Label text="Usuario: NicolásX Esteban">
                     <HBox.margin>
                         <Insets right="20.0" top="20.0" />
                     </HBox.margin>
@@ -124,7 +124,7 @@
                         <Insets right="20.0" top="20.0" />
                     </HBox.margin>
                 </Label>
-                <Label text="Empresa: Málaga City Rentals">
+                <Label text="Empresa: MálagaX City Rentals">
                     <HBox.margin>
                         <Insets right="20.0" top="20.0" />
                     </HBox.margin>

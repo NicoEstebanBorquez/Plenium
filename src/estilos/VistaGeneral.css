@@ -1,0 +1,21 @@
+.botonPrimario{
+    -fx-background-color: #0b2d4f;
+    -fx-text-fill: #d8d9da;
+    -fx-font-weight: bold;
+}
+/*
+.botonPrimario:hover{
+    -fx-background-color: #d8d9da;
+    -fx-text-fill: #0b2d4f;
+    -fx-font-weight: bold;
+}*/
+
+.botonSecundario{
+    -fx-background-color: #0b2d4f;
+    -fx-text-fill: #d8d9da;
+}
+
+.botonSecundario:hover{
+    -fx-background-color: #d8d9da;
+    -fx-text-fill: #0b2d4f;
+}
