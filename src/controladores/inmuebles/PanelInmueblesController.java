@@ -1,4 +1,4 @@
-package controladores.alojamientos;
+package controladores.inmuebles;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,8 +22,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import modelos.Alojamiento;
-import modelos.AlojamientoDAO;
+import modelos.Inmuebles;
+import modelos.InmueblesDAO;
 import modelos.SessionFactorySingleton;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -38,22 +38,22 @@ import org.hibernate.Transaction;
 *
 *
  */
-public class PanelAlojamientosController implements Initializable {
+public class PanelInmueblesController implements Initializable {
 
     @FXML
-    private TableView<Alojamiento> tablaAlojamientos;
+    private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
-    private TableColumn colRef, colAlojamiento, colClase, colCapacidad, colPoblacion, colProvincia;
+    private TableColumn colRef, colInmueble, colClase, colCapacidad, colPoblacion, colProvincia;
 
-    private ObservableList<Alojamiento> listaObservable;
+    private ObservableList<Inmuebles> listaObservable;
 
     SessionFactory sf = SessionFactorySingleton.getSessionFactory();
 
     @FXML
-    public void abrirNuevoAlojamiento(ActionEvent event) throws IOException {
+    public void abrirNuevoInmueble(ActionEvent event) throws IOException {
         //CARGAR VISTA "NUEVO ALOJAMIENTO"
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/alojamientos/PanelNuevoAlojamiento.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/inmuebles/PanelNuevoInmueble.fxml"));
         //Cargar el padre
         Parent padre = loader.load();
         //VistaInicioController controlador = loader.getController();
@@ -68,47 +68,47 @@ public class PanelAlojamientosController implements Initializable {
         //Elimina la barra superior con el boton de cerrar 
         escenario.initStyle(StageStyle.UNDECORATED);
         escenario.setResizable(false);
-        escenario.setTitle("Nuevo alojamiento");
+        escenario.setTitle("Nuevo inmueble");
         escenario.show();
     }
 
-    public void mostrarAlojamientos() {
+    public void mostrarInmuebles() {
         //Tabla
         listaObservable = FXCollections.observableArrayList();
-        this.colRef.setCellValueFactory(new PropertyValueFactory("idAlojamiento"));
-        this.colAlojamiento.setCellValueFactory(new PropertyValueFactory("nombre"));
-        //this.colClase.setCellValueFactory(new PropertyValueFactory("idAlojamiento"));
+        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
+        this.colInmueble.setCellValueFactory(new PropertyValueFactory("nombre"));
+        //this.colClase.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colCapacidad.setCellValueFactory(new PropertyValueFactory("capacidad"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
         /*
         *
-        * Esto tengo que ver como meterlo en AlojamientoDAO
+        * Esto tengo que ver como meterlo en InmueblesDAO
         * De modo que al llamar a listar() me devuelve el List con los datos
         * Lo he metido aquí porque por algún motivo solo puedo usarlo una vez porque se me cierra la sesion
          */
-        Alojamiento alojamiento = null;
-        AlojamientoDAO alojamientoDAO = new AlojamientoDAO();
-        List<Alojamiento> lista = alojamientoDAO.listar();
+        Inmuebles inmueble = null;
+        InmueblesDAO inmuebleDAO = new InmueblesDAO();
+        List<Inmuebles> lista = inmuebleDAO.listar();
 
         Iterator iterador = lista.iterator();
         while (iterador.hasNext()) {
-            alojamiento = (Alojamiento) iterador.next();
-            this.listaObservable.add(alojamiento);
-            this.tablaAlojamientos.setItems(listaObservable);
+            inmueble = (Inmuebles) iterador.next();
+            this.listaObservable.add(inmueble);
+            this.tablaInmuebles.setItems(listaObservable);
         }
     }
 
     @FXML
     public void seleccionar() throws IOException {
-        Alojamiento alojamientoSeleccionado = this.tablaAlojamientos.getSelectionModel().getSelectedItem();
-        int seleccionado = alojamientoSeleccionado.getIdAlojamiento();
+        Inmuebles inmuebleSeleccionado = this.tablaInmuebles.getSelectionModel().getSelectedItem();
+        int seleccionado = inmuebleSeleccionado.getIdInmueble();
 
-        //Se envía el id del alojamiento seleccionado al controlador PanelInfoAlojamientoController
-        PanelInfoAlojamientoController.alojamientoSeleccionado = seleccionado;
+        //Se envía el id del inmueble seleccionado al controlador PanelInfoInmueblesController
+        PanelInfoInmuebleController.inmuebleSeleccionado = seleccionado;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/alojamientos/panelInfoAlojamiento.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/inmuebles/panelInfoInmueble.fxml"));
         //Cargar el padre
         Parent padre = loader.load();
         Scene escena = new Scene(padre);
@@ -116,11 +116,11 @@ public class PanelAlojamientosController implements Initializable {
         escenario.setScene(escena);
         escenario.initStyle(StageStyle.UNDECORATED);
         escenario.setResizable(false);
-        escenario.setTitle("Info alojamiento");
+        escenario.setTitle("Info inmueble");
         escenario.show();
 
         /*
-            *   Me faltaría ver como hacer para que la ventana Info Alojamiento fuese modal como la de Nuevo Alojamiento
+            *   Me faltaría ver como hacer para que la ventana Info Inmuebles fuese modal como la de Nuevo Inmuebles
             * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             * XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -129,7 +129,7 @@ public class PanelAlojamientosController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.mostrarAlojamientos();
+        this.mostrarInmuebles();
     }
 
 }

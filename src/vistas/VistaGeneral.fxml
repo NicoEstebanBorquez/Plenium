@@ -46,7 +46,7 @@
               </rowConstraints>
                <children>
                         <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_PanelControl" prefWidth="158.0" styleClass="botonPrimario" text="Panel de Control" GridPane.columnIndex="1" />
-                        <Button fx:id="btnAlojamientos" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Alojamientos" prefWidth="158.0" styleClass="botonPrimario" text="Propiedades" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="btnInmuebles" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Inmuebles" prefWidth="158.0" styleClass="botonPrimario" text="Propiedades" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Button id="estiloBoton" fx:id="btnClientes" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Clientes" prefWidth="158.0" styleClass="botonPrimario" text="Clientes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Button fx:id="btnAgenda" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Agenda" prefWidth="158.0" styleClass="botonPrimario" text="Agenda" GridPane.columnIndex="1" GridPane.rowIndex="8" />
                         <Button fx:id="btnTareas" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Tareas" prefWidth="158.0" styleClass="botonPrimario" text="Tareas" GridPane.columnIndex="1" GridPane.rowIndex="11" />

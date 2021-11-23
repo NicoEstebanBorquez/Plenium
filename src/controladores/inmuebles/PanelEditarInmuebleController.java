@@ -1,4 +1,4 @@
-package controladores.alojamientos;
+package controladores.inmuebles;
 
 import java.net.URL;
 import java.util.Optional;
@@ -12,12 +12,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelos.Alojamiento;
-import modelos.AlojamientoDAO;
+import modelos.Inmuebles;
+import modelos.InmueblesDAO;
 
-public class PanelEditarAlojamientoController implements Initializable {
+public class PanelEditarInmuebleController implements Initializable {
 
-    protected static int alojamientoSeleccionado;
+    protected static int inmuebleSeleccionado;
 
     @FXML
     private TextField txtReferencia, txtNombre, txtDireccion, txtPoblacion, txtProvincia, txtCapacidad,
@@ -39,14 +39,14 @@ public class PanelEditarAlojamientoController implements Initializable {
         int propietario = Integer.parseInt(txtPropietario.getText().trim());
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Alojamiento alojamiento = new Alojamiento(referencia, nombre, capacidad, dormitorios, baños, terraza, piscina, aparcamiento, direccion, poblacion, provincia, propietario, usuario);
-        AlojamientoDAO alojamientoDAO = new AlojamientoDAO();
-        int alojamientoActualizado = alojamientoDAO.actualizar(alojamiento);
+        Inmuebles inmueble = new Inmuebles(referencia, nombre, capacidad, dormitorios, baños, terraza, piscina, aparcamiento, direccion, poblacion, provincia, propietario, usuario);
+        InmueblesDAO inmuebleDAO = new InmueblesDAO();
+        int inmuebleActualizado = inmuebleDAO.actualizar(inmueble);
 
-        if (alojamientoActualizado != 0) {
+        if (inmuebleActualizado != 0) {
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Confirmación");
-            mensaje.setContentText("Alojamiento modificado correctamente.");
+            mensaje.setContentText("Inmueble modificado correctamente.");
             Optional<ButtonType> resultado = mensaje.showAndWait();
             if (resultado.get() == ButtonType.OK) {
                 this.cerrarInterfaz(event);
@@ -54,7 +54,7 @@ public class PanelEditarAlojamientoController implements Initializable {
         } else {
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
             mensaje.setTitle("Error");
-            mensaje.setContentText("Ha ocurrido un error al modificar el alojamiento.");
+            mensaje.setContentText("Ha ocurrido un error al modificar el inmueble.");
             mensaje.showAndWait();
             this.cerrarInterfaz(event);
         }
@@ -72,23 +72,23 @@ public class PanelEditarAlojamientoController implements Initializable {
     }
 
     public void cargarDatos(int seleccionado) {
-        Alojamiento alojamiento = null;
-        alojamiento = new AlojamientoDAO().obtenerPorId(seleccionado);
+        Inmuebles inmueble = null;
+        inmueble = new InmueblesDAO().obtenerPorId(seleccionado);
 
-        txtReferencia.setText(Integer.toString(alojamiento.getIdAlojamiento()));
-        txtNombre.setText(alojamiento.getNombre());
-        txtDireccion.setText(alojamiento.getDireccion());
-        txtPoblacion.setText(alojamiento.getPoblacion());
-        txtProvincia.setText(alojamiento.getProvincia());
-        txtCapacidad.setText(Integer.toString(alojamiento.getCapacidad()));
-        txtDormitorios.setText(Integer.toString(alojamiento.getDormitorios()));
-        txtBanos.setText(Integer.toString(alojamiento.getBanos()));
-        txtTerraza.setText(Integer.toString(alojamiento.getTerraza()));
-        txtPiscina.setText(Integer.toString(alojamiento.getPiscina()));
-        txtAparcamiento.setText(Integer.toString(alojamiento.getAparcamiento()));
-        txtPropietario.setText(Integer.toString(alojamiento.getIdPropietario()));
-        txtUsuario.setText(Integer.toString(alojamiento.getIdUsuario()));
-        txtPoblacion.setText(alojamiento.getPoblacion());
+        txtReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
+        txtNombre.setText(inmueble.getNombre());
+        txtDireccion.setText(inmueble.getDireccion());
+        txtPoblacion.setText(inmueble.getPoblacion());
+        txtProvincia.setText(inmueble.getProvincia());
+        txtCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
+        txtDormitorios.setText(Integer.toString(inmueble.getDormitorios()));
+        txtBanos.setText(Integer.toString(inmueble.getBanos()));
+        txtTerraza.setText(Integer.toString(inmueble.getTerraza()));
+        txtPiscina.setText(Integer.toString(inmueble.getPiscina()));
+        txtAparcamiento.setText(Integer.toString(inmueble.getAparcamiento()));
+        txtPropietario.setText(Integer.toString(inmueble.getIdPropietario()));
+        txtUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
+        txtPoblacion.setText(inmueble.getPoblacion());
 
     }
 
@@ -100,7 +100,7 @@ public class PanelEditarAlojamientoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cargarDatos(alojamientoSeleccionado);
+        cargarDatos(inmuebleSeleccionado);
     }
 
 }

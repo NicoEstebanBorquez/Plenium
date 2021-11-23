@@ -9,7 +9,7 @@
 
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" 
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.alojamientos.PanelEditarAlojamientoController">
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelEditarInmuebleController">
    <content>
       <GridPane prefHeight="550.0" prefWidth="690.0">
         <columnConstraints>

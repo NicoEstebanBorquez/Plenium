@@ -1,4 +1,4 @@
-package controladores.alojamientos;
+package controladores.inmuebles;
 
 import java.net.URL;
 import java.util.Optional;
@@ -11,10 +11,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import modelos.Alojamiento;
-import modelos.AlojamientoDAO;
+import modelos.Inmuebles;
+import modelos.InmueblesDAO;
 
-public class PanelNuevoAlojamientoController implements Initializable {
+public class PanelNuevoInmuebleController implements Initializable {
 
     @FXML
     private TextField txtNombre, txtCapacidad, txtDormitorios, txtBanos, txtTerraza, txtPiscina, txtAparcamiento, txtDireccion, txtPoblacion, txtProvincia, txtPropietario, txtUsuario;
@@ -34,14 +34,14 @@ public class PanelNuevoAlojamientoController implements Initializable {
         int propietario = Integer.parseInt(txtPropietario.getText().trim());
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Alojamiento alojamiento = new Alojamiento(nombre, capacidad, dormitorios, baños, terraza, piscina, aparcamiento, direccion, poblacion, provincia, propietario, usuario);
-        AlojamientoDAO alojamientoDAO = new AlojamientoDAO();
-        int alojamientoInsertado = alojamientoDAO.insertar(alojamiento);
+        Inmuebles inmueble = new Inmuebles(nombre, capacidad, dormitorios, baños, terraza, piscina, aparcamiento, direccion, poblacion, provincia, propietario, usuario);
+        InmueblesDAO inmuebleDAO = new InmueblesDAO();
+        int inmuebleInsertado = inmuebleDAO.insertar(inmueble);
 
-        if (alojamientoInsertado != 0) {
+        if (inmuebleInsertado != 0) {
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Confirmación");
-            mensaje.setContentText("Alojamiento guardado correctamente.");
+            mensaje.setContentText("Inmueble guardado correctamente.");
             Optional<ButtonType> resultado = mensaje.showAndWait();
             if (resultado.get() == ButtonType.OK) {
                 this.cerrarInterfaz(event);
@@ -49,7 +49,7 @@ public class PanelNuevoAlojamientoController implements Initializable {
         } else {
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
             mensaje.setTitle("Error");
-            mensaje.setContentText("Ha ocurrido un error al guardar el alojamiento.");
+            mensaje.setContentText("Ha ocurrido un error al guardar el inmueble.");
             mensaje.showAndWait();
             this.cerrarInterfaz(event);
         }
