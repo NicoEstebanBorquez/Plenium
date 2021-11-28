@@ -46,16 +46,16 @@
               </rowConstraints>
                <children>
                         <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_PanelControl" prefWidth="158.0" styleClass="botonPrimario" text="Panel de Control" GridPane.columnIndex="1" />
-                        <Button fx:id="btnInmuebles" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Inmuebles" prefWidth="158.0" styleClass="botonPrimario" text="Propiedades" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Button id="estiloBoton" fx:id="btnClientes" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Clientes" prefWidth="158.0" styleClass="botonPrimario" text="Clientes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Button fx:id="btnAgenda" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Agenda" prefWidth="158.0" styleClass="botonPrimario" text="Agenda" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                        <Button fx:id="btnTareas" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_Tareas" prefWidth="158.0" styleClass="botonPrimario" text="Tareas" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Lista de propiedades" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Button fx:id="btnInmuebles" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonPrimario" text="Propiedades" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button id="estiloBoton" fx:id="btnClientes" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonPrimario" text="Clientes" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Button fx:id="btnAgenda" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonPrimario" text="Agenda" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Button fx:id="btnTareas" alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonPrimario" text="Tareas" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_ListaInmuebles" prefWidth="158.0" styleClass="botonSecundario" text="Lista de inmuebles" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Añadir propiedad" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button fx:id="btnAnadirInmueble" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_AnadirInmueble" prefWidth="158.0" styleClass="botonSecundario" text="Añadir inmueble" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -65,7 +65,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Lista de clientes" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_ListaClientes" prefWidth="158.0" styleClass="botonSecundario" text="Lista de clientes" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -80,12 +80,12 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Consultar agenda" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_ConsultarAgenda" prefWidth="158.0" styleClass="botonSecundario" text="Consultar agenda" GridPane.columnIndex="1" GridPane.rowIndex="9">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Consultar tareas" GridPane.columnIndex="1" GridPane.rowIndex="12">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_ConsultarTareas" prefWidth="158.0" styleClass="botonSecundario" text="Consultar tareas" GridPane.columnIndex="1" GridPane.rowIndex="12">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
@@ -154,13 +154,8 @@
             </GridPane>
          </children>
       </VBox>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0">
-          <!-- CONTENIDO -->
-          <center>
-              <BorderPane fx:id="PanelContenido" prefHeight="695.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
-           
-        </BorderPane>
-          </center>
-      </BorderPane>
+      <AnchorPane fx:id="PanelContenido" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0">
+      <!-- CONTENIDO -->
+      </AnchorPane>
    </children>
 </HBox>

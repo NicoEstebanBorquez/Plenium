@@ -1,25 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <top>
-      <Label text="Label" BorderPane.alignment="CENTER" />
-   </top>
-   <left>
-      <Label text="Label" BorderPane.alignment="CENTER" />
-   </left>
-   <center>
-      <Label text="Label" BorderPane.alignment="CENTER" />
-   </center>
-   <right>
-      <Label text="Label" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Label text="Label" BorderPane.alignment="CENTER" />
-   </bottom>
-</BorderPane>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="224.0" minHeight="0.0" prefHeight="101.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="464.0" minHeight="10.0" prefHeight="197.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="491.0" minHeight="10.0" prefHeight="364.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <TitledPane animated="false" maxHeight="200.0" maxWidth="550.0" prefHeight="200.0" prefWidth="550.0" text="Próximos eventos" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="550.0">
+               <children>
+                  <TableView prefHeight="168.0" prefWidth="550.0">
+                    <columns>
+                      <TableColumn prefWidth="374.0" text="Descripción" />
+                      <TableColumn prefWidth="87.0" text="Fecha" />
+                        <TableColumn prefWidth="88.0" text="Realizado" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </TitledPane>
+      <TitledPane animated="false" layoutX="20.0" layoutY="490.0" maxHeight="200.0" maxWidth="550.0" prefHeight="200.0" prefWidth="550.0" text="Tareas HOY" GridPane.rowIndex="1">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="550.0">
+               <children>
+                  <TableView prefHeight="168.0" prefWidth="550.0">
+                     <columns>
+                        <TableColumn prefWidth="374.0" text="Descripción" />
+                        <TableColumn prefWidth="87.0" text="Hora" />
+                        <TableColumn prefWidth="88.0" text="Realizado" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </content>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </TitledPane>
+      <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label text="Jueves, 24 Septiembre 2021    16:44 h">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets right="30.0" top="10.0" />
+         </padding>
+      </HBox>
+      <TitledPane animated="false" layoutX="10.0" layoutY="126.0" maxHeight="200.0" maxWidth="550.0" prefHeight="200.0" prefWidth="550.0" text="Ingresos MES" GridPane.rowIndex="2">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="550.0" />
+         </content>
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin>
+      </TitledPane>
+   </children>
+</GridPane>

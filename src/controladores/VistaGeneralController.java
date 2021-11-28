@@ -7,12 +7,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 public class VistaGeneralController implements Initializable {
 
     @FXML
-    private BorderPane PanelContenido;
+    private AnchorPane PanelContenido;
 
     @FXML
     public void cargarPanel_PanelControl(ActionEvent event) {
@@ -21,29 +22,32 @@ public class VistaGeneralController implements Initializable {
     
 
     @FXML
-    public void cargarPanel_Inmuebles(ActionEvent event) {
+    public void cargarPanel_ListaInmuebles(ActionEvent Ftarevent) {
         cargarPanel("inmuebles/panelInmuebles.fxml");
     }
 
     @FXML
-    public void cargarPanel_Clientes(ActionEvent event) {
+    public void cargarPanel_ListaClientes(ActionEvent event) {
         cargarPanel("PanelClientes.fxml");
     }
 
     @FXML
-    public void cargarPanel_Agenda(ActionEvent event) {
+    public void cargarPanel_ConsultarAgenda(ActionEvent event) {
         cargarPanel("PanelAgenda.fxml");
     }
 
     @FXML
-    public void cargarPanel_Tareas(ActionEvent event) {
+    public void cargarPanel_ConsultarTareas(ActionEvent event) {
         cargarPanel("PanelTareas.fxml");
     }
 
-
-    public void cargarPanel_NuevoInmueble(ActionEvent event) {
+    
+    @FXML
+    public void cargarPanel_AnadirInmueble(ActionEvent event) {
         cargarPanel("inmuebles/PanelNuevoInmueble.fxml");
     }
+
+
     
     private void cargarPanel(String panel) {
         //Eliminamos la vista que hubiese cargada previamente en la

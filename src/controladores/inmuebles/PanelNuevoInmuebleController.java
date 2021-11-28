@@ -44,14 +44,17 @@ public class PanelNuevoInmuebleController implements Initializable {
             mensaje.setContentText("Inmueble guardado correctamente.");
             Optional<ButtonType> resultado = mensaje.showAndWait();
             if (resultado.get() == ButtonType.OK) {
-                this.cerrarInterfaz(event);
+                //this.cerrarInterfaz(event);
+                //Aqui en vez de cerrar la ventana debería ir al Panel de Control o a la lista de inmubles
+                this.limpiarCampos();
             }
         } else {
             Alert mensaje = new Alert(Alert.AlertType.ERROR);
             mensaje.setTitle("Error");
             mensaje.setContentText("Ha ocurrido un error al guardar el inmueble.");
             mensaje.showAndWait();
-            this.cerrarInterfaz(event);
+            //this.cerrarInterfaz(event);
+            this.limpiarCampos();
         }
     }
 
@@ -63,16 +66,31 @@ public class PanelNuevoInmuebleController implements Initializable {
         confirmacion.setContentText("Se perderán los cambios no guardados.\n¿Desea continuar?");
         Optional<ButtonType> resultado = confirmacion.showAndWait();
         if (resultado.get() == ButtonType.OK) {
-            this.cerrarInterfaz(event);
+            //this.cerrarInterfaz(event);
+            this.limpiarCampos();
         }
     }
 
-    public void cerrarInterfaz(ActionEvent event) {
+    public void limpiarCampos() {
+        txtNombre.setText("");
+        txtCapacidad.setText("");
+        txtDormitorios.setText("");
+        txtBanos.setText("");
+        txtTerraza.setText("");
+        txtPiscina.setText("");
+        txtAparcamiento.setText("");
+        txtDireccion.setText("");
+        txtPoblacion.setText("");
+        txtProvincia.setText("");
+        txtPropietario.setText("");
+        txtUsuario.setText("");
+    }
+
+    /*public void cerrarInterfaz(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
-    }
-
+    }*/
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
