@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelListaInmueblesController">
+   <center>
+      <TableView fx:id="tablaInmuebles" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
+          <TableColumn fx:id="colInmueble" prefWidth="363.0" resizable="false" text="Inmueble" />
+            <TableColumn fx:id="colClase" minWidth="0.0" prefWidth="104.0" resizable="false" text="Clase" />
+            <TableColumn fx:id="colCapacidad" prefWidth="102.0" resizable="false" text="Capacidad" />
+            <TableColumn fx:id="colPoblacion" prefWidth="138.0" resizable="false" text="Población" />
+            <TableColumn fx:id="colProvincia" prefWidth="136.0" resizable="false" text="Provincia" />
+            <TableColumn fx:id="colAcciones" prefWidth="261.0" resizable="false" text="Acciones" />
+        </columns>
+      </TableView>
+   </center>
+   <top>
+      <GridPane prefHeight="150.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="243.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="724.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="316.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Referencia / Inmueble:">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Label>
+            <Label text="Label" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Label>
+            <TextField prefHeight="31.0" prefWidth="878.0" GridPane.columnIndex="1" />
+            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" text="Buscar" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="5.0" />
+               </GridPane.margin></Button>
+            <Button mnemonicParsing="false" text="Limpiar" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+            </Button>
+            <Label text="Acciones:" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnNuevoInmueble" mnemonicParsing="false" onAction="#abrirNuevoInmueble" text="Nuevo inmueble" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+            <MenuButton mnemonicParsing="false" text="Exportar" GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <items>
+                <MenuItem mnemonicParsing="false" text="PDF" />
+                <MenuItem mnemonicParsing="false" text="Excel" />
+              </items>
+               <GridPane.margin>
+                  <Insets left="160.0" />
+               </GridPane.margin>
+            </MenuButton>
+         </children>
+      </GridPane>
+   </top>
+   <bottom>
+      <HBox prefHeight="45.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Actualizar: " />
+            <Button mnemonicParsing="false" text="-" />
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

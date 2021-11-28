@@ -8,17 +8,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelInmueblesController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.clientes.PanelListaClientesController">
    <center>
-      <TableView fx:id="tablaInmuebles" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaClientes" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
-          <TableColumn fx:id="colInmueble" prefWidth="363.0" resizable="false" text="Inmueble" />
-            <TableColumn fx:id="colClase" minWidth="0.0" prefWidth="104.0" resizable="false" text="Clase" />
-            <TableColumn fx:id="colCapacidad" prefWidth="102.0" resizable="false" text="Capacidad" />
-            <TableColumn fx:id="colPoblacion" prefWidth="138.0" resizable="false" text="Población" />
-            <TableColumn fx:id="colProvincia" prefWidth="136.0" resizable="false" text="Provincia" />
-            <TableColumn fx:id="colAcciones" prefWidth="261.0" resizable="false" text="Acciones" />
+          <TableColumn fx:id="colNombre" prefWidth="363.0" resizable="false" text="Nombre" />
+            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="104.0" resizable="false" text="Telefono" />
+            <TableColumn fx:id="colEmail" prefWidth="102.0" resizable="false" text="Email" />
         </columns>
       </TableView>
    </center>
@@ -35,7 +32,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Referencia / Inmueble:">
+            <Label text="Referencia / Cliente:">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin></Label>
@@ -62,7 +59,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNuevoInmueble" mnemonicParsing="false" onAction="#abrirNuevoInmueble" text="Nuevo inmueble" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="btnNuevoCliente" mnemonicParsing="false" onAction="#abrirNuevoCliente" text="Nuevo cliente" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>

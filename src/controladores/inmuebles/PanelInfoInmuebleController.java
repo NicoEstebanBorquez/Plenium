@@ -25,8 +25,6 @@ public class PanelInfoInmuebleController implements Initializable {
     private Label labelReferencia, labelNombre, labelDireccion, labelPoblacion, labelProvincia, labelCapacidad,
             labelDormitorios, labelBanos, labelTerraza, labelPiscina, labelAparcamiento, labelPropietario, labelUsuario;
 
-    
-
     public void cargarDatos(int seleccionado) {
         Inmuebles inmueble = null;
         inmueble = new InmueblesDAO().obtenerPorId(seleccionado);

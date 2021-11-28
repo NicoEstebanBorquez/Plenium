@@ -38,7 +38,7 @@ import org.hibernate.Transaction;
 *
 *
  */
-public class PanelInmueblesController implements Initializable {
+public class PanelListaInmueblesController implements Initializable {
 
     @FXML
     private TableView<Inmuebles> tablaInmuebles;

@@ -45,7 +45,7 @@ Contributor(s):
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/plenium?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="modelos/Cliente.hbm.xml"/>
+    <mapping resource="modelos/Clientes.hbm.xml"/>
     <mapping resource="modelos/Inmuebles.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

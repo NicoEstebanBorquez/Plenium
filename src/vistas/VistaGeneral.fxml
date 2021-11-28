@@ -70,7 +70,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Añadir cliente" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#cargarPanel_AnadirCliente" prefWidth="158.0" styleClass="botonSecundario" text="Añadir cliente" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

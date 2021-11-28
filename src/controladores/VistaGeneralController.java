@@ -19,36 +19,41 @@ public class VistaGeneralController implements Initializable {
     public void cargarPanel_PanelControl(ActionEvent event) {
         cargarPanel("PanelControl.fxml");
     }
-    
 
+    // INMUEBLES
     @FXML
     public void cargarPanel_ListaInmuebles(ActionEvent Ftarevent) {
-        cargarPanel("inmuebles/panelInmuebles.fxml");
+        cargarPanel("inmuebles/PanelListaInmuebles.fxml");
     }
 
     @FXML
-    public void cargarPanel_ListaClientes(ActionEvent event) {
-        cargarPanel("PanelClientes.fxml");
+    public void cargarPanel_AnadirInmueble(ActionEvent event) {
+        cargarPanel("inmuebles/PanelAnadirInmueble.fxml");
     }
 
+    // CLIENTES
+    @FXML
+    public void cargarPanel_ListaClientes(ActionEvent event) {
+        cargarPanel("clientes/PanelListaClientes.fxml");
+    }
+
+    @FXML
+    public void cargarPanel_AnadirCliente(ActionEvent event) {
+        cargarPanel("clientes/PanelAnadirCliente.fxml");
+    }
+
+    // AGENDA
     @FXML
     public void cargarPanel_ConsultarAgenda(ActionEvent event) {
         cargarPanel("PanelAgenda.fxml");
     }
 
+    // TAREAS
     @FXML
     public void cargarPanel_ConsultarTareas(ActionEvent event) {
         cargarPanel("PanelTareas.fxml");
     }
 
-    
-    @FXML
-    public void cargarPanel_AnadirInmueble(ActionEvent event) {
-        cargarPanel("inmuebles/PanelNuevoInmueble.fxml");
-    }
-
-
-    
     private void cargarPanel(String panel) {
         //Eliminamos la vista que hubiese cargada previamente en la
         //sección habilitada al respecto en la vista principal, 
