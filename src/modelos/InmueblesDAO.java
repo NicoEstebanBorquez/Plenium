@@ -88,7 +88,6 @@ public class InmueblesDAO {
             inmuebleActualizar = this.obtenerPorId(inmuebleSeleccionado.getIdInmueble());
             // Ahora se mofican los campos:
             inmuebleActualizar.setNombre(inmuebleSeleccionado.getNombre());
-            inmuebleActualizar.setCapacidad(inmuebleSeleccionado.getCapacidad());
             inmuebleActualizar.setDormitorios(inmuebleSeleccionado.getDormitorios());
             inmuebleActualizar.setBanos(inmuebleSeleccionado.getBanos());
             inmuebleActualizar.setTerraza(inmuebleSeleccionado.getTerraza());
@@ -111,6 +110,11 @@ public class InmueblesDAO {
             return confirmacion;
         }
     }
+    
+    //(String nombre, int tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, 
+    //int categoria, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, 
+    //int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terraza, int balcon, int piscina, int aparcamiento, int ascensor, 
+    //int trastero, int jardin, int idPropietario, int idUsuario)
 
     /*
     public List encontrarPorIdPropietario(int id) {

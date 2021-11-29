@@ -1,18 +1,42 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 28-nov-2021 20:01:13 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29-nov-2021 20:55:03 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Inmuebles" table="inmuebles" catalog="plenium" optimistic-lock="version">
-        <id name="idInmueble" type="java.lang.Integer">
+        <id name="idInmueble" type="int">
             <column name="id_inmueble" />
             <generator class="identity" />
         </id>
         <property name="nombre" type="string">
-            <column name="nombre" length="50" not-null="true" />
+            <column name="nombre" length="75" not-null="true" />
         </property>
-        <property name="capacidad" type="int">
-            <column name="capacidad" not-null="true" />
+        <property name="tipo" type="int">
+            <column name="tipo" not-null="true" />
+        </property>
+        <property name="precio" type="double">
+            <column name="precio" precision="7" not-null="true" />
+        </property>
+        <property name="superficieConstruida" type="double">
+            <column name="superficie_construida" precision="6" not-null="true" />
+        </property>
+        <property name="superficieTotal" type="double">
+            <column name="superficie_total" precision="6" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="95" not-null="true" />
+        </property>
+        <property name="poblacion" type="string">
+            <column name="poblacion" length="50" not-null="true" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" length="50" not-null="true" />
+        </property>
+        <property name="categoria" type="int">
+            <column name="categoria" not-null="true" />
+        </property>
+        <property name="fechaPublicacion" type="date">
+            <column name="fecha_publicacion" length="10" not-null="true" />
         </property>
         <property name="dormitorios" type="int">
             <column name="dormitorios" not-null="true" />
@@ -20,8 +44,38 @@
         <property name="banos" type="int">
             <column name="banos" not-null="true" />
         </property>
+        <property name="amueblado" type="int">
+            <column name="amueblado" not-null="true" />
+        </property>
+        <property name="semiAmueblado" type="int">
+            <column name="semi_amueblado" not-null="true" />
+        </property>
+        <property name="noAmueblado" type="int">
+            <column name="no_amueblado" not-null="true" />
+        </property>
+        <property name="cocinaEquipada" type="int">
+            <column name="cocina_equipada" not-null="true" />
+        </property>
+        <property name="aireAcondicionado" type="int">
+            <column name="aire_acondicionado" not-null="true" />
+        </property>
+        <property name="calefaccionCentral" type="int">
+            <column name="calefaccion_central" not-null="true" />
+        </property>
+        <property name="gasNatural" type="int">
+            <column name="gas_natural" not-null="true" />
+        </property>
+        <property name="placasSolares" type="int">
+            <column name="placas_solares" not-null="true" />
+        </property>
+        <property name="armariosEmpotrados" type="int">
+            <column name="armarios_empotrados" not-null="true" />
+        </property>
         <property name="terraza" type="int">
             <column name="terraza" not-null="true" />
+        </property>
+        <property name="balcon" type="int">
+            <column name="balcon" not-null="true" />
         </property>
         <property name="piscina" type="int">
             <column name="piscina" not-null="true" />
@@ -29,14 +83,14 @@
         <property name="aparcamiento" type="int">
             <column name="aparcamiento" not-null="true" />
         </property>
-        <property name="direccion" type="string">
-            <column name="direccion" length="50" not-null="true" />
+        <property name="ascensor" type="int">
+            <column name="ascensor" not-null="true" />
         </property>
-        <property name="poblacion" type="string">
-            <column name="poblacion" length="50" not-null="true" />
+        <property name="trastero" type="int">
+            <column name="trastero" not-null="true" />
         </property>
-        <property name="provincia" type="string">
-            <column name="provincia" length="50" not-null="true" />
+        <property name="jardin" type="int">
+            <column name="jardin" not-null="true" />
         </property>
         <property name="idPropietario" type="int">
             <column name="id_propietario" not-null="true" />

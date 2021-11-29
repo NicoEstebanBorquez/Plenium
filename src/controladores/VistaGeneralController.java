@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 public class VistaGeneralController implements Initializable {
 
@@ -30,7 +29,6 @@ public class VistaGeneralController implements Initializable {
     public void cargarPanel_AnadirInmueble(ActionEvent event) {
         cargarPanel("inmuebles/PanelAnadirInmueble.fxml");
     }
-
     // CLIENTES
     @FXML
     public void cargarPanel_ListaClientes(ActionEvent event) {

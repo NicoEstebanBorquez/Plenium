@@ -32,7 +32,7 @@ public class PanelInfoClienteController implements Initializable {
         labelReferencia.setText(Integer.toString(cliente.getIdCliente()));
         labelNombre.setText(cliente.getNombre());       
         labelApellidos.setText(cliente.getApellidos());
-        labelDni.setText(cliente.getDni());
+        labelDni.setText(cliente.getNif());
         labelTelefono.setText(cliente.getTelefono());
         labelEmail.setText(cliente.getEmail());
         labelUsuario.setText(Integer.toString(cliente.getIdUsuario()));

@@ -88,7 +88,7 @@ public class ClientesDAO {
             // Ahora se mofican los campos:
             clienteActualizar.setNombre(clienteSeleccionado.getNombre());
             clienteActualizar.setApellidos(clienteSeleccionado.getApellidos());
-            clienteActualizar.setDni(clienteSeleccionado.getDni());
+            clienteActualizar.setNif(clienteSeleccionado.getNif());
             clienteActualizar.setTelefono(clienteSeleccionado.getTelefono());
             clienteActualizar.setEmail(clienteSeleccionado.getEmail());
             clienteActualizar.setIdUsuario(clienteSeleccionado.getIdUsuario());
@@ -105,5 +105,6 @@ public class ClientesDAO {
             return confirmacion;
         }
     }
+    //(String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoDesde, double presupuestoHasta, int dormitoriosDesde, int dormitoriosHasta, int terraza, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario)
 
 }

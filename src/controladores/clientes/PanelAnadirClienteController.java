@@ -15,18 +15,31 @@ import modelos.ClientesDAO;
 public class PanelAnadirClienteController implements Initializable {
 
     @FXML
-    private TextField txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtUsuario;
+    private TextField txtNombre, txtApellidos, txtNif, txtTelefono, txtEmail, txtUsuario,
+            txtTipo, txtPresupuestoMin, txtPresupuestoMax, txtDormitoriosMin, txtDormitoriosMax,
+            txtTerrazaBalcon, txtAparcamiento, txtPiscina, txtAscensor, txtPoblacion, txtProvincia;
 
     @FXML
     public void guardar(ActionEvent event) {
         String nombre = txtNombre.getText().trim();
         String apellidos = txtApellidos.getText().trim();
-        String dni = txtDni.getText().trim();
+        String nif = txtNif.getText().trim();
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
-        int usuario = Integer.parseInt(txtUsuario.getText().trim());
+        int idUsuario = Integer.parseInt(txtUsuario.getText().trim());
+        int tipo = Integer.parseInt(txtTipo.getText().trim());
+        double presupuestoMin = Double.parseDouble(txtPresupuestoMin.getText().trim());
+        double presupuestoMax = Double.parseDouble(txtPresupuestoMax.getText().trim());
+        int dormitoriosMin = Integer.parseInt(txtDormitoriosMin.getText().trim());
+        int dormitoriosMax = Integer.parseInt(txtDormitoriosMax.getText().trim());
+        int terrazaBalcon = Integer.parseInt(txtTerrazaBalcon.getText().trim());
+        int aparcamiento = Integer.parseInt(txtAparcamiento.getText().trim());
+        int piscina = Integer.parseInt(txtPiscina.getText().trim());
+        int ascensor = Integer.parseInt(txtAscensor.getText().trim());
+        String poblacion = txtPoblacion.getText().trim();
+        String provincia = txtProvincia.getText().trim();
 
-        Clientes cliente = new Clientes(nombre, apellidos, dni, telefono, email, usuario);
+        Clientes cliente = new Clientes(nombre, apellidos, nif, telefono, email, tipo, presupuestoMin, presupuestoMax, dormitoriosMin, dormitoriosMax, terrazaBalcon, aparcamiento, piscina, ascensor, poblacion, provincia, idUsuario);
         ClientesDAO clienteDAO = new ClientesDAO();
         int clienteInsertado = clienteDAO.insertar(cliente);
 
@@ -66,10 +79,21 @@ public class PanelAnadirClienteController implements Initializable {
     public void limpiarCampos() {
         txtNombre.setText("");
         txtApellidos.setText("");
-        txtDni.setText("");
+        txtNif.setText("");
         txtTelefono.setText("");
         txtEmail.setText("");
         txtUsuario.setText("");
+        txtTipo.setText("");
+        txtPresupuestoMin.setText("");
+        txtPresupuestoMax.setText("");
+        txtDormitoriosMin.setText("");
+        txtDormitoriosMax.setText("");
+        txtTerrazaBalcon.setText("");
+        txtAparcamiento.setText("");
+        txtPiscina.setText("");
+        txtAscensor.setText("");
+        txtPoblacion.setText("");
+        txtProvincia.setText("");  
     }
 
     /*public void cerrarInterfaz(ActionEvent event) {
