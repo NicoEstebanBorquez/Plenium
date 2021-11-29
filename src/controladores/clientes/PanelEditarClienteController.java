@@ -21,7 +21,7 @@ public class PanelEditarClienteController implements Initializable {
     protected static int clienteSeleccionado;
 
     @FXML
-    private TextField txtReferencia, txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtDireccion, txtUsuario;
+    private TextField txtReferencia, txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtUsuario;
 
     @FXML
     public void guardar(ActionEvent event) {
@@ -31,10 +31,9 @@ public class PanelEditarClienteController implements Initializable {
         String dni = txtDni.getText().trim();
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
-        String direccion = txtDireccion.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Clientes cliente = new Clientes(referencia, nombre, apellidos, dni, telefono, email, direccion, usuario);
+        Clientes cliente = new Clientes(referencia, nombre, apellidos, dni, telefono, email, usuario);
         ClientesDAO clienteDAO = new ClientesDAO();
         int clienteActualizado = clienteDAO.actualizar(cliente);
 
@@ -76,7 +75,6 @@ public class PanelEditarClienteController implements Initializable {
         txtDni.setText(cliente.getDni());
         txtTelefono.setText(cliente.getTelefono());
         txtEmail.setText(cliente.getEmail());
-        txtDireccion.setText(cliente.getDireccion());
         txtUsuario.setText(Integer.toString(cliente.getIdUsuario()));
     }
 

@@ -15,7 +15,7 @@ import modelos.ClientesDAO;
 public class PanelAnadirClienteController implements Initializable {
 
     @FXML
-    private TextField txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtDireccion, txtUsuario;
+    private TextField txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtUsuario;
 
     @FXML
     public void guardar(ActionEvent event) {
@@ -24,10 +24,9 @@ public class PanelAnadirClienteController implements Initializable {
         String dni = txtDni.getText().trim();
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
-        String direccion = txtDireccion.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Clientes cliente = new Clientes(nombre, apellidos, dni, telefono, email, direccion, usuario);
+        Clientes cliente = new Clientes(nombre, apellidos, dni, telefono, email, usuario);
         ClientesDAO clienteDAO = new ClientesDAO();
         int clienteInsertado = clienteDAO.insertar(cliente);
 
@@ -70,7 +69,6 @@ public class PanelAnadirClienteController implements Initializable {
         txtDni.setText("");
         txtTelefono.setText("");
         txtEmail.setText("");
-        txtDireccion.setText("");
         txtUsuario.setText("");
     }
 

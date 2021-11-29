@@ -22,7 +22,7 @@ public class PanelInfoClienteController implements Initializable {
     protected static int clienteSeleccionado;
     
     @FXML
-    private Label labelReferencia, labelNombre, labelApellidos, labelDni, labelTelefono, labelEmail, labelDireccion, labelUsuario;
+    private Label labelReferencia, labelNombre, labelApellidos, labelDni, labelTelefono, labelEmail, labelUsuario;
 
     
     public void cargarDatos(int seleccionado) {
@@ -35,7 +35,6 @@ public class PanelInfoClienteController implements Initializable {
         labelDni.setText(cliente.getDni());
         labelTelefono.setText(cliente.getTelefono());
         labelEmail.setText(cliente.getEmail());
-        labelDireccion.setText(cliente.getDireccion());
         labelUsuario.setText(Integer.toString(cliente.getIdUsuario()));
     }
 

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.agenda.PanelConsultarAgendaController">
+   <content>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="998.0">
+         <children>
+            <Label text="Tours HOY:">
+               <VBox.margin>
+                  <Insets left="50.0" top="25.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <TitledPane animated="false" collapsible="false" maxWidth="900.0" prefWidth="900.0" text="29/11/2021">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="157.0" prefWidth="898.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" resizable="false" text="Fecha" />
+                            <TableColumn prefWidth="425.0" resizable="false" text="Cliente" />
+                              <TableColumn prefWidth="149.0" resizable="false" text="Categoría cliente" />
+                              <TableColumn prefWidth="119.0" resizable="false" text="Hora" />
+                              <TableColumn prefWidth="129.0" resizable="false" text="Inmuebles Tour" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </TitledPane>
+            <Label layoutX="60.0" layoutY="35.0" text="Mañana:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="25.0" />
+               </VBox.margin>
+            </Label>
+            <TitledPane animated="false" collapsible="false" layoutX="60.0" layoutY="76.0" maxWidth="900.0" prefWidth="900.0" text="30/11/2021">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="157.0" prefWidth="898.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" resizable="false" text="Fecha" />
+                              <TableColumn prefWidth="425.0" resizable="false" text="Asunto" />
+                              <TableColumn prefWidth="149.0" resizable="false" text="Relacionado con" />
+                              <TableColumn prefWidth="119.0" resizable="false" text="Prioridad" />
+                              <TableColumn prefWidth="129.0" resizable="false" text="Duración aprox." />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </TitledPane>
+            <Label layoutX="10.0" layoutY="288.0" text="Próxima semana:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="25.0" />
+               </VBox.margin>
+            </Label>
+            <TitledPane animated="false" collapsible="false" layoutX="10.0" layoutY="324.0" maxWidth="900.0" prefWidth="900.0" text="06/12/2021 - 12/12/2021">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="157.0" prefWidth="898.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" resizable="false" text="Fecha" />
+                              <TableColumn prefWidth="425.0" resizable="false" text="Asunto" />
+                              <TableColumn prefWidth="149.0" resizable="false" text="Relacionado con" />
+                              <TableColumn prefWidth="119.0" resizable="false" text="Prioridad" />
+                              <TableColumn prefWidth="129.0" resizable="false" text="Duración aprox." />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </TitledPane>
+            <Label layoutX="60.0" layoutY="499.0" text="Todos los eventos:">
+               <font>
+                  <Font size="25.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="50.0" top="25.0" />
+               </VBox.margin>
+            </Label>
+            <TitledPane animated="false" collapsible="false" layoutX="60.0" layoutY="291.0" maxWidth="900.0" prefWidth="900.0" text="2021">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="157.0" prefWidth="898.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" resizable="false" text="Fecha" />
+                              <TableColumn prefWidth="425.0" resizable="false" text="Asunto" />
+                              <TableColumn prefWidth="149.0" resizable="false" text="Relacionado con" />
+                              <TableColumn prefWidth="119.0" resizable="false" text="Prioridad" />
+                              <TableColumn prefWidth="129.0" resizable="false" text="Duración aprox." />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="50.0" />
+               </VBox.margin>
+            </TitledPane>
+         </children>
+      </VBox>
+   </content>
+</ScrollPane>

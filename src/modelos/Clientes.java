@@ -12,30 +12,27 @@ public class Clientes implements java.io.Serializable {
     private String dni;
     private String telefono;
     private String email;
-    private String direccion;
     private int idUsuario;
 
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellidos, String dni, String telefono, String email, String direccion, int idUsuario) {
+    public Clientes(String nombre, String apellidos, String dni, String telefono, String email, int idUsuario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.telefono = telefono;
         this.email = email;
-        this.direccion = direccion;
         this.idUsuario = idUsuario;
     }
 
-    public Clientes(int idCliente, String nombre, String apellidos, String dni, String telefono, String email, String direccion, int idUsuario) {
+    public Clientes(int idCliente, String nombre, String apellidos, String dni, String telefono, String email, int idUsuario) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
         this.telefono = telefono;
         this.email = email;
-        this.direccion = direccion;
         this.idUsuario = idUsuario;
     }
 
@@ -85,14 +82,6 @@ public class Clientes implements java.io.Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDireccion() {
-        return this.direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
     }
 
     public int getIdUsuario() {

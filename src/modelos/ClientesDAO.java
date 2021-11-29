@@ -91,7 +91,6 @@ public class ClientesDAO {
             clienteActualizar.setDni(clienteSeleccionado.getDni());
             clienteActualizar.setTelefono(clienteSeleccionado.getTelefono());
             clienteActualizar.setEmail(clienteSeleccionado.getEmail());
-            clienteActualizar.setDireccion(clienteSeleccionado.getDireccion());
             clienteActualizar.setIdUsuario(clienteSeleccionado.getIdUsuario());
           
             //Se hace el update
