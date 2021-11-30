@@ -20,26 +20,24 @@ import modelos.InmueblesDAO;
 
 public class PanelInfoInmuebleController implements Initializable {
 
-        // nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, 
-        // categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
-        // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
-        // trastero, jardin, propietario, usuario
-    
+    // nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, 
+    // categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
+    // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
+    // trastero, jardin, propietario, usuario
     protected static int inmuebleSeleccionado;
-    
+
     @FXML
     private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieConstruida, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia, labelCategoria,
             labelFechaPublicacion, labelDormitorios, labelBanos, labelAmueblado, labelSemiAmueblado, labelNoAmueblado, labelCocinaEquipada, labelAireAcondicionado,
             labelCalefaccionCentral, labelGasNatural, labelPlacasSolares, labelArmariosEmpotrados, labelTerrazaBalcon, labelPiscina, labelAparcamiento, labelAscensor,
-            labelTrastero, labelJardin, labelPropietario, labelUsuario;
-
+            labelTrastero, labelJardin, labelPropietarioNombre, labelPropietarioApellidos, labelPropietarioNif, labelPropietarioTelefono, labelPropietarioEmail, labelUsuario;
 
     public void cargarDatos(int seleccionado) {
         Inmuebles inmueble = null;
         inmueble = new InmueblesDAO().obtenerPorId(seleccionado);
 
         labelReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
-        labelNombre.setText(inmueble.getNombre()); 
+        labelNombre.setText(inmueble.getNombre());
         labelTipo.setText(Integer.toString(inmueble.getTipo()));
         labelPrecio.setText(Double.toString(inmueble.getPrecio()));
         labelSuperficieConstruida.setText(Double.toString(inmueble.getSuperficieConstruida()));
@@ -59,23 +57,26 @@ public class PanelInfoInmuebleController implements Initializable {
         labelCalefaccionCentral.setText(Integer.toString(inmueble.getCalefaccionCentral()));
         labelGasNatural.setText(Integer.toString(inmueble.getGasNatural()));
         labelPlacasSolares.setText(Integer.toString(inmueble.getPlacasSolares()));
-        labelArmariosEmpotrados.setText(Integer.toString(inmueble.getArmariosEmpotrados()));   
+        labelArmariosEmpotrados.setText(Integer.toString(inmueble.getArmariosEmpotrados()));
         labelTerrazaBalcon.setText(Integer.toString(inmueble.getTerrazaBalcon()));
         labelPiscina.setText(Integer.toString(inmueble.getPiscina()));
         labelAparcamiento.setText(Integer.toString(inmueble.getAparcamiento()));
         labelAscensor.setText(Integer.toString(inmueble.getAscensor()));
         labelTrastero.setText(Integer.toString(inmueble.getTrastero()));
         labelJardin.setText(Integer.toString(inmueble.getJardin()));
-        labelPropietario.setText(Integer.toString(inmueble.getIdPropietario()));
+        labelPropietarioNombre.setText(inmueble.getPropietarioNombre());
+        labelPropietarioApellidos.setText(inmueble.getPropietarioApellidos());
+        labelPropietarioNif.setText(inmueble.getPropietarioNif());
+        labelPropietarioTelefono.setText(inmueble.getPropietarioTelefono());
+        labelPropietarioEmail.setText(inmueble.getPropietarioEmail());
         labelUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
-     }
+    }
 
     @FXML
-    public void editarInmueble(ActionEvent event) throws IOException{
+    public void editarInmueble(ActionEvent event) throws IOException {
         //Se envía el id del inmueble seleccionado al controlador PanelEditarInmuebleController
         PanelEditarInmuebleController.inmuebleSeleccionado = inmuebleSeleccionado;
-        
-        
+
         //CARGAR VISTA "NUEVO ALOJAMIENTO"
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/inmuebles/PanelEditarInmueble.fxml"));
         //Cargar el padre
@@ -95,23 +96,23 @@ public class PanelInfoInmuebleController implements Initializable {
         escenario.setTitle("Editar inmueble");
         escenario.show();
     }
-    
-    
+
     @FXML
-    public void eliminarInmueble(){
+    public void eliminarInmueble() {
         System.out.println("ELIMINAR");
     }
 
-     @FXML
-    public void cerrar(ActionEvent event){
+    @FXML
+    public void cerrar(ActionEvent event) {
         this.cerrarInterfaz(event);
     }
-    
+
     public void cerrarInterfaz(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarDatos(inmuebleSeleccionado);

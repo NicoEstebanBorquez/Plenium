@@ -24,7 +24,7 @@ public class PanelEditarInmuebleController implements Initializable {
     private TextField txtReferencia, txtNombre, txtTipo, txtPrecio, txtSuperficieConstruida, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia, txtCategoria,
             txtFechaPublicacion, txtDormitorios, txtBanos, txtAmueblado, txtSemiAmueblado, txtNoAmueblado, txtCocinaEquipada, txtAireAcondicionado,
             txtCalefaccionCentral, txtGasNatural, txtPlacasSolares, txtArmariosEmpotrados, txtTerrazaBalcon, txtPiscina, txtAparcamiento, txtAscensor,
-            txtTrastero, txtJardin, txtPropietario, txtUsuario;
+            txtTrastero, txtJardin, txtPropietarioNombre, txtPropietarioApellidos, txtPropietarioNif, txtPropietarioTelefono, txtPropietarioEmail, txtUsuario;
 
     @FXML
     public void guardar(ActionEvent event) {
@@ -56,12 +56,16 @@ public class PanelEditarInmuebleController implements Initializable {
         int ascensor = Integer.parseInt(txtAscensor.getText().trim());
         int trastero = Integer.parseInt(txtTrastero.getText().trim());
         int jardin = Integer.parseInt(txtJardin.getText().trim());
-        int propietario = Integer.parseInt(txtPropietario.getText().trim());
+        String propietarioNombre = txtPropietarioNombre.getText().trim();
+        String propietarioApellidos = txtPropietarioApellidos.getText().trim();
+        String propietarioNif = txtPropietarioNif.getText().trim();
+        String propietarioTelefono = txtPropietarioTelefono.getText().trim();
+        String propietarioEmail = txtPropietarioEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
         Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios,
                 banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon,
-                piscina, aparcamiento, ascensor, trastero, jardin, propietario, usuario);
+                piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, usuario);
 
         InmueblesDAO inmuebleDAO = new InmueblesDAO();
         int inmuebleActualizado = inmuebleDAO.actualizar(inmueble);
@@ -126,7 +130,11 @@ public class PanelEditarInmuebleController implements Initializable {
         txtAscensor.setText(Integer.toString(inmueble.getAscensor()));
         txtTrastero.setText(Integer.toString(inmueble.getTrastero()));
         txtJardin.setText(Integer.toString(inmueble.getJardin()));
-        txtPropietario.setText(Integer.toString(inmueble.getIdPropietario()));
+        txtPropietarioNombre.setText(inmueble.getPropietarioNombre());
+        txtPropietarioApellidos.setText(inmueble.getPropietarioApellidos());
+        txtPropietarioNif.setText(inmueble.getPropietarioNif());
+        txtPropietarioTelefono.setText(inmueble.getPropietarioTelefono());
+        txtPropietarioEmail.setText(inmueble.getPropietarioEmail());
         txtUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
         txtPoblacion.setText(inmueble.getPoblacion());
     }

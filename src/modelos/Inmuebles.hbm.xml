@@ -89,8 +89,20 @@
         <property name="jardin" type="int">
             <column name="jardin" not-null="true" />
         </property>
-        <property name="idPropietario" type="int">
-            <column name="id_propietario" not-null="true" />
+        <property name="propietarioNombre" type="string">
+            <column name="propietario_nombre" not-null="true" />
+        </property>
+        <property name="propietarioApellidos" type="string">
+            <column name="propietario_apellidos" not-null="true" />
+        </property>
+        <property name="propietarioNif" type="string">
+            <column name="propietario_nif" not-null="true" />
+        </property>
+        <property name="propietarioTelefono" type="string">
+            <column name="propietario_telefono" not-null="true" />
+        </property>
+        <property name="propietarioEmail" type="string">
+            <column name="propietario_email" not-null="true" />
         </property>
         <property name="idUsuario" type="int">
             <column name="id_usuario" not-null="true" />

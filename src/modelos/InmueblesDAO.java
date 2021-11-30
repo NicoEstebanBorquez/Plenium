@@ -113,7 +113,11 @@ public class InmueblesDAO {
             inmuebleActualizar.setAscensor(inmuebleSeleccionado.getAscensor());
             inmuebleActualizar.setTrastero(inmuebleSeleccionado.getTrastero());
             inmuebleActualizar.setJardin(inmuebleSeleccionado.getJardin());
-            inmuebleActualizar.setIdPropietario(inmuebleSeleccionado.getIdPropietario());
+            inmuebleActualizar.setPropietarioNombre(inmuebleSeleccionado.getPropietarioNombre());
+            inmuebleActualizar.setPropietarioApellidos(inmuebleSeleccionado.getPropietarioApellidos());
+            inmuebleActualizar.setPropietarioNif(inmuebleSeleccionado.getPropietarioNif());
+            inmuebleActualizar.setPropietarioTelefono(inmuebleSeleccionado.getPropietarioTelefono());
+            inmuebleActualizar.setPropietarioEmail(inmuebleSeleccionado.getPropietarioEmail());
             inmuebleActualizar.setIdUsuario(inmuebleSeleccionado.getIdUsuario());
 
             //Se hace el update
@@ -128,8 +132,6 @@ public class InmueblesDAO {
             return confirmacion;
         }
     }
-
-    
 
     /*
     public List encontrarPorIdPropietario(int id) {
