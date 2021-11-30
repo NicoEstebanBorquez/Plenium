@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelNuevoInmuebleController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelAnadirInmuebleController">
    <content>
       <GridPane prefHeight="800.0" prefWidth="1150.0" style="-fx-background-color: white;">
         <columnConstraints>

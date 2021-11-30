@@ -2,6 +2,7 @@ package controladores.inmuebles;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,11 +20,19 @@ import modelos.InmueblesDAO;
 
 public class PanelInfoInmuebleController implements Initializable {
 
+        // nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, 
+        // categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
+        // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
+        // trastero, jardin, propietario, usuario
+    
     protected static int inmuebleSeleccionado;
     
     @FXML
-    private Label labelReferencia, labelNombre, labelDireccion, labelPoblacion, labelProvincia, labelCapacidad,
-            labelDormitorios, labelBanos, labelTerraza, labelPiscina, labelAparcamiento, labelPropietario, labelUsuario;
+    private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieConstruida, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia, labelCategoria,
+            labelFechaPublicacion, labelDormitorios, labelBanos, labelAmueblado, labelSemiAmueblado, labelNoAmueblado, labelCocinaEquipada, labelAireAcondicionado,
+            labelCalefaccionCentral, labelGasNatural, labelPlacasSolares, labelArmariosEmpotrados, labelTerrazaBalcon, labelPiscina, labelAparcamiento, labelAscensor,
+            labelTrastero, labelJardin, labelPropietario, labelUsuario;
+
 
     public void cargarDatos(int seleccionado) {
         Inmuebles inmueble = null;
@@ -31,20 +40,35 @@ public class PanelInfoInmuebleController implements Initializable {
 
         labelReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
         labelNombre.setText(inmueble.getNombre()); 
+        labelTipo.setText(Integer.toString(inmueble.getTipo()));
+        labelPrecio.setText(Double.toString(inmueble.getPrecio()));
+        labelSuperficieConstruida.setText(Double.toString(inmueble.getSuperficieConstruida()));
+        labelSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         labelDireccion.setText(inmueble.getDireccion());
         labelPoblacion.setText(inmueble.getPoblacion());
         labelProvincia.setText(inmueble.getProvincia());
-       // labelCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
+        labelCategoria.setText(Integer.toString(inmueble.getCategoria()));
+        labelFechaPublicacion.setText(String.valueOf(inmueble.getFechaPublicacion()));
         labelDormitorios.setText(Integer.toString(inmueble.getDormitorios()));
         labelBanos.setText(Integer.toString(inmueble.getBanos()));
-        labelTerraza.setText(Integer.toString(inmueble.getTerraza()));
+        labelAmueblado.setText(Integer.toString(inmueble.getAmueblado()));
+        labelSemiAmueblado.setText(Integer.toString(inmueble.getSemiAmueblado()));
+        labelNoAmueblado.setText(Integer.toString(inmueble.getNoAmueblado()));
+        labelCocinaEquipada.setText(Integer.toString(inmueble.getCocinaEquipada()));
+        labelAireAcondicionado.setText(Integer.toString(inmueble.getAireAcondicionado()));
+        labelCalefaccionCentral.setText(Integer.toString(inmueble.getCalefaccionCentral()));
+        labelGasNatural.setText(Integer.toString(inmueble.getGasNatural()));
+        labelPlacasSolares.setText(Integer.toString(inmueble.getPlacasSolares()));
+        labelArmariosEmpotrados.setText(Integer.toString(inmueble.getArmariosEmpotrados()));   
+        labelTerrazaBalcon.setText(Integer.toString(inmueble.getTerrazaBalcon()));
         labelPiscina.setText(Integer.toString(inmueble.getPiscina()));
         labelAparcamiento.setText(Integer.toString(inmueble.getAparcamiento()));
+        labelAscensor.setText(Integer.toString(inmueble.getAscensor()));
+        labelTrastero.setText(Integer.toString(inmueble.getTrastero()));
+        labelJardin.setText(Integer.toString(inmueble.getJardin()));
         labelPropietario.setText(Integer.toString(inmueble.getIdPropietario()));
         labelUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
-        labelPoblacion.setText(inmueble.getPoblacion());        
-        
-    }
+     }
 
     @FXML
     public void editarInmueble(ActionEvent event) throws IOException{

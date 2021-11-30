@@ -71,11 +71,8 @@
         <property name="armariosEmpotrados" type="int">
             <column name="armarios_empotrados" not-null="true" />
         </property>
-        <property name="terraza" type="int">
-            <column name="terraza" not-null="true" />
-        </property>
-        <property name="balcon" type="int">
-            <column name="balcon" not-null="true" />
+        <property name="terrazaBalcon" type="int">
+            <column name="terraza_balcon" not-null="true" />
         </property>
         <property name="piscina" type="int">
             <column name="piscina" not-null="true" />

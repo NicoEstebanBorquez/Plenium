@@ -1,4 +1,3 @@
-//idInmueble
 package modelos;
 
 import java.util.Iterator;
@@ -88,16 +87,35 @@ public class InmueblesDAO {
             inmuebleActualizar = this.obtenerPorId(inmuebleSeleccionado.getIdInmueble());
             // Ahora se mofican los campos:
             inmuebleActualizar.setNombre(inmuebleSeleccionado.getNombre());
-            inmuebleActualizar.setDormitorios(inmuebleSeleccionado.getDormitorios());
-            inmuebleActualizar.setBanos(inmuebleSeleccionado.getBanos());
-            inmuebleActualizar.setTerraza(inmuebleSeleccionado.getTerraza());
-            inmuebleActualizar.setPiscina(inmuebleSeleccionado.getPiscina());
-            inmuebleActualizar.setAparcamiento(inmuebleSeleccionado.getAparcamiento());
+            inmuebleActualizar.setTipo(inmuebleSeleccionado.getTipo());
+            inmuebleActualizar.setPrecio(inmuebleSeleccionado.getPrecio());
+            inmuebleActualizar.setSuperficieConstruida(inmuebleSeleccionado.getSuperficieConstruida());
+            inmuebleActualizar.setSuperficieTotal(inmuebleSeleccionado.getSuperficieTotal());
             inmuebleActualizar.setDireccion(inmuebleSeleccionado.getDireccion());
             inmuebleActualizar.setPoblacion(inmuebleSeleccionado.getPoblacion());
             inmuebleActualizar.setProvincia(inmuebleSeleccionado.getProvincia());
+            inmuebleActualizar.setCategoria(inmuebleSeleccionado.getCategoria());
+            inmuebleActualizar.setFechaPublicacion(inmuebleSeleccionado.getFechaPublicacion());
+            inmuebleActualizar.setDormitorios(inmuebleSeleccionado.getDormitorios());
+            inmuebleActualizar.setBanos(inmuebleSeleccionado.getBanos());
+            inmuebleActualizar.setAmueblado(inmuebleSeleccionado.getAmueblado());
+            inmuebleActualizar.setSemiAmueblado(inmuebleSeleccionado.getSemiAmueblado());
+            inmuebleActualizar.setNoAmueblado(inmuebleSeleccionado.getNoAmueblado());
+            inmuebleActualizar.setCocinaEquipada(inmuebleSeleccionado.getCocinaEquipada());
+            inmuebleActualizar.setAireAcondicionado(inmuebleSeleccionado.getAireAcondicionado());
+            inmuebleActualizar.setCalefaccionCentral(inmuebleSeleccionado.getCalefaccionCentral());
+            inmuebleActualizar.setGasNatural(inmuebleSeleccionado.getGasNatural());
+            inmuebleActualizar.setPlacasSolares(inmuebleSeleccionado.getPlacasSolares());
+            inmuebleActualizar.setArmariosEmpotrados(inmuebleSeleccionado.getArmariosEmpotrados());
+            inmuebleActualizar.setTerrazaBalcon(inmuebleSeleccionado.getTerrazaBalcon());
+            inmuebleActualizar.setPiscina(inmuebleSeleccionado.getPiscina());
+            inmuebleActualizar.setAparcamiento(inmuebleSeleccionado.getAparcamiento());
+            inmuebleActualizar.setAscensor(inmuebleSeleccionado.getAscensor());
+            inmuebleActualizar.setTrastero(inmuebleSeleccionado.getTrastero());
+            inmuebleActualizar.setJardin(inmuebleSeleccionado.getJardin());
             inmuebleActualizar.setIdPropietario(inmuebleSeleccionado.getIdPropietario());
             inmuebleActualizar.setIdUsuario(inmuebleSeleccionado.getIdUsuario());
+
             //Se hace el update
             sesion.update(inmuebleActualizar);
             transaccion.commit();
@@ -110,11 +128,8 @@ public class InmueblesDAO {
             return confirmacion;
         }
     }
+
     
-    //(String nombre, int tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, 
-    //int categoria, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, 
-    //int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terraza, int balcon, int piscina, int aparcamiento, int ascensor, 
-    //int trastero, int jardin, int idPropietario, int idUsuario)
 
     /*
     public List encontrarPorIdPropietario(int id) {
