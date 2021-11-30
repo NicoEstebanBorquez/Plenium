@@ -26,7 +26,7 @@ public class PanelAnadirClienteController implements Initializable {
         String nif = txtNif.getText().trim();
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
-        int idUsuario = Integer.parseInt(txtUsuario.getText().trim());
+        int usuario = Integer.parseInt(txtUsuario.getText().trim());
         int tipo = Integer.parseInt(txtTipo.getText().trim());
         double presupuestoMin = Double.parseDouble(txtPresupuestoMin.getText().trim());
         double presupuestoMax = Double.parseDouble(txtPresupuestoMax.getText().trim());
@@ -39,7 +39,7 @@ public class PanelAnadirClienteController implements Initializable {
         String poblacion = txtPoblacion.getText().trim();
         String provincia = txtProvincia.getText().trim();
 
-        Clientes cliente = new Clientes(nombre, apellidos, nif, telefono, email, tipo, presupuestoMin, presupuestoMax, dormitoriosMin, dormitoriosMax, terrazaBalcon, aparcamiento, piscina, ascensor, poblacion, provincia, idUsuario);
+        Clientes cliente = new Clientes(nombre, apellidos, nif, telefono, email, tipo, presupuestoMin, presupuestoMax, dormitoriosMin, dormitoriosMax, terrazaBalcon, aparcamiento, piscina, ascensor, poblacion, provincia, usuario);
         ClientesDAO clienteDAO = new ClientesDAO();
         int clienteInsertado = clienteDAO.insertar(cliente);
 

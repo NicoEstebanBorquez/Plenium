@@ -20,30 +20,42 @@ import modelos.ClientesDAO;
 public class PanelInfoClienteController implements Initializable {
 
     protected static int clienteSeleccionado;
-    
-    @FXML
-    private Label labelReferencia, labelNombre, labelApellidos, labelDni, labelTelefono, labelEmail, labelUsuario;
 
-    
+    @FXML
+    private Label labelReferencia, labelNombre, labelApellidos, labelNif, labelTelefono, labelEmail, labelUsuario,
+            labelTipo, labelPresupuestoMin, labelPresupuestoMax, labelDormitoriosMin, labelDormitoriosMax,
+            labelTerrazaBalcon, labelAparcamiento, labelPiscina, labelAscensor, labelPoblacion, labelProvincia;
+
     public void cargarDatos(int seleccionado) {
         Clientes cliente = null;
         cliente = new ClientesDAO().obtenerPorId(seleccionado);
 
         labelReferencia.setText(Integer.toString(cliente.getIdCliente()));
-        labelNombre.setText(cliente.getNombre());       
+        labelNombre.setText(cliente.getNombre());
         labelApellidos.setText(cliente.getApellidos());
-        labelDni.setText(cliente.getNif());
+        labelNif.setText(cliente.getNif());
         labelTelefono.setText(cliente.getTelefono());
         labelEmail.setText(cliente.getEmail());
         labelUsuario.setText(Integer.toString(cliente.getIdUsuario()));
+        labelTipo.setText(Integer.toString(cliente.getTipo()));
+        labelPresupuestoMin.setText(Double.toString(cliente.getPresupuestoMin()));
+        labelPresupuestoMax.setText(Double.toString(cliente.getPresupuestoMax()));
+        labelDormitoriosMin.setText(Integer.toString(cliente.getDormitoriosMin()));
+        labelDormitoriosMax.setText(Integer.toString(cliente.getDormitoriosMax()));
+        labelTerrazaBalcon.setText(Integer.toString(cliente.getTerrazaBalcon()));
+        labelAparcamiento.setText(Integer.toString(cliente.getAparcamiento()));
+        labelPiscina.setText(Integer.toString(cliente.getPiscina()));
+        labelAscensor.setText(Integer.toString(cliente.getAscensor()));
+        labelPoblacion.setText(cliente.getPoblacion());
+        labelProvincia.setText(cliente.getProvincia());
+
     }
 
     @FXML
-    public void editarCliente(ActionEvent event) throws IOException{
+    public void editarCliente(ActionEvent event) throws IOException {
         //Se envía el id del cliente seleccionado al controlador PanelEditarClienteController
         PanelEditarClienteController.clienteSeleccionado = clienteSeleccionado;
-        
-        
+
         //CARGAR VISTA "NUEVO ALOJAMIENTO"
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/clientes/PanelEditarCliente.fxml"));
         //Cargar el padre
@@ -63,23 +75,23 @@ public class PanelInfoClienteController implements Initializable {
         escenario.setTitle("Editar cliente");
         escenario.show();
     }
-    
-    
+
     @FXML
-    public void eliminarCliente(){
+    public void eliminarCliente() {
         System.out.println("ELIMINAR");
     }
 
-     @FXML
-    public void cerrar(ActionEvent event){
+    @FXML
+    public void cerrar(ActionEvent event) {
         this.cerrarInterfaz(event);
     }
-    
+
     public void cerrarInterfaz(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarDatos(clienteSeleccionado);

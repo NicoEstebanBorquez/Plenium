@@ -92,7 +92,19 @@ public class ClientesDAO {
             clienteActualizar.setTelefono(clienteSeleccionado.getTelefono());
             clienteActualizar.setEmail(clienteSeleccionado.getEmail());
             clienteActualizar.setIdUsuario(clienteSeleccionado.getIdUsuario());
-          
+            clienteActualizar.setTipo(clienteSeleccionado.getTipo());
+            clienteActualizar.setPresupuestoMin(clienteSeleccionado.getPresupuestoMin());
+            clienteActualizar.setPresupuestoMax(clienteSeleccionado.getPresupuestoMax());
+            clienteActualizar.setDormitoriosMin(clienteSeleccionado.getDormitoriosMin());
+            clienteActualizar.setDormitoriosMax(clienteSeleccionado.getDormitoriosMax());
+            clienteActualizar.setTerrazaBalcon(clienteSeleccionado.getTerrazaBalcon());
+            clienteActualizar.setAparcamiento(clienteSeleccionado.getAparcamiento());
+            clienteActualizar.setPiscina(clienteSeleccionado.getPiscina());
+            clienteActualizar.setAscensor(clienteSeleccionado.getAscensor());
+            clienteActualizar.setPoblacion(clienteSeleccionado.getPoblacion());
+            clienteActualizar.setProvincia(clienteSeleccionado.getProvincia());
+            
+            
             //Se hace el update
             sesion.update(clienteActualizar);
             transaccion.commit();
@@ -105,6 +117,4 @@ public class ClientesDAO {
             return confirmacion;
         }
     }
-    //(String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoDesde, double presupuestoHasta, int dormitoriosDesde, int dormitoriosHasta, int terraza, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario)
-
 }

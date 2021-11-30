@@ -38,8 +38,8 @@
         <property name="dormitoriosMax" type="int">
             <column name="dormitorios_max" not-null="true" />
         </property>
-        <property name="terraza" type="int">
-            <column name="terraza" not-null="true" />
+        <property name="terrazaBalcon" type="int">
+            <column name="terraza_balcon" not-null="true" />
         </property>
         <property name="aparcamiento" type="int">
             <column name="aparcamiento" not-null="true" />

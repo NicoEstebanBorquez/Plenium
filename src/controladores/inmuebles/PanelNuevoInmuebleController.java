@@ -21,7 +21,7 @@ public class PanelNuevoInmuebleController implements Initializable {
 
     @FXML
     public void guardar(ActionEvent event) {
-        String nombre = txtNombre.getText().trim();
+       /* String nombre = txtNombre.getText().trim();
         int capacidad = Integer.parseInt(txtCapacidad.getText().trim());
         int dormitorios = Integer.parseInt(txtDormitorios.getText().trim());
         int baños = Integer.parseInt(txtBanos.getText().trim());
@@ -55,7 +55,7 @@ public class PanelNuevoInmuebleController implements Initializable {
             mensaje.showAndWait();
             //this.cerrarInterfaz(event);
             this.limpiarCampos();
-        }
+        }*/
     }
 
     @FXML

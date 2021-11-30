@@ -17,7 +17,7 @@ public class Clientes implements java.io.Serializable {
     private double presupuestoMax;
     private int dormitoriosMin;
     private int dormitoriosMax;
-    private int terraza;
+    private int terrazaBalcon;
     private int aparcamiento;
     private int piscina;
     private int ascensor;
@@ -28,7 +28,7 @@ public class Clientes implements java.io.Serializable {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terraza, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
+    public Clientes(String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -39,7 +39,7 @@ public class Clientes implements java.io.Serializable {
         this.presupuestoMax = presupuestoMax;
         this.dormitoriosMin = dormitoriosMin;
         this.dormitoriosMax = dormitoriosMax;
-        this.terraza = terraza;
+        this.terrazaBalcon = terrazaBalcon;
         this.aparcamiento = aparcamiento;
         this.piscina = piscina;
         this.ascensor = ascensor;
@@ -48,7 +48,7 @@ public class Clientes implements java.io.Serializable {
         this.idUsuario = idUsuario;
     }
 
-    public Clientes(int idCliente, String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terraza, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
+    public Clientes(int idCliente, String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -60,7 +60,7 @@ public class Clientes implements java.io.Serializable {
         this.presupuestoMax = presupuestoMax;
         this.dormitoriosMin = dormitoriosMin;
         this.dormitoriosMax = dormitoriosMax;
-        this.terraza = terraza;
+        this.terrazaBalcon = terrazaBalcon;
         this.aparcamiento = aparcamiento;
         this.piscina = piscina;
         this.ascensor = ascensor;
@@ -157,12 +157,12 @@ public class Clientes implements java.io.Serializable {
         this.dormitoriosMax = dormitoriosMax;
     }
 
-    public int getTerraza() {
-        return this.terraza;
+    public int getTerrazaBalcon() {
+        return this.terrazaBalcon;
     }
 
-    public void setTerraza(int terraza) {
-        this.terraza = terraza;
+    public void setTerrazaBalcon(int terrazaBalcon) {
+        this.terrazaBalcon = terrazaBalcon;
     }
 
     public int getAparcamiento() {

@@ -21,19 +21,32 @@ public class PanelEditarClienteController implements Initializable {
     protected static int clienteSeleccionado;
 
     @FXML
-    private TextField txtReferencia, txtNombre, txtApellidos, txtDni, txtTelefono, txtEmail, txtUsuario;
+    private TextField txtReferencia, txtNombre, txtApellidos, txtNif, txtTelefono, txtEmail, txtUsuario,
+            txtTipo, txtPresupuestoMin, txtPresupuestoMax, txtDormitoriosMin, txtDormitoriosMax,
+            txtTerrazaBalcon, txtAparcamiento, txtPiscina, txtAscensor, txtPoblacion, txtProvincia;
 
     @FXML
     public void guardar(ActionEvent event) {
         int referencia = Integer.parseInt(txtReferencia.getText().trim());
         String nombre = txtNombre.getText().trim();
         String apellidos = txtApellidos.getText().trim();
-        String dni = txtDni.getText().trim();
+        String nif = txtNif.getText().trim();
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
+        int tipo = Integer.parseInt(txtTipo.getText().trim());
+        double presupuestoMin = Double.parseDouble(txtPresupuestoMin.getText().trim());
+        double presupuestoMax = Double.parseDouble(txtPresupuestoMax.getText().trim());
+        int dormitoriosMin = Integer.parseInt(txtDormitoriosMin.getText().trim());
+        int dormitoriosMax = Integer.parseInt(txtDormitoriosMax.getText().trim());
+        int terrazaBalcon = Integer.parseInt(txtTerrazaBalcon.getText().trim());
+        int aparcamiento = Integer.parseInt(txtAparcamiento.getText().trim());
+        int piscina = Integer.parseInt(txtPiscina.getText().trim());
+        int ascensor = Integer.parseInt(txtAscensor.getText().trim());
+        String poblacion = txtPoblacion.getText().trim();
+        String provincia = txtProvincia.getText().trim();
 
-        Clientes cliente = new Clientes(referencia, nombre, apellidos, dni, telefono, email, usuario);
+        Clientes cliente = new Clientes(referencia, nombre, apellidos, nif, telefono, email, tipo, presupuestoMin, presupuestoMax, dormitoriosMin, dormitoriosMax, terrazaBalcon, aparcamiento, piscina, ascensor, poblacion, provincia, usuario);
         ClientesDAO clienteDAO = new ClientesDAO();
         int clienteActualizado = clienteDAO.actualizar(cliente);
 
@@ -72,10 +85,21 @@ public class PanelEditarClienteController implements Initializable {
         txtReferencia.setText(Integer.toString(cliente.getIdCliente()));
         txtNombre.setText(cliente.getNombre());
         txtApellidos.setText(cliente.getApellidos());
-        txtDni.setText(cliente.getDni());
+        txtNif.setText(cliente.getNif());
         txtTelefono.setText(cliente.getTelefono());
         txtEmail.setText(cliente.getEmail());
         txtUsuario.setText(Integer.toString(cliente.getIdUsuario()));
+        txtTipo.setText(Integer.toString(cliente.getTipo()));
+        txtPresupuestoMin.setText(Double.toString(cliente.getPresupuestoMin()));
+        txtPresupuestoMax.setText(Double.toString(cliente.getPresupuestoMax()));
+        txtDormitoriosMin.setText(Integer.toString(cliente.getDormitoriosMin()));
+        txtDormitoriosMax.setText(Integer.toString(cliente.getDormitoriosMax()));
+        txtTerrazaBalcon.setText(Integer.toString(cliente.getTerrazaBalcon()));
+        txtAparcamiento.setText(Integer.toString(cliente.getAparcamiento()));
+        txtPiscina.setText(Integer.toString(cliente.getPiscina()));
+        txtAscensor.setText(Integer.toString(cliente.getAscensor()));
+        txtPoblacion.setText(cliente.getPoblacion());
+        txtProvincia.setText(cliente.getProvincia());
     }
 
     public void cerrarInterfaz(ActionEvent event) {

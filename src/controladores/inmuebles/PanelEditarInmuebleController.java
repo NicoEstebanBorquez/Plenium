@@ -25,7 +25,7 @@ public class PanelEditarInmuebleController implements Initializable {
 
     @FXML
     public void guardar(ActionEvent event) {
-        int referencia = Integer.parseInt(txtReferencia.getText().trim());
+      /*  int referencia = Integer.parseInt(txtReferencia.getText().trim());
         String nombre = txtNombre.getText().trim();
         int capacidad = Integer.parseInt(txtCapacidad.getText().trim());
         int dormitorios = Integer.parseInt(txtDormitorios.getText().trim());
@@ -57,7 +57,7 @@ public class PanelEditarInmuebleController implements Initializable {
             mensaje.setContentText("Ha ocurrido un error al modificar el inmueble.");
             mensaje.showAndWait();
             this.cerrarInterfaz(event);
-        }
+        }*/
     }
 
     @FXML
@@ -80,7 +80,7 @@ public class PanelEditarInmuebleController implements Initializable {
         txtDireccion.setText(inmueble.getDireccion());
         txtPoblacion.setText(inmueble.getPoblacion());
         txtProvincia.setText(inmueble.getProvincia());
-        txtCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
+       // txtCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
         txtDormitorios.setText(Integer.toString(inmueble.getDormitorios()));
         txtBanos.setText(Integer.toString(inmueble.getBanos()));
         txtTerraza.setText(Integer.toString(inmueble.getTerraza()));

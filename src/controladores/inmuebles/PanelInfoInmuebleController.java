@@ -34,7 +34,7 @@ public class PanelInfoInmuebleController implements Initializable {
         labelDireccion.setText(inmueble.getDireccion());
         labelPoblacion.setText(inmueble.getPoblacion());
         labelProvincia.setText(inmueble.getProvincia());
-        labelCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
+       // labelCapacidad.setText(Integer.toString(inmueble.getCapacidad()));
         labelDormitorios.setText(Integer.toString(inmueble.getDormitorios()));
         labelBanos.setText(Integer.toString(inmueble.getBanos()));
         labelTerraza.setText(Integer.toString(inmueble.getTerraza()));

@@ -63,7 +63,7 @@
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="labelDni" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="labelNif" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="Usuario:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <Label fx:id="labelUsuario" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                            </children>
@@ -109,26 +109,32 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
                                        <children>
-                                          <Label text="desde:">
+                                          <Label text="min.:">
                                              <HBox.margin>
                                                 <Insets left="30.0" right="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label text="125.000€">
-                                             <HBox.margin>
-                                                <Insets right="15.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="hasta:">
-                                             <HBox.margin>
-                                                <Insets right="5.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                          <Label text="155.000€">
+                                          <Label fx:id="labelPresupuestoMin" text="-">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </Label>
+                                          <Label text="€">
+                                             <HBox.margin>
+                                                <Insets right="15.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="máx.:">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="labelPresupuestoMax" text="-">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label text="€" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -142,22 +148,22 @@
                                     </HBox>
                                     <HBox prefHeight="100.0" prefWidth="200.0">
                                        <children>
-                                          <Label text="desde:">
+                                          <Label text="min.:">
                                              <HBox.margin>
                                                 <Insets left="30.0" right="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label text="2">
+                                          <Label fx:id="labelDormitoriosMin" text="-">
                                              <HBox.margin>
                                                 <Insets right="15.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label text="hasta:">
+                                          <Label text="máx.:">
                                              <HBox.margin>
                                                 <Insets right="5.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label text="4">
+                                          <Label fx:id="labelDormitoriosMax" text="-">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -166,14 +172,14 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Label text="Municipio:" GridPane.rowIndex="4" />
-                              <Label text="Label" GridPane.columnIndex="1" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                              <CheckBox mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label text="Población:" GridPane.rowIndex="4" />
+                              <Label fx:id="labelTipo" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="labelProvincia" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="labelPoblacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="labelTerrazaBalcon" text="Label" GridPane.columnIndex="3" />
+                              <Label fx:id="labelPiscina" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="labelAparcamiento" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label fx:id="labelAscensor" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                            </children>
                         </GridPane>
                      </children>
