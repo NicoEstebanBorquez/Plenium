@@ -75,12 +75,12 @@ public class PanelListaInmueblesController implements Initializable {
     public void mostrarInmuebles() {
         //Tabla
         listaObservable = FXCollections.observableArrayList();
-        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
-        this.colInmueble.setCellValueFactory(new PropertyValueFactory("nombre"));
-        //this.colClase.setCellValueFactory(new PropertyValueFactory("idInmueble"));
-        this.colCapacidad.setCellValueFactory(new PropertyValueFactory("capacidad"));
-        this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
-        this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
+        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));//Se muestra
+        this.colInmueble.setCellValueFactory(new PropertyValueFactory("nombre")); //xxxxxxxxxxxxx
+        //this.colClase.setCellValueFactory(new PropertyValueFactory("idInmueble")); //xxxxxxxxxxx
+        this.colCapacidad.setCellValueFactory(new PropertyValueFactory("capacidad")); //xxxxxxxxx
+        this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));//Se muestra
+        this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));//Se muestra
 
         /*
         *

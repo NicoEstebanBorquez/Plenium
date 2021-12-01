@@ -63,7 +63,7 @@ public class PanelEditarInmuebleController implements Initializable {
         String propietarioEmail = txtPropietarioEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios,
+        Inmuebles inmueble = new Inmuebles(referencia, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios,
                 banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon,
                 piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, usuario);
 
@@ -136,7 +136,6 @@ public class PanelEditarInmuebleController implements Initializable {
         txtPropietarioTelefono.setText(inmueble.getPropietarioTelefono());
         txtPropietarioEmail.setText(inmueble.getPropietarioEmail());
         txtUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
-        txtPoblacion.setText(inmueble.getPoblacion());
     }
 
     public void cerrarInterfaz(ActionEvent event) {

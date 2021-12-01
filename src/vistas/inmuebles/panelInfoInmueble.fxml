@@ -7,82 +7,318 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelInfoInmuebleController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="675.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelInfoInmuebleController">
    <content>
-      <GridPane prefHeight="600.0" prefWidth="690.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="95.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="292.0" minWidth="10.0" prefWidth="273.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="97.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="210.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox prefHeight="950.0" prefWidth="950.0">
          <children>
-            <Label text="Referencia:">
-               <GridPane.margin>
+            <HBox prefHeight="50.0" prefWidth="950.0">
+               <children>
+                  <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editarInmueble" text="Editar" />
+                  <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarInmueble" text="Eliminar" />
+                  <Button fx:id="btnGaleria" mnemonicParsing="false" text="Galería de Fotos" />
+                  <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#cerrar" text="Cerrar" />
+               </children>
+            </HBox>
+            <TitledPane collapsible="false" maxWidth="900.0" prefWidth="900.0" text="Información">
+               <content>
+                  <AnchorPane maxHeight="180.0" maxWidth="898.0" prefHeight="180.0" prefWidth="898.0">
+                     <children>
+                        <GridPane prefHeight="180.0" prefWidth="898.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="168.0" minWidth="10.0" prefWidth="131.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="190.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="158.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="10.0" prefWidth="210.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Referencia:">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Nombre:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Precio:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelReferencia" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="labelPrecio" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Fecha publicación:" GridPane.columnIndex="2" />
+                              <Label fx:id="labelFechaPublicacion" text="Label" GridPane.columnIndex="3" />
+                              <Label text="Superficie construida:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label text="Superficie total:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label fx:id="labelSuperficieConstruida" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="labelSuperficieTotal" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label text="Usuario:" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelUsuario" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="Tipo:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label fx:id="labelTipo" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label text="Provincia:" GridPane.rowIndex="5">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelProvincia" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Categoría:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label text="Dirección:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                              <Label text="Población:" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelCategoria" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Label fx:id="labelDireccion" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <Label fx:id="labelPoblacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                           </children>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
                   <Insets left="20.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Nombre:" GridPane.rowIndex="1">
-               <GridPane.margin>
+               </VBox.margin>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" maxWidth="900.0" prefWidth="900.0" text="Propietario">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="898.0">
+                     <children>
+                        <GridPane prefHeight="140.0" prefWidth="898.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label text="Nombre:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Email:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Apellidos:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="NIF:">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Teléfono:" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelPropietarioNif" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="labelPropietarioNombre" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="labelPropietarioApellidos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="labelPropietarioTelefono" text="Label" GridPane.columnIndex="3" />
+                              <Label fx:id="labelPropietarioEmail" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="125.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="230.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="544.0" minWidth="10.0" prefWidth="119.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="426.0" minWidth="10.0" prefWidth="426.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
                   <Insets left="20.0" />
-               </GridPane.margin>
-            </Label>
-            <Label text="Dirección:" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Label>
-            <Label fx:id="labelReferencia" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="labelNombre" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label fx:id="labelDireccion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Capacidad:" GridPane.columnIndex="2" />
-            <Label fx:id="labelCapacidad" text="Label" GridPane.columnIndex="3" />
-            <Label text="Dormitorios:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label text="Baños:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Label fx:id="labelDormitorios" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label fx:id="labelBanos" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Label text="Población:" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Label>
-            <Label fx:id="labelPoblacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label text="Terraza:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Label fx:id="labelTerraza" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label text="Provincia:" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin>
-            </Label>
-            <Label fx:id="labelProvincia" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label text="Piscina:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Label text="Aparcamiento:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Label text="Propietario:" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Label text="Usuario:" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Button fx:id="btnEditar" mnemonicParsing="false" onAction="#editarInmueble" text="Editar" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Button fx:id="btnGaleria" mnemonicParsing="false" text="Galería de Fotos" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label fx:id="labelPiscina" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Label fx:id="labelAparcamiento" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Label fx:id="labelPropietario" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Label fx:id="labelUsuario" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminarInmueble" text="Eliminar" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <Button fx:id="btnCerrar" mnemonicParsing="false" onAction="#cerrar" text="Cerrar" GridPane.columnIndex="3" GridPane.rowIndex="8">
-               <GridPane.margin>
-                  <Insets left="85.0" />
-               </GridPane.margin>
-            </Button>
+               </VBox.margin>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" maxWidth="900.0" prefWidth="900.0" text="Características interiores">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="898.0">
+                     <children>
+                        <GridPane prefHeight="200.0" prefWidth="898.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label text="Dormitorios:">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Baños:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Armarios empotrados:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Semi-Amueblado:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Gas natural:" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Amueblado:" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Placas solares:" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Cocina equipada:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="No amueblado:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Calefacción central:" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label GridPane.columnIndex="4" GridPane.rowIndex="4">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Aire acondicionado:" GridPane.columnIndex="4">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelDormitorios" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="labelBanos" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="labelAmueblado" text="Label" GridPane.columnIndex="3" />
+                              <Label fx:id="labelSemiAmueblado" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="labelNoAmueblado" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <Label fx:id="labelCocinaEquipada" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label fx:id="labelArmariosEmpotrados" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                              <Label fx:id="labelAireAcondicionado" text="Label" GridPane.columnIndex="5" />
+                              <Label fx:id="labelCalefaccionCentral" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                              <Label fx:id="labelGasNatural" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                              <Label fx:id="labelPlacasSolares" text="Label" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="140.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="85.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="186.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="125.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="544.0" minWidth="10.0" prefWidth="215.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="165.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+            </TitledPane>
+            <TitledPane animated="false" collapsible="false" maxWidth="900.0" prefWidth="900.0" text="Características exteriores">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="898.0">
+                     <children>
+                        <GridPane prefHeight="140.0" prefWidth="898.0" style="-fx-background-color: white;">
+                           <children>
+                              <Label text="Terraza/Balcón:">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Piscina:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Ascensor:" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Aparcamiento:" GridPane.rowIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="30.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Jardín:" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label text="Trastero:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="60.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="labelTerrazaBalcon" text="Label" GridPane.columnIndex="1" />
+                              <Label fx:id="labelAparcamiento" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label fx:id="labelAscensor" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="labelJardin" text="Label" GridPane.columnIndex="3" />
+                              <Label fx:id="labelPiscina" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="labelTrastero" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="396.0" minWidth="10.0" prefWidth="142.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="704.0" minWidth="10.0" prefWidth="211.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="544.0" minWidth="10.0" prefWidth="133.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="412.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+            </TitledPane>
          </children>
-      </GridPane>
+      </VBox>
    </content>
 </ScrollPane>
