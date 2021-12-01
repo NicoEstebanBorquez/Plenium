@@ -43,5 +43,4 @@ Contributor(s):
   <schema-selection match-catalog="plenium"/>
   <table-filter match-name="clientes"/>
   <table-filter match-name="inmuebles"/>
-  <table-filter match-name="propietarios"/>
 </hibernate-reverse-engineering>
