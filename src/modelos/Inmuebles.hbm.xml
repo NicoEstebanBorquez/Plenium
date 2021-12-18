@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-nov-2021 20:55:03 by Hibernate Tools 4.3.1 -->
+<!-- Generated 18-dic-2021 17:56:28 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Inmuebles" table="inmuebles" catalog="plenium" optimistic-lock="version">
         <id name="idInmueble" type="int">
             <column name="id_inmueble" />
-            <generator class="identity" />
+            <generator class="assigned" />
         </id>
         <property name="nombre" type="string">
             <column name="nombre" length="75" not-null="true" />
@@ -15,7 +15,7 @@
             <column name="tipo" not-null="true" />
         </property>
         <property name="precio" type="double">
-            <column name="precio" precision="7" not-null="true" />
+            <column name="precio" precision="9" not-null="true" />
         </property>
         <property name="superficieConstruida" type="double">
             <column name="superficie_construida" precision="6" not-null="true" />
@@ -90,19 +90,19 @@
             <column name="jardin" not-null="true" />
         </property>
         <property name="propietarioNombre" type="string">
-            <column name="propietario_nombre" not-null="true" />
+            <column name="propietario_nombre" length="25" not-null="true" />
         </property>
         <property name="propietarioApellidos" type="string">
-            <column name="propietario_apellidos" not-null="true" />
+            <column name="propietario_apellidos" length="25" not-null="true" />
         </property>
         <property name="propietarioNif" type="string">
-            <column name="propietario_nif" not-null="true" />
+            <column name="propietario_nif" length="15" not-null="true" />
         </property>
         <property name="propietarioTelefono" type="string">
-            <column name="propietario_telefono" not-null="true" />
+            <column name="propietario_telefono" length="15" not-null="true" />
         </property>
         <property name="propietarioEmail" type="string">
-            <column name="propietario_email" not-null="true" />
+            <column name="propietario_email" length="50" not-null="true" />
         </property>
         <property name="idUsuario" type="int">
             <column name="id_usuario" not-null="true" />

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 29-nov-2021 20:55:03 by Hibernate Tools 4.3.1 -->
+<!-- Generated 18-dic-2021 17:56:28 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="modelos.Clientes" table="clientes" catalog="plenium" optimistic-lock="version">
-        <id name="idCliente" type="int">
+        <id name="idCliente" type="java.lang.Integer">
             <column name="id_cliente" />
             <generator class="identity" />
         </id>
@@ -15,10 +15,10 @@
             <column name="apellidos" length="50" not-null="true" />
         </property>
         <property name="nif" type="string">
-            <column name="nif" length="20" not-null="true" />
+            <column name="nif" length="15" not-null="true" />
         </property>
         <property name="telefono" type="string">
-            <column name="telefono" length="20" not-null="true" />
+            <column name="telefono" length="15" not-null="true" />
         </property>
         <property name="email" type="string">
             <column name="email" length="50" not-null="true" />
@@ -27,10 +27,10 @@
             <column name="tipo" not-null="true" />
         </property>
         <property name="presupuestoMin" type="double">
-            <column name="presupuesto_min" precision="7" not-null="true" />
+            <column name="presupuesto_min" precision="9" not-null="true" />
         </property>
         <property name="presupuestoMax" type="double">
-            <column name="presupuesto_max" precision="7" not-null="true" />
+            <column name="presupuesto_max" precision="9" not-null="true" />
         </property>
         <property name="dormitoriosMin" type="int">
             <column name="dormitorios_min" not-null="true" />
@@ -51,13 +51,13 @@
             <column name="ascensor" not-null="true" />
         </property>
         <property name="poblacion" type="string">
-            <column name="poblacion" length="50" not-null="true" />
+            <column name="poblacion" length="25" not-null="true" />
         </property>
         <property name="provincia" type="string">
-            <column name="provincia" length="50" not-null="true" />
+            <column name="provincia" length="25" not-null="true" />
         </property>
         <property name="idUsuario" type="int">
-            <column name="idUsuario" not-null="true" />
+            <column name="id_usuario" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
