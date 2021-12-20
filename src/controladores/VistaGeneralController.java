@@ -39,6 +39,7 @@ public class VistaGeneralController implements Initializable {
     public void cargarPanel_AnadirCliente(ActionEvent event) {
         cargarPanel("clientes/PanelAnadirCliente.fxml");
     }
+    
 
     // AGENDA
     @FXML

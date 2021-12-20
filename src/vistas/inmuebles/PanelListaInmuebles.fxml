@@ -10,15 +10,15 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="695.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.inmuebles.PanelListaInmueblesController">
    <center>
-      <TableView fx:id="tablaInmuebles" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tablaInmuebles" maxWidth="1100.0" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
-          <TableColumn fx:id="colInmueble" prefWidth="363.0" resizable="false" text="Inmueble" />
-            <TableColumn fx:id="colClase" minWidth="0.0" prefWidth="104.0" resizable="false" text="Clase" />
-            <TableColumn fx:id="colCapacidad" prefWidth="102.0" resizable="false" text="Capacidad" />
-            <TableColumn fx:id="colPoblacion" prefWidth="138.0" resizable="false" text="Población" />
-            <TableColumn fx:id="colProvincia" prefWidth="136.0" resizable="false" text="Provincia" />
-            <TableColumn fx:id="colAcciones" prefWidth="261.0" resizable="false" text="Acciones" />
+          <TableColumn fx:id="colNombre" prefWidth="379.0" resizable="false" text="Nombre" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio" />
+            <TableColumn fx:id="colDormitorios" prefWidth="100.0" resizable="false" text="Dormitorios" />
+            <TableColumn fx:id="colBanos" prefWidth="100.0" resizable="false" text="Baños" />
+            <TableColumn fx:id="colPoblacion" prefWidth="150.0" resizable="false" text="Población" />
+            <TableColumn fx:id="colProvincia" prefWidth="150.0" resizable="false" text="Provincia" />
         </columns>
       </TableView>
    </center>
@@ -62,11 +62,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnNuevoInmueble" mnemonicParsing="false" onAction="#abrirNuevoInmueble" text="Nuevo inmueble" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-            </Button>
             <MenuButton mnemonicParsing="false" text="Exportar" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <items>
                 <MenuItem mnemonicParsing="false" text="PDF" />

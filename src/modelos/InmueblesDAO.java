@@ -1,13 +1,22 @@
 package modelos;
 
+import gestionBD.Conexion;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class InmueblesDAO {
+
+    final String SQL_DELETE = "DELETE FROM inmuebles WHERE id_inmueble = ?";
 
     public List listar() {
         List<Inmuebles> lista = null;
@@ -133,6 +142,24 @@ public class InmueblesDAO {
         }
     }
 
+    public int eliminar(int id) {
+
+        Connection cn = null;
+        PreparedStatement ps = null;
+        int eliminado = 0;
+
+        try {
+            cn = Conexion.abrirConexion();
+            ps = cn.prepareStatement(SQL_DELETE);
+            ps.setInt(1, id);
+            eliminado = ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(InmueblesDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
+        return eliminado;
+    }
+
     /*
     public List encontrarPorIdPropietario(int id) {
         Connection cn = null;
@@ -178,23 +205,5 @@ public class InmueblesDAO {
     }*/
  /*
    
-    public int eliminar(int id) {
-        Connection cn = null;
-        PreparedStatement ps = null;
-        int eliminado = 0;
-
-        try {
-            cn = Conexion.getConnection();
-            ps = cn.prepareStatement(SQL_DELETE);
-            ps.setInt(1, id);
-
-            eliminado = ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(InmueblesDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            Conexion.close(ps);
-            Conexion.close(cn);
-        }
-        return eliminado;
-    }*/
+     */
 }

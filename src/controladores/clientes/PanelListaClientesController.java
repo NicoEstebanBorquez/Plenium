@@ -1,5 +1,6 @@
 package controladores.clientes;
 
+import controladores.VistaGeneralController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -38,24 +39,8 @@ public class PanelListaClientesController implements Initializable  {
     SessionFactory sf = SessionFactorySingleton.getSessionFactory();
 
     @FXML
-    public void abrirNuevoCliente(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/clientes/PanelNuevoCliente.fxml"));
-        //Cargar el padre
-        Parent padre = loader.load();
-        //VistaInicioController controlador = loader.getController();
-        Scene escena = new Scene(padre);
-        Stage escenario = new Stage();
-        escenario.setScene(escena);
-
-        //Haciendo que la ventana sea modal
-        escenario.initModality(Modality.WINDOW_MODAL);
-        escenario.initOwner(((Node) event.getSource()).getScene().getWindow());
-
-        //Elimina la barra superior con el boton de cerrar 
-        escenario.initStyle(StageStyle.UNDECORATED);
-        escenario.setResizable(false);
-        escenario.setTitle("Nuevo cliente");
-        escenario.show();
+    public void abrirNuevoCliente() {
+        
     }
 
     public void mostrarClientes() {
@@ -84,13 +69,14 @@ public class PanelListaClientesController implements Initializable  {
     }
 
     @FXML
-    public void seleccionar() throws IOException {
+    public void seleccionar() throws IOException  {
         Clientes clienteSeleccionado = this.tablaClientes.getSelectionModel().getSelectedItem();
         int seleccionado = clienteSeleccionado.getIdCliente();
 
         //Se envía el id del cliente seleccionado al controlador PanelInfoClientesController
         PanelInfoClienteController.clienteSeleccionado = seleccionado;
 
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/clientes/panelInfoCliente.fxml"));
         //Cargar el padre
         Parent padre = loader.load();

@@ -44,7 +44,7 @@ public class PanelListaInmueblesController implements Initializable {
     private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
-    private TableColumn colRef, colInmueble, colClase, colCapacidad, colPoblacion, colProvincia;
+    private TableColumn colRef, colNombre, colPrecio, colDormitorios, colBanos, colPoblacion, colProvincia;
 
     private ObservableList<Inmuebles> listaObservable;
 
@@ -75,12 +75,13 @@ public class PanelListaInmueblesController implements Initializable {
     public void mostrarInmuebles() {
         //Tabla
         listaObservable = FXCollections.observableArrayList();
-        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));//Se muestra
-        this.colInmueble.setCellValueFactory(new PropertyValueFactory("nombre")); //xxxxxxxxxxxxx
-        //this.colClase.setCellValueFactory(new PropertyValueFactory("idInmueble")); //xxxxxxxxxxx
-        this.colCapacidad.setCellValueFactory(new PropertyValueFactory("capacidad")); //xxxxxxxxx
-        this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));//Se muestra
-        this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));//Se muestra
+        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
+        this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre")); 
+        this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio")); 
+        this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
+        this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
+        this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
+        this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
         /*
         *

@@ -2,6 +2,7 @@ package controladores.clientes;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,11 +11,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelos.Clientes;
+import modelos.ClientesDAO;
 import modelos.ClientesDAO;
 
 public class PanelInfoClienteController implements Initializable {
@@ -77,8 +81,33 @@ public class PanelInfoClienteController implements Initializable {
     }
 
     @FXML
-    public void eliminarCliente() {
-        System.out.println("ELIMINAR");
+    public void eliminarCliente(ActionEvent event) {
+      int clienteEliminado = 0;
+
+        Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmacion.setHeaderText("Confirmación");
+        confirmacion.setContentText("El cliente será eliminado.\n¿Desea continuar?");
+        Optional<ButtonType> resultadoConfirmacion = confirmacion.showAndWait();
+        if (resultadoConfirmacion.get() == ButtonType.OK) {
+            ClientesDAO clienteDAO = new ClientesDAO();
+            clienteEliminado = clienteDAO.eliminar(clienteSeleccionado);
+
+            if (clienteEliminado != 0) {
+                Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+                mensaje.setTitle("Confirmación");
+                mensaje.setContentText("Cliente eliminado correctamente.");
+                Optional<ButtonType> resultado = mensaje.showAndWait();
+                if (resultado.get() == ButtonType.OK) {
+                    this.cerrarInterfaz(event);
+                }
+            } else {
+                Alert mensaje = new Alert(Alert.AlertType.ERROR);
+                mensaje.setTitle("Error");
+                mensaje.setContentText("Ha ocurrido un error al eliminar el cliente.");
+                mensaje.showAndWait();
+                this.cerrarInterfaz(event);
+            }
+        }
     }
 
     @FXML
