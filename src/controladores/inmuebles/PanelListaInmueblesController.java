@@ -24,20 +24,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelos.Inmuebles;
 import modelos.InmueblesDAO;
-import modelos.SessionFactorySingleton;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 
-/*
-* Tengo que ver como se gestiona el SessionFactory, para que no se me cierre la sesión después de la consulta
-*  
-*
-*
-*
- */
 public class PanelListaInmueblesController implements Initializable {
 
     @FXML
@@ -48,7 +36,6 @@ public class PanelListaInmueblesController implements Initializable {
 
     private ObservableList<Inmuebles> listaObservable;
 
-    SessionFactory sf = SessionFactorySingleton.getSessionFactory();
 
     @FXML
     public void abrirNuevoInmueble(ActionEvent event) throws IOException {

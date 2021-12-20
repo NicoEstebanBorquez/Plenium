@@ -23,8 +23,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelos.Clientes;
 import modelos.ClientesDAO;
-import modelos.SessionFactorySingleton;
-import org.hibernate.SessionFactory;
+
 
 public class PanelListaClientesController implements Initializable  {
 
@@ -36,7 +35,6 @@ public class PanelListaClientesController implements Initializable  {
 
     private ObservableList<Clientes> listaObservable;
 
-    SessionFactory sf = SessionFactorySingleton.getSessionFactory();
 
     @FXML
     public void abrirNuevoCliente() {
