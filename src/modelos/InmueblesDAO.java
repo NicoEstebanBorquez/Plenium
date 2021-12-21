@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,12 +23,12 @@ public class InmueblesDAO {
             + "placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin,"
             + "propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles WHERE id_inmueble = ?";
 
-    private static final String SQL_INSERT = "INSERT INTO inmuebles (nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria,"
+    private final String SQL_INSERT = "INSERT INTO inmuebles (nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria,"
             + "fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural,"
             + "placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin,"
             + "propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private static final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?,"
+    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?,"
             + "fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?,"
             + "placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?,"
             + "propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
@@ -42,7 +41,6 @@ public class InmueblesDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         List<Inmuebles> lista = new ArrayList<>();
-
         Inmuebles inmueble = null;
 
         try {
@@ -100,7 +98,6 @@ public class InmueblesDAO {
             Conexion.close(cn);
         }
         return lista;
-
     }
 
     public Inmuebles obtenerPorId(int inmuebleSeleccionado) {
@@ -116,7 +113,6 @@ public class InmueblesDAO {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-
                 int idInmueble = rs.getInt(1);
                 String nombre = rs.getString(2);
                 int tipo = rs.getInt(3);
@@ -151,7 +147,10 @@ public class InmueblesDAO {
                 String propietarioTelefono = rs.getString(32);
                 String propietarioEmail = rs.getString(33);
                 int idUsuario = rs.getInt(34);
+                
+                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
 
+                /*
                 inmueble.setIdInmueble(idInmueble);
                 inmueble.setNombre(nombre);
                 inmueble.setTipo(tipo);
@@ -185,7 +184,7 @@ public class InmueblesDAO {
                 inmueble.setPropietarioNif(propietarioNif);
                 inmueble.setPropietarioTelefono(propietarioTelefono);
                 inmueble.setPropietarioEmail(propietarioEmail);
-                inmueble.setIdUsuario(idUsuario);
+                inmueble.setIdUsuario(idUsuario);*/
             }
 
         } catch (SQLException ex) {
@@ -200,7 +199,6 @@ public class InmueblesDAO {
     }
 
     public int insertar(Inmuebles inmueble) {
-
         Connection cn = null;
         PreparedStatement ps = null;
         int elementosInsertados = 0;
@@ -255,7 +253,6 @@ public class InmueblesDAO {
     }
 
     public int actualizar(Inmuebles inmuebleSeleccionado) {
-
         Connection cn = null;
         PreparedStatement ps = null;
         int elementosActualizados = 0;
