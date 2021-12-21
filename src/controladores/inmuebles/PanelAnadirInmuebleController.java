@@ -16,7 +16,7 @@ import modelos.InmueblesDAO;
 public class PanelAnadirInmuebleController implements Initializable {
 
     @FXML
-    private TextField txtNombre, txtTipo, txtPrecio, txtSuperficieConstruida, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia, txtCategoria,
+    private TextField txtNombre, txtTipo, txtPrecio, txtSuperficieConstruida, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia,
             txtFechaPublicacion, txtDormitorios, txtBanos, txtAmueblado, txtSemiAmueblado, txtNoAmueblado, txtCocinaEquipada, txtAireAcondicionado,
             txtCalefaccionCentral, txtGasNatural, txtPlacasSolares, txtArmariosEmpotrados, txtTerrazaBalcon, txtPiscina, txtAparcamiento, txtAscensor,
             txtTrastero, txtJardin, txtPropietarioNombre, txtPropietarioApellidos, txtPropietarioNif, txtPropietarioTelefono, txtPropietarioEmail, txtUsuario;
@@ -24,14 +24,13 @@ public class PanelAnadirInmuebleController implements Initializable {
     @FXML
     public void guardar(ActionEvent event) {
         String nombre = txtNombre.getText().trim();
-        int tipo = Integer.parseInt(txtTipo.getText().trim());
+        String tipo = txtTipo.getText().trim();
         double precio = Double.parseDouble(txtPrecio.getText().trim());
         double superficieConstruida = Double.parseDouble(txtSuperficieConstruida.getText().trim());
         double superficieTotal = Double.parseDouble(txtSuperficieTotal.getText().trim());
         String direccion = txtDireccion.getText().trim();
         String poblacion = txtPoblacion.getText().trim();
         String provincia = txtProvincia.getText().trim();
-        int categoria = Integer.parseInt(txtCategoria.getText().trim());
         Date fechaPublicacion = Date.valueOf(txtFechaPublicacion.getText().trim());
         int dormitorios = Integer.parseInt(txtDormitorios.getText().trim());
         int banos = Integer.parseInt(txtBanos.getText().trim());
@@ -57,7 +56,7 @@ public class PanelAnadirInmuebleController implements Initializable {
         String propietarioEmail = txtPropietarioEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios,
+        Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios,
                 banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon,
                 piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, usuario);
 
@@ -106,7 +105,6 @@ public class PanelAnadirInmuebleController implements Initializable {
         txtDireccion.setText("");
         txtPoblacion.setText("");
         txtProvincia.setText("");
-        txtCategoria.setText("");
         txtFechaPublicacion.setText("");
         txtDormitorios.setText("");
         txtBanos.setText("");

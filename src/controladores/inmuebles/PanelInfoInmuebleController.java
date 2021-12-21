@@ -24,13 +24,13 @@ import modelos.InmueblesDAO;
 public class PanelInfoInmuebleController implements Initializable {
 
     // nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, 
-    // categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
+    // fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
     // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
     // trastero, jardin, propietario, usuario
     protected static int inmuebleSeleccionado;
 
     @FXML
-    private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieConstruida, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia, labelCategoria,
+    private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieConstruida, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,
             labelFechaPublicacion, labelDormitorios, labelBanos, labelAmueblado, labelSemiAmueblado, labelNoAmueblado, labelCocinaEquipada, labelAireAcondicionado,
             labelCalefaccionCentral, labelGasNatural, labelPlacasSolares, labelArmariosEmpotrados, labelTerrazaBalcon, labelPiscina, labelAparcamiento, labelAscensor,
             labelTrastero, labelJardin, labelPropietarioNombre, labelPropietarioApellidos, labelPropietarioNif, labelPropietarioTelefono, labelPropietarioEmail, labelUsuario;
@@ -41,14 +41,13 @@ public class PanelInfoInmuebleController implements Initializable {
 
         labelReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
         labelNombre.setText(inmueble.getNombre());
-        labelTipo.setText(Integer.toString(inmueble.getTipo()));
+        labelTipo.setText(inmueble.getTipo());
         labelPrecio.setText(Double.toString(inmueble.getPrecio()));
         labelSuperficieConstruida.setText(Double.toString(inmueble.getSuperficieConstruida()));
         labelSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         labelDireccion.setText(inmueble.getDireccion());
         labelPoblacion.setText(inmueble.getPoblacion());
         labelProvincia.setText(inmueble.getProvincia());
-        labelCategoria.setText(Integer.toString(inmueble.getCategoria()));
         labelFechaPublicacion.setText(String.valueOf(inmueble.getFechaPublicacion()));
         labelDormitorios.setText(Integer.toString(inmueble.getDormitorios()));
         labelBanos.setText(Integer.toString(inmueble.getBanos()));

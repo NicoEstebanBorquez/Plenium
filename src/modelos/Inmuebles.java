@@ -6,7 +6,7 @@ public class Inmuebles {
 
     private int idInmueble;
     private String nombre;
-    private int tipo;
+    private String tipo;
 /*
 Piso
 Casa/Chalet
@@ -21,7 +21,6 @@ Local comercial
     private String direccion;
     private String poblacion;
     private String provincia;
-    private int categoria;
     private Date fechaPublicacion;
     private int dormitorios;
     private int banos;
@@ -50,7 +49,7 @@ Local comercial
     public Inmuebles() {
     }
 
-    public Inmuebles(String nombre, int tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, int categoria, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(String nombre, String tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
@@ -59,7 +58,6 @@ Local comercial
         this.direccion = direccion;
         this.poblacion = poblacion;
         this.provincia = provincia;
-        this.categoria = categoria;
         this.fechaPublicacion = fechaPublicacion;
         this.dormitorios = dormitorios;
         this.banos = banos;
@@ -86,7 +84,7 @@ Local comercial
         this.idUsuario = idUsuario;
     }
 
-    public Inmuebles(int idInmueble, String nombre, int tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, int categoria, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(int idInmueble, String nombre, String tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.idInmueble = idInmueble;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -96,7 +94,6 @@ Local comercial
         this.direccion = direccion;
         this.poblacion = poblacion;
         this.provincia = provincia;
-        this.categoria = categoria;
         this.fechaPublicacion = fechaPublicacion;
         this.dormitorios = dormitorios;
         this.banos = banos;
@@ -139,11 +136,11 @@ Local comercial
         this.nombre = nombre;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return this.tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -193,14 +190,6 @@ Local comercial
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
-    }
-
-    public int getCategoria() {
-        return this.categoria;
-    }
-
-    public void setCategoria(int categoria) {
-        this.categoria = categoria;
     }
 
     public Date getFechaPublicacion() {
