@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,10 +21,10 @@ import javafx.stage.StageStyle;
 import modelos.Inmuebles;
 import modelos.InmueblesDAO;
 
-public class PanelListaInmueblesController implements Initializable {
+public class PanelBusquedaAvanzadaController implements Initializable {
 
     @FXML
-    private TextField txtRef;
+    private TextField txtRef, txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtTipo, txtProvincia, txtPoblacion;
 
     @FXML
     private TableView<Inmuebles> tablaInmuebles;
@@ -46,12 +45,6 @@ public class PanelListaInmueblesController implements Initializable {
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
-        /*
-        *
-        * Esto tengo que ver como meterlo en InmueblesDAO
-        * De modo que al llamar a listar() me devuelve el List con los datos
-        * Lo he metido aquí porque por algún motivo solo puedo usarlo una vez porque se me cierra la sesion
-         */
         Inmuebles inmueble = null;
         List<Inmuebles> lista = new InmueblesDAO().listar();
         Iterator iterador = lista.iterator();
@@ -85,7 +78,7 @@ public class PanelListaInmueblesController implements Initializable {
 
     @FXML
     public void buscar() {
-        
+
         int inmuebleBuscado = Integer.parseInt(this.txtRef.getText().trim());
         //Tabla
         listaObservable = FXCollections.observableArrayList();
@@ -101,12 +94,17 @@ public class PanelListaInmueblesController implements Initializable {
 
         this.listaObservable.add(inmueble);
         this.tablaInmuebles.setItems(listaObservable);
-        
-        this.txtRef.setText("");
     }
-    
-    @FXML public void actualizar(){
-        this.mostrarInmuebles();
+
+    @FXML
+    public void actualizar() {
+        //this.mostrarInmuebles();
+    }
+
+    @FXML
+    public void limpiar() {
+        this.txtRef.setText("");
+
     }
 
     @Override

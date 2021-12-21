@@ -60,7 +60,7 @@
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" text="Búsqueda avanzada" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefWidth="158.0" styleClass="botonSecundario" onAction="#cargarPanel_BusquedaAvanzada" text="Búsqueda avanzada" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

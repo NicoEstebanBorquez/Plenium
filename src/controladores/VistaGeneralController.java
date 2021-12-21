@@ -29,6 +29,13 @@ public class VistaGeneralController implements Initializable {
     public void cargarPanel_AnadirInmueble(ActionEvent event) {
         cargarPanel("inmuebles/PanelAnadirInmueble.fxml");
     }
+    
+    @FXML
+    public void cargarPanel_BusquedaAvanzada(ActionEvent event) {
+        cargarPanel("inmuebles/PanelBusquedaAvanzada.fxml");
+    }
+    
+    
     // CLIENTES
     @FXML
     public void cargarPanel_ListaClientes(ActionEvent event) {

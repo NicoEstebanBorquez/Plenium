@@ -13,8 +13,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class InmueblesDAO {
-
-    private final String SQL_SELECT = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles";
+//id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario
+    private final String SQL_SELECT = "SELECT * FROM inmuebles";
 
     private final String SQL_SELECT_ID = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles WHERE id_inmueble = ?";
 
@@ -75,7 +75,6 @@ public class InmueblesDAO {
 
                 inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
                 lista.add(inmueble);
-
             }
 
         } catch (SQLException ex) {

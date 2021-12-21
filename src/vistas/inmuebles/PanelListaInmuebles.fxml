@@ -35,25 +35,15 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Referencia / Inmueble:">
+            <Label text="Referencia:">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin></Label>
-            <Label text="Label" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin></Label>
-            <TextField prefHeight="31.0" prefWidth="878.0" GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" text="Buscar" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <TextField fx:id="txtRef" prefHeight="31.0" prefWidth="878.0" GridPane.columnIndex="1" />
+            <Button fx:id="buscar" mnemonicParsing="false" onAction="#buscar" text="Buscar" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin></Button>
-            <Button mnemonicParsing="false" text="Limpiar" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="80.0" />
-               </GridPane.margin>
-            </Button>
             <Label text="Acciones:" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
@@ -78,7 +68,7 @@
       <HBox prefHeight="45.0" prefWidth="1152.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Actualizar: " />
-            <Button mnemonicParsing="false" text="-" />
+            <Button mnemonicParsing="false" onAction="#actualizar" text="Actualizar(ver todos)" />
          </children>
       </HBox>
    </bottom>

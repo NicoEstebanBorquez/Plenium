@@ -3,10 +3,18 @@ package modelos;
 import java.sql.Date;
 
 public class Inmuebles {
-    
+
     private int idInmueble;
     private String nombre;
     private int tipo;
+/*
+Piso
+Casa/Chalet
+Garaje
+Terreno
+Oficina 
+Local comercial
+*/
     private double precio;
     private double superficieConstruida;
     private double superficieTotal;
