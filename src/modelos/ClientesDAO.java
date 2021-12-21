@@ -14,14 +14,11 @@ import java.util.logging.Logger;
 
 public class ClientesDAO {
 
-    private final String SQL_SELECT = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, "
-            + " dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes";
+    private final String SQL_SELECT = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes";
 
-    private final String SQL_SELECT_ID = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, "
-            + " dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes WHERE id_inmueble = ?";
+    private final String SQL_SELECT_ID = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes WHERE id_inmueble = ?";
 
-    private final String SQL_INSERT = "INSERT INTO inmuebles (nombre=?, apellidos=?, nif=?, telefono=?, email=?, tipo=?, presupuesto_min=?, presupuesto_max=?, dormitorios_min=?, "
-            + " dormitorios_max=?, terraza_balcon=?, aparcamiento=?, piscina=?, ascensor=?, poblacion=?, provincia=?, id_usuario=?) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO clientes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     final String SQL_DELETE = "DELETE FROM clientes WHERE id_cliente = ?";
 
@@ -164,24 +161,25 @@ public class ClientesDAO {
         try {
             cn = Conexion.abrirConexion();
             ps = cn.prepareStatement(SQL_INSERT);
-            
-            ps.setString(1, cliente.getNombre());
-            ps.setString(2, cliente.getApellidos());
-            ps.setString(3, cliente.getNif());
-            ps.setString(4, cliente.getTelefono());
-            ps.setString(5, cliente.getEmail());
-            ps.setInt(6, cliente.getTipo());
-            ps.setDouble(7, cliente.getPresupuestoMin());
-            ps.setDouble(8, cliente.getPresupuestoMax());
-            ps.setInt(9, cliente.getDormitoriosMin());
-            ps.setInt(10, cliente.getDormitoriosMax());
-            ps.setInt(11, cliente.getTerrazaBalcon());
-            ps.setInt(12, cliente.getAparcamiento());
-            ps.setInt(13, cliente.getPiscina());
-            ps.setInt(14, cliente.getAscensor());
-            ps.setString(15, cliente.getPoblacion());
-            ps.setString(16, cliente.getProvincia());
-            ps.setInt(17, cliente.getIdUsuario());
+
+            ps.setInt(1, 0);
+            ps.setString(2, cliente.getNombre());
+            ps.setString(3, cliente.getApellidos());
+            ps.setString(4, cliente.getNif());
+            ps.setString(5, cliente.getTelefono());
+            ps.setString(6, cliente.getEmail());
+            ps.setInt(7, cliente.getTipo());
+            ps.setDouble(8, cliente.getPresupuestoMin());
+            ps.setDouble(9, cliente.getPresupuestoMax());
+            ps.setInt(10, cliente.getDormitoriosMin());
+            ps.setInt(11, cliente.getDormitoriosMax());
+            ps.setInt(12, cliente.getTerrazaBalcon());
+            ps.setInt(13, cliente.getAparcamiento());
+            ps.setInt(14, cliente.getPiscina());
+            ps.setInt(15, cliente.getAscensor());
+            ps.setString(16, cliente.getPoblacion());
+            ps.setString(17, cliente.getProvincia());
+            ps.setInt(18, cliente.getIdUsuario());
 
             elementosInsertados = ps.executeUpdate();
         } catch (SQLException ex) {

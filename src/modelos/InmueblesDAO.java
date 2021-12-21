@@ -3,6 +3,7 @@ package modelos;
 import gestionBD.Conexion;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,25 +14,13 @@ import java.util.logging.Logger;
 
 public class InmueblesDAO {
 
-    private final String SQL_SELECT = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria,"
-            + "fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural,"
-            + "placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin,"
-            + "propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles";
+    private final String SQL_SELECT = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles";
 
-    private final String SQL_SELECT_ID = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria,"
-            + "fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural,"
-            + "placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin,"
-            + "propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles WHERE id_inmueble = ?";
+    private final String SQL_SELECT_ID = "SELECT id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario FROM inmuebles WHERE id_inmueble = ?";
 
-    private final String SQL_INSERT = "INSERT INTO inmuebles (nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, categoria,"
-            + "fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural,"
-            + "placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin,"
-            + "propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String SQL_INSERT = "INSERT INTO inmuebles VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?,"
-            + "fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?,"
-            + "placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?,"
-            + "propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
+    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?, fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?, placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?, propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
 
     private final String SQL_DELETE = "DELETE FROM inmuebles WHERE id_inmueble=?";
 
@@ -147,7 +136,7 @@ public class InmueblesDAO {
                 String propietarioTelefono = rs.getString(32);
                 String propietarioEmail = rs.getString(33);
                 int idUsuario = rs.getInt(34);
-                
+
                 inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, categoria, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
 
                 /*
@@ -207,15 +196,15 @@ public class InmueblesDAO {
             cn = Conexion.abrirConexion();
             ps = cn.prepareStatement(SQL_INSERT);
 
-            ps.setString(1, inmueble.getNombre());
-            ps.setInt(2, inmueble.getTipo());
-            ps.setDouble(3, inmueble.getPrecio());
-            ps.setDouble(4, inmueble.getSuperficieConstruida());
-            ps.setDouble(5, inmueble.getSuperficieTotal());
-            ps.setString(6, inmueble.getDireccion());
-            ps.setString(7, inmueble.getPoblacion());
-            ps.setString(8, inmueble.getProvincia());
-            ps.setString(9, inmueble.getPoblacion());
+            ps.setInt(1, 0);
+            ps.setString(2, inmueble.getNombre());
+            ps.setInt(3, inmueble.getTipo());
+            ps.setDouble(4, inmueble.getPrecio());
+            ps.setDouble(5, inmueble.getSuperficieConstruida());
+            ps.setDouble(6, inmueble.getSuperficieTotal());
+            ps.setString(7, inmueble.getDireccion());
+            ps.setString(8, inmueble.getPoblacion());
+            ps.setString(9, inmueble.getProvincia());
             ps.setInt(10, inmueble.getCategoria());
             ps.setDate(11, inmueble.getFechaPublicacion());
             ps.setInt(12, inmueble.getDormitorios());
@@ -256,7 +245,32 @@ public class InmueblesDAO {
         Connection cn = null;
         PreparedStatement ps = null;
         int elementosActualizados = 0;
-
+        /*
+        FALTA LA SENTENCIA
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+         */
         try {
             ps.setString(1, inmuebleSeleccionado.getNombre());
             ps.setInt(2, inmuebleSeleccionado.getTipo());
