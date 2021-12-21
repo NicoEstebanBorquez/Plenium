@@ -20,7 +20,7 @@ public class InmueblesDAO {
 
     private final String SQL_INSERT = "INSERT INTO inmuebles VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?, fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?, placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?, propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
+    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo=?, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, categoria=?, fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?, placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?, propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
 
     private final String SQL_DELETE = "DELETE FROM inmuebles WHERE id_inmueble=?";
 
@@ -245,33 +245,11 @@ public class InmueblesDAO {
         Connection cn = null;
         PreparedStatement ps = null;
         int elementosActualizados = 0;
-        /*
-        FALTA LA SENTENCIA
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-         */
         try {
+            cn = Conexion.abrirConexion();
+            ps = cn.prepareStatement(SQL_UPDATE);
             ps.setString(1, inmuebleSeleccionado.getNombre());
             ps.setInt(2, inmuebleSeleccionado.getTipo());
             ps.setDouble(3, inmuebleSeleccionado.getPrecio());
@@ -280,33 +258,34 @@ public class InmueblesDAO {
             ps.setString(6, inmuebleSeleccionado.getDireccion());
             ps.setString(7, inmuebleSeleccionado.getPoblacion());
             ps.setString(8, inmuebleSeleccionado.getProvincia());
-            ps.setString(9, inmuebleSeleccionado.getPoblacion());
-            ps.setInt(10, inmuebleSeleccionado.getCategoria());
-            ps.setDate(11, inmuebleSeleccionado.getFechaPublicacion());
-            ps.setInt(12, inmuebleSeleccionado.getDormitorios());
-            ps.setInt(13, inmuebleSeleccionado.getBanos());
-            ps.setInt(14, inmuebleSeleccionado.getAmueblado());
-            ps.setInt(15, inmuebleSeleccionado.getSemiAmueblado());
-            ps.setInt(16, inmuebleSeleccionado.getNoAmueblado());
-            ps.setInt(17, inmuebleSeleccionado.getCocinaEquipada());
-            ps.setInt(18, inmuebleSeleccionado.getAireAcondicionado());
-            ps.setInt(19, inmuebleSeleccionado.getCalefaccionCentral());
-            ps.setInt(20, inmuebleSeleccionado.getGasNatural());
-            ps.setInt(21, inmuebleSeleccionado.getPlacasSolares());
-            ps.setInt(22, inmuebleSeleccionado.getArmariosEmpotrados());
-            ps.setInt(23, inmuebleSeleccionado.getTerrazaBalcon());
-            ps.setInt(24, inmuebleSeleccionado.getPiscina());
-            ps.setInt(25, inmuebleSeleccionado.getAparcamiento());
-            ps.setInt(26, inmuebleSeleccionado.getAscensor());
-            ps.setInt(27, inmuebleSeleccionado.getTrastero());
-            ps.setInt(28, inmuebleSeleccionado.getJardin());
-            ps.setString(29, inmuebleSeleccionado.getPropietarioNombre());
-            ps.setString(30, inmuebleSeleccionado.getPropietarioApellidos());
-            ps.setString(31, inmuebleSeleccionado.getPropietarioNif());
-            ps.setString(32, inmuebleSeleccionado.getPropietarioTelefono());
-            ps.setString(33, inmuebleSeleccionado.getPropietarioEmail());
-            ps.setInt(34, inmuebleSeleccionado.getIdUsuario());
-
+            ps.setInt(9, inmuebleSeleccionado.getCategoria());
+            ps.setDate(10, inmuebleSeleccionado.getFechaPublicacion());
+            ps.setInt(11, inmuebleSeleccionado.getDormitorios());
+            ps.setInt(12, inmuebleSeleccionado.getBanos());
+            ps.setInt(13, inmuebleSeleccionado.getAmueblado());
+            ps.setInt(14, inmuebleSeleccionado.getSemiAmueblado());
+            ps.setInt(15, inmuebleSeleccionado.getNoAmueblado());
+            ps.setInt(16, inmuebleSeleccionado.getCocinaEquipada());
+            ps.setInt(17, inmuebleSeleccionado.getAireAcondicionado());
+            ps.setInt(18, inmuebleSeleccionado.getCalefaccionCentral());
+            ps.setInt(19, inmuebleSeleccionado.getGasNatural());
+            ps.setInt(20, inmuebleSeleccionado.getPlacasSolares());
+            ps.setInt(21, inmuebleSeleccionado.getArmariosEmpotrados());
+            ps.setInt(22, inmuebleSeleccionado.getTerrazaBalcon());
+            ps.setInt(23, inmuebleSeleccionado.getPiscina());
+            ps.setInt(24, inmuebleSeleccionado.getAparcamiento());
+            ps.setInt(25, inmuebleSeleccionado.getAscensor());
+            ps.setInt(26, inmuebleSeleccionado.getTrastero());
+            ps.setInt(27, inmuebleSeleccionado.getJardin());
+            ps.setString(28, inmuebleSeleccionado.getPropietarioNombre());
+            ps.setString(29, inmuebleSeleccionado.getPropietarioApellidos());
+            ps.setString(30, inmuebleSeleccionado.getPropietarioNif());
+            ps.setString(31, inmuebleSeleccionado.getPropietarioTelefono());
+            ps.setString(32, inmuebleSeleccionado.getPropietarioEmail());
+            ps.setInt(33, inmuebleSeleccionado.getIdUsuario());
+            //Where:
+            ps.setInt(34, inmuebleSeleccionado.getIdInmueble());
+ 
             elementosActualizados = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(InmueblesDAO.class.getName()).log(Level.SEVERE, null, ex);

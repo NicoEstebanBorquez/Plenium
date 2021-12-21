@@ -16,9 +16,11 @@ public class ClientesDAO {
 
     private final String SQL_SELECT = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes";
 
-    private final String SQL_SELECT_ID = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes WHERE id_inmueble = ?";
+    private final String SQL_SELECT_ID = "SELECT id_cliente, nombre, apellidos, nif, telefono, email, tipo, presupuesto_min, presupuesto_max, dormitorios_min, dormitorios_max, terraza_balcon, aparcamiento, piscina, ascensor, poblacion, provincia, id_usuario FROM clientes WHERE id_cliente = ?";
 
     private final String SQL_INSERT = "INSERT INTO clientes VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    
+    private final String SQL_UPDATE = "UPDATE clientes SET nombre=?, apellidos=?, nif=?, telefono=?, email=?, tipo=?, presupuesto_min=?, presupuesto_max=?, dormitorios_min=?, dormitorios_max=?, terraza_balcon=?, aparcamiento=?, piscina=?, ascensor=?, poblacion=?, provincia=?, id_usuario=? WHERE id_cliente=?";
 
     final String SQL_DELETE = "DELETE FROM clientes WHERE id_cliente = ?";
 
@@ -197,6 +199,8 @@ public class ClientesDAO {
         int elementosActualizados = 0;
 
         try {
+            cn = Conexion.abrirConexion();
+            ps = cn.prepareStatement(SQL_UPDATE);
             ps.setString(1, clienteSeleccionado.getNombre());
             ps.setString(2, clienteSeleccionado.getApellidos());
             ps.setString(3, clienteSeleccionado.getNif());
@@ -214,6 +218,8 @@ public class ClientesDAO {
             ps.setString(15, clienteSeleccionado.getPoblacion());
             ps.setString(16, clienteSeleccionado.getProvincia());
             ps.setInt(17, clienteSeleccionado.getIdUsuario());
+            //Where:
+            ps.setInt(18, clienteSeleccionado.getIdCliente());
 
             elementosActualizados = ps.executeUpdate();
         } catch (SQLException ex) {
