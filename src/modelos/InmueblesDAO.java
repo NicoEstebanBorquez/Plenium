@@ -3,7 +3,6 @@ package modelos;
 import gestionBD.Conexion;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,9 +21,9 @@ public class InmueblesDAO {
     private final String SQL_SELECT_BUSQUEDA_AVANZADA = "SELECT * FROM `inmuebles` WHERE "
             + "(`precio` BETWEEN ? AND ?) AND "
             + "(`dormitorios`>=?) AND "
-            + "(`poblacion`=?) AND "
-            + "(`provincia`=?) AND "
-            + "(`tipo`=?)";
+            + "(`poblacion` LIKE ?) AND "
+            + "(`provincia` LIKE ?) AND "
+            + "(`tipo` LIKE ?)";
     //private final String SQL_SELECT_BUSQUEDA_AVANZADA = "SELECT * FROM `inmuebles` WHERE `precio` BETWEEN ? AND ? AND `dormitorios`>=? AND `poblacion`=? AND `provincia`=? AND `tipo`=?";
     //SELECT * FROM `inmuebles` WHERE `precio` BETWEEN 100000 AND 200000 AND `dormitorios`>=2 AND `poblacion`='Velez-Malaga' AND `provincia`= 'Malaga' AND `tipo` = 'PISO'
 

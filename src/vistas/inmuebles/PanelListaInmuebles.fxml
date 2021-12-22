@@ -14,7 +14,7 @@
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
           <TableColumn fx:id="colNombre" prefWidth="379.0" resizable="false" text="Nombre" />
-            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio (€)" />
             <TableColumn fx:id="colDormitorios" prefWidth="100.0" resizable="false" text="Dormitorios" />
             <TableColumn fx:id="colBanos" prefWidth="100.0" resizable="false" text="Baños" />
             <TableColumn fx:id="colPoblacion" prefWidth="150.0" resizable="false" text="Población" />

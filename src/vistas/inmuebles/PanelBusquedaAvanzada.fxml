@@ -14,7 +14,7 @@
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
           <TableColumn fx:id="colNombre" prefWidth="379.0" resizable="false" text="Nombre" />
-            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio (€)" />
             <TableColumn fx:id="colDormitorios" prefWidth="100.0" resizable="false" text="Dormitorios" />
             <TableColumn fx:id="colBanos" prefWidth="100.0" resizable="false" text="Baños" />
             <TableColumn fx:id="colPoblacion" prefWidth="150.0" resizable="false" text="Población" />
@@ -23,38 +23,32 @@
       </TableView>
    </center>
    <top>
-      <GridPane prefHeight="240.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+      <GridPane prefHeight="180.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="243.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="295.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="342.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="476.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="94.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="593.0" minWidth="10.0" prefWidth="185.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="98.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="148.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="279.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="196.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="939.0" minWidth="10.0" prefWidth="227.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="Referencia:">
-               <GridPane.margin>
-                  <Insets left="20.0" />
-               </GridPane.margin></Label>
-            <TextField fx:id="txtRef" prefHeight="31.0" prefWidth="878.0" GridPane.columnIndex="1" />
-            <Button fx:id="buscar" mnemonicParsing="false" onAction="#buscar" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="buscar" mnemonicParsing="false" onAction="#buscar" text="Buscar" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="5.0" />
                </GridPane.margin></Button>
-            <Button fx:id="limpiar" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Button fx:id="limpiar" mnemonicParsing="false" onAction="#limpiar" text="Limpiar" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="80.0" />
                </GridPane.margin>
             </Button>
-            <Label text="Acciones:" GridPane.rowIndex="5">
+            <Label text="Acciones:" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
@@ -62,7 +56,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <MenuButton mnemonicParsing="false" text="Exportar" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <MenuButton mnemonicParsing="false" text="Exportar" GridPane.columnIndex="4" GridPane.rowIndex="3">
               <items>
                 <MenuItem mnemonicParsing="false" text="PDF" />
                 <MenuItem mnemonicParsing="false" text="Excel" />
@@ -71,42 +65,70 @@
                   <Insets />
                </GridPane.margin>
             </MenuButton>
-            <Label layoutX="30.0" layoutY="15.0" text="Precio mín.:" GridPane.rowIndex="2">
+            <Label layoutX="30.0" layoutY="15.0" text="Precio mín.:">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <Label layoutX="30.0" layoutY="15.0" text="Precio máx.:" GridPane.rowIndex="3">
+            <Label layoutX="30.0" layoutY="15.0" text="Precio máx.:" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <Label layoutX="10.0" layoutY="87.0" text="Dormitorios mín.:" GridPane.rowIndex="4">
+            <Label layoutX="10.0" layoutY="87.0" text="Dormitorios mín.:" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets left="20.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="txtPrecioMin" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="txtPrecioMax" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField fx:id="txtTipo" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <TextField fx:id="txtProvincia" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <TextField fx:id="txtPoblacion" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Label text="Tipo:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <TextField fx:id="txtPrecioMin" maxWidth="90.0" GridPane.columnIndex="1" />
+            <TextField fx:id="txtPrecioMax" maxWidth="90.0" GridPane.columnIndex="3" />
+            <TextField fx:id="txtTipo" maxWidth="200.0" GridPane.columnIndex="5" />
+            <TextField fx:id="txtProvincia" maxWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <TextField fx:id="txtPoblacion" maxWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <Label text="Tipo de inmueble:" GridPane.columnIndex="4">
                <padding>
                   <Insets left="60.0" />
                </padding>
             </Label>
-            <Label text="Población:" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label text="Población:" GridPane.columnIndex="4" GridPane.rowIndex="1">
                <padding>
                   <Insets left="60.0" />
                </padding>
             </Label>
-            <Label text="Provincia:" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label text="Provincia:" GridPane.columnIndex="4" GridPane.rowIndex="2">
                <padding>
                   <Insets left="60.0" />
                </padding>
             </Label>
-            <TextField fx:id="txtDormitoriosMin" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="txtDormitoriosMin" maxWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Dormitorios máx.:" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="Superficie máx.:" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <TextField fx:id="txtDormitoriosMin" maxWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField maxWidth="50.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <TextField fx:id="txtSuperficieMin" maxWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label layoutX="280.0" layoutY="180.0" text="Superficie mín.:" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label text="m²" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="txtSuperficieMax" text="m²" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </Label>
          </children>
          <BorderPane.margin>
             <Insets top="20.0" />

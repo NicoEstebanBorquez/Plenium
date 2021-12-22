@@ -27,7 +27,7 @@ import modelos.InmueblesDAO;
 public class PanelBusquedaAvanzadaController implements Initializable {
 
     @FXML
-    private TextField txtRef, txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtTipo, txtPoblacion, txtProvincia;
+    private TextField txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtDormitoriosMax, txtSuperficieMin, txtSuperficieMax , txtTipo, txtPoblacion, txtProvincia;
 
     @FXML
     private TableView<Inmuebles> tablaInmuebles;
@@ -94,21 +94,48 @@ public class PanelBusquedaAvanzadaController implements Initializable {
 
         Inmuebles inmueble = null;
 
-        //Parámetros de la búsqueda:
-        int precioMin = Integer.parseInt(txtPrecioMin.getText().trim());
-        int precioMax = Integer.parseInt(txtPrecioMax.getText().trim());
-        String dormitoriosMin = txtDormitoriosMin.getText().trim();
-        String poblacion = txtPoblacion.getText().trim();
-        String provincia = txtProvincia.getText().trim();
-        String tipo = txtTipo.getText().trim();
+        //Parámetros de la búsqueda: ----------------------------------------
+        String txt_PrecioMin = txtPrecioMin.getText().trim();
+        String txt_PrecioMax = txtPrecioMax.getText().trim();
+        String txt_dormitoriosMin = txtDormitoriosMin.getText().trim();
+        String txt_dormitoriosMax = txtDormitoriosMax.getText().trim();
+        String txt_poblacion = txtPoblacion.getText().trim();
+        String txt_provincia = txtProvincia.getText().trim();
+        String txt_tipo = txtTipo.getText().trim();
 
-        int dormitoriosMin_b = 0;
+        int precioMin = 0;
+        int precioMax = 9999999;
+        int dormitoriosMin = 0;
+        String poblacion = "%";
+        String provincia = "%";
+        String tipo = "%";
 
-        if (!dormitoriosMin.equals("")) {
-            dormitoriosMin_b = Integer.parseInt(dormitoriosMin);
+        if (!txt_PrecioMin.equals("")) {
+            precioMin = Integer.parseInt(txt_PrecioMin);
+        }
+        
+        if (!txt_PrecioMax.equals("")) {
+            precioMax = Integer.parseInt(txt_PrecioMax);
+        }
+        
+        if (!txt_dormitoriosMin.equals("")) {
+            dormitoriosMin = Integer.parseInt(txt_dormitoriosMin);
         }
 
-        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(precioMin, precioMax, dormitoriosMin_b, poblacion, provincia, tipo);
+        if (!txt_poblacion.equals("")) {
+            poblacion = txt_poblacion;
+        }
+
+        if (!txt_provincia.equals("")) {
+            provincia = txt_provincia;
+        }
+
+        if (!txt_tipo.equals("")) {
+            tipo = txt_tipo;
+        }
+        //-----------------------------------------------------------------------------
+        
+        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(precioMin, precioMax, dormitoriosMin, poblacion, provincia, tipo);
 
         if (!lista.isEmpty()) {
             Iterator iterador = lista.iterator();
