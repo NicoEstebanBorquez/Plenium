@@ -17,10 +17,11 @@ public class InmueblesDAO {
     private final String SQL_SELECT = "SELECT * FROM inmuebles";
 
     private final String SQL_SELECT_ID = "SELECT * FROM inmuebles WHERE id_inmueble=?";
-//                                                                                                         1     2                      3                   4                   5              6
+
     private final String SQL_SELECT_BUSQUEDA_AVANZADA = "SELECT * FROM `inmuebles` WHERE "
-            + "(`precio` BETWEEN ? AND ?) AND "
-            + "(`dormitorios`>=?) AND "
+            + "(`precio` BETWEEN ? AND ?) AND " 
+            + "(`dormitorios` BETWEEN ? AND ?) AND "
+            + "(`superficie_total` BETWEEN ? AND ?) AND "
             + "(`poblacion` LIKE ?) AND "
             + "(`provincia` LIKE ?) AND "
             + "(`tipo` LIKE ?)";
@@ -157,7 +158,7 @@ public class InmueblesDAO {
         return inmueble;
     }
 
-    public List listarBusquedaAvanzada(int precioMin, int precioMax, int dormitoriosMin, String poblacion_b, String provincia_b, String tipo_b) {
+    public List listarBusquedaAvanzada(int precioMin, int precioMax, int dormitoriosMin, int dormitoriosMax, int superficieMin, int superficieMax, String poblacion_b, String provincia_b, String tipo_b) {
 
         Connection cn = null;
         PreparedStatement ps = null;
@@ -172,9 +173,12 @@ public class InmueblesDAO {
             ps.setInt(1, precioMin);
             ps.setInt(2, precioMax);
             ps.setInt(3, dormitoriosMin);
-            ps.setString(4, poblacion_b);
-            ps.setString(5, provincia_b);
-            ps.setString(6, tipo_b);
+            ps.setInt(4, dormitoriosMax);
+            ps.setInt(5, superficieMin);
+            ps.setInt(6, superficieMax);
+            ps.setString(7, poblacion_b);
+            ps.setString(8, provincia_b);
+            ps.setString(9, tipo_b);
             rs = ps.executeQuery();
 
             while (rs.next()) {

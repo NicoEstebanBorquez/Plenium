@@ -27,13 +27,13 @@ import modelos.InmueblesDAO;
 public class PanelBusquedaAvanzadaController implements Initializable {
 
     @FXML
-    private TextField txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtDormitoriosMax, txtSuperficieMin, txtSuperficieMax , txtTipo, txtPoblacion, txtProvincia;
+    private TextField txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtDormitoriosMax, txtSuperficieMin, txtSuperficieMax, txtTipo, txtPoblacion, txtProvincia;
 
     @FXML
     private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
-    private TableColumn colRef, colNombre, colPrecio, colDormitorios, colBanos, colPoblacion, colProvincia;
+    private TableColumn colRef, colNombre, colPrecio, colSuperficie, colDormitorios, colBanos, colPoblacion, colProvincia;
 
     private ObservableList<Inmuebles> listaObservable;
 
@@ -43,6 +43,7 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
+        this.colSuperficie.setCellValueFactory(new PropertyValueFactory("superficieTotal"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
         this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
@@ -87,6 +88,7 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
+        this.colSuperficie.setCellValueFactory(new PropertyValueFactory("superficieTotal"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
         this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
@@ -99,6 +101,8 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         String txt_PrecioMax = txtPrecioMax.getText().trim();
         String txt_dormitoriosMin = txtDormitoriosMin.getText().trim();
         String txt_dormitoriosMax = txtDormitoriosMax.getText().trim();
+        String txt_SuperficieMin = txtSuperficieMin.getText().trim();
+        String txt_SuperficieMax = txtSuperficieMax.getText().trim();
         String txt_poblacion = txtPoblacion.getText().trim();
         String txt_provincia = txtProvincia.getText().trim();
         String txt_tipo = txtTipo.getText().trim();
@@ -106,6 +110,9 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         int precioMin = 0;
         int precioMax = 9999999;
         int dormitoriosMin = 0;
+        int dormitoriosMax = 99;
+        int superficieMin = 0;
+        int superficieMax = 999;
         String poblacion = "%";
         String provincia = "%";
         String tipo = "%";
@@ -113,13 +120,25 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         if (!txt_PrecioMin.equals("")) {
             precioMin = Integer.parseInt(txt_PrecioMin);
         }
-        
+
         if (!txt_PrecioMax.equals("")) {
             precioMax = Integer.parseInt(txt_PrecioMax);
         }
-        
+
         if (!txt_dormitoriosMin.equals("")) {
             dormitoriosMin = Integer.parseInt(txt_dormitoriosMin);
+        }
+
+        if (!txt_dormitoriosMax.equals("")) {
+            dormitoriosMax = Integer.parseInt(txt_dormitoriosMax);
+        }
+
+        if (!txt_SuperficieMin.equals("")) {
+            superficieMin = Integer.parseInt(txt_SuperficieMin);
+        }
+
+        if (!txt_SuperficieMax.equals("")) {
+            superficieMax = Integer.parseInt(txt_SuperficieMax);
         }
 
         if (!txt_poblacion.equals("")) {
@@ -134,8 +153,8 @@ public class PanelBusquedaAvanzadaController implements Initializable {
             tipo = txt_tipo;
         }
         //-----------------------------------------------------------------------------
-        
-        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(precioMin, precioMax, dormitoriosMin, poblacion, provincia, tipo);
+
+        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(precioMin, precioMax, dormitoriosMin, dormitoriosMax, superficieMin, superficieMax, poblacion, provincia, tipo);
 
         if (!lista.isEmpty()) {
             Iterator iterador = lista.iterator();
@@ -163,7 +182,6 @@ public class PanelBusquedaAvanzadaController implements Initializable {
 
     @FXML
     public void limpiar() {
-        this.txtRef.setText("");
 
     }
 
