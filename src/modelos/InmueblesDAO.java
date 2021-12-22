@@ -13,14 +13,24 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class InmueblesDAO {
-//id_inmueble, nombre, tipo, precio, superficie_construida, superficie_total, direccion, poblacion, provincia, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario
+//id_inmueble, nombre, tipo, precio, superficie_util, superficie_total, direccion, poblacion, provincia, fecha_publicacion, dormitorios, banos, amueblado, semi_amueblado, no_amueblado, cocina_equipada, aire_acondicionado, calefaccion_central, gas_natural, placas_solares, armarios_empotrados, terraza_balcon, piscina, aparcamiento, ascensor, trastero, jardin, propietario_nombre, propietario_apellidos, propietario_nif, propietario_telefono, propietario_email, id_usuario
+
     private final String SQL_SELECT = "SELECT * FROM inmuebles";
 
     private final String SQL_SELECT_ID = "SELECT * FROM inmuebles WHERE id_inmueble=?";
+//                                                                                                         1     2                      3                   4                   5              6
+    private final String SQL_SELECT_BUSQUEDA_AVANZADA = "SELECT * FROM `inmuebles` WHERE "
+            + "(`precio` BETWEEN ? AND ?) AND "
+            + "(`dormitorios`>=?) AND "
+            + "(`poblacion`=?) AND "
+            + "(`provincia`=?) AND "
+            + "(`tipo`=?)";
+    //private final String SQL_SELECT_BUSQUEDA_AVANZADA = "SELECT * FROM `inmuebles` WHERE `precio` BETWEEN ? AND ? AND `dormitorios`>=? AND `poblacion`=? AND `provincia`=? AND `tipo`=?";
+    //SELECT * FROM `inmuebles` WHERE `precio` BETWEEN 100000 AND 200000 AND `dormitorios`>=2 AND `poblacion`='Velez-Malaga' AND `provincia`= 'Malaga' AND `tipo` = 'PISO'
 
     private final String SQL_INSERT = "INSERT INTO inmuebles VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo=?, precio=?, superficie_construida=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?, placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?, propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
+    private final String SQL_UPDATE = "UPDATE inmuebles SET nombre=?, tipo=?, precio=?, superficie_util=?, superficie_total=?, direccion=?, poblacion=?, provincia=?, fecha_publicacion=?, dormitorios=?, banos=?, amueblado=?, semi_amueblado=?, no_amueblado=?, cocina_equipada=?, aire_acondicionado=?, calefaccion_central=?, gas_natural=?, placas_solares=?, armarios_empotrados=?, terraza_balcon=?, piscina=?, aparcamiento=?, ascensor=?, trastero=?, jardin=?, propietario_nombre=?, propietario_apellidos=?, propietario_nif=?, propietario_telefono=?, propietario_email=?, id_usuario=? WHERE id_inmueble=?";
 
     private final String SQL_DELETE = "DELETE FROM inmuebles WHERE id_inmueble=?";
 
@@ -42,7 +52,7 @@ public class InmueblesDAO {
                 String nombre = rs.getString(2);
                 String tipo = rs.getString(3);
                 double precio = rs.getDouble(4);
-                double superficieConstruida = rs.getDouble(5);
+                double superficieUtil = rs.getDouble(5);
                 double superficieTotal = rs.getDouble(6);
                 String direccion = rs.getString(7);
                 String poblacion = rs.getString(8);
@@ -72,7 +82,7 @@ public class InmueblesDAO {
                 String propietarioEmail = rs.getString(32);
                 int idUsuario = rs.getInt(33);
 
-                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
+                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
                 lista.add(inmueble);
             }
 
@@ -104,7 +114,7 @@ public class InmueblesDAO {
                 String nombre = rs.getString(2);
                 String tipo = rs.getString(3);
                 double precio = rs.getDouble(4);
-                double superficieConstruida = rs.getDouble(5);
+                double superficieUtil = rs.getDouble(5);
                 double superficieTotal = rs.getDouble(6);
                 String direccion = rs.getString(7);
                 String poblacion = rs.getString(8);
@@ -134,7 +144,7 @@ public class InmueblesDAO {
                 String propietarioEmail = rs.getString(32);
                 int idUsuario = rs.getInt(33);
 
-                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
+                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
             }
 
         } catch (SQLException ex) {
@@ -146,6 +156,76 @@ public class InmueblesDAO {
             Conexion.close(cn);
         }
         return inmueble;
+    }
+
+    public List listarBusquedaAvanzada(int precioMin, int precioMax, int dormitoriosMin, String poblacion_b, String provincia_b, String tipo_b) {
+
+        Connection cn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Inmuebles> lista = new ArrayList<>();
+        Inmuebles inmueble = null;
+
+        try {
+            cn = Conexion.abrirConexion();
+            ps = cn.prepareStatement(SQL_SELECT_BUSQUEDA_AVANZADA);
+
+            ps.setInt(1, precioMin);
+            ps.setInt(2, precioMax);
+            ps.setInt(3, dormitoriosMin);
+            ps.setString(4, poblacion_b);
+            ps.setString(5, provincia_b);
+            ps.setString(6, tipo_b);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int idInmueble = rs.getInt(1);
+                String nombre = rs.getString(2);
+                String tipo = rs.getString(3);
+                double precio = rs.getDouble(4);
+                double superficieUtil = rs.getDouble(5);
+                double superficieTotal = rs.getDouble(6);
+                String direccion = rs.getString(7);
+                String poblacion = rs.getString(8);
+                String provincia = rs.getString(9);
+                Date fechaPublicacion = rs.getDate(10);
+                int dormitorios = rs.getInt(11);
+                int banos = rs.getInt(12);
+                int amueblado = rs.getInt(13);
+                int semiAmueblado = rs.getInt(14);
+                int noAmueblado = rs.getInt(15);
+                int cocinaEquipada = rs.getInt(16);
+                int aireAcondicionado = rs.getInt(17);
+                int calefaccionCentral = rs.getInt(18);
+                int gasNatural = rs.getInt(19);
+                int placasSolares = rs.getInt(20);
+                int armariosEmpotrados = rs.getInt(21);
+                int terrazaBalcon = rs.getInt(22);
+                int piscina = rs.getInt(23);
+                int aparcamiento = rs.getInt(24);
+                int ascensor = rs.getInt(25);
+                int trastero = rs.getInt(26);
+                int jardin = rs.getInt(27);
+                String propietarioNombre = rs.getString(28);
+                String propietarioApellidos = rs.getString(29);
+                String propietarioNif = rs.getString(30);
+                String propietarioTelefono = rs.getString(31);
+                String propietarioEmail = rs.getString(32);
+                int idUsuario = rs.getInt(33);
+
+                inmueble = new Inmuebles(idInmueble, nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, idUsuario);
+                lista.add(inmueble);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(InmueblesDAO.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Conexion.close(rs);
+            Conexion.close(ps);
+            Conexion.close(cn);
+        }
+        return lista;
     }
 
     public int insertar(Inmuebles inmueble) {
@@ -161,7 +241,7 @@ public class InmueblesDAO {
             ps.setString(2, inmueble.getNombre());
             ps.setString(3, inmueble.getTipo());
             ps.setDouble(4, inmueble.getPrecio());
-            ps.setDouble(5, inmueble.getSuperficieConstruida());
+            ps.setDouble(5, inmueble.getSuperficieUtil());
             ps.setDouble(6, inmueble.getSuperficieTotal());
             ps.setString(7, inmueble.getDireccion());
             ps.setString(8, inmueble.getPoblacion());
@@ -205,15 +285,14 @@ public class InmueblesDAO {
         Connection cn = null;
         PreparedStatement ps = null;
         int elementosActualizados = 0;
-        
-        
+
         try {
             cn = Conexion.abrirConexion();
             ps = cn.prepareStatement(SQL_UPDATE);
             ps.setString(1, inmuebleSeleccionado.getNombre());
             ps.setString(2, inmuebleSeleccionado.getTipo());
             ps.setDouble(3, inmuebleSeleccionado.getPrecio());
-            ps.setDouble(4, inmuebleSeleccionado.getSuperficieConstruida());
+            ps.setDouble(4, inmuebleSeleccionado.getSuperficieUtil());
             ps.setDouble(5, inmuebleSeleccionado.getSuperficieTotal());
             ps.setString(6, inmuebleSeleccionado.getDireccion());
             ps.setString(7, inmuebleSeleccionado.getPoblacion());
@@ -244,7 +323,7 @@ public class InmueblesDAO {
             ps.setInt(32, inmuebleSeleccionado.getIdUsuario());
             //Where:
             ps.setInt(33, inmuebleSeleccionado.getIdInmueble());
- 
+
             elementosActualizados = ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(InmueblesDAO.class.getName()).log(Level.SEVERE, null, ex);

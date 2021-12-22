@@ -16,7 +16,7 @@ import modelos.InmueblesDAO;
 public class PanelAnadirInmuebleController implements Initializable {
 
     @FXML
-    private TextField txtNombre, txtTipo, txtPrecio, txtSuperficieConstruida, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia,
+    private TextField txtNombre, txtTipo, txtPrecio, txtSuperficieUtil, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia,
             txtFechaPublicacion, txtDormitorios, txtBanos, txtAmueblado, txtSemiAmueblado, txtNoAmueblado, txtCocinaEquipada, txtAireAcondicionado,
             txtCalefaccionCentral, txtGasNatural, txtPlacasSolares, txtArmariosEmpotrados, txtTerrazaBalcon, txtPiscina, txtAparcamiento, txtAscensor,
             txtTrastero, txtJardin, txtPropietarioNombre, txtPropietarioApellidos, txtPropietarioNif, txtPropietarioTelefono, txtPropietarioEmail, txtUsuario;
@@ -26,7 +26,7 @@ public class PanelAnadirInmuebleController implements Initializable {
         String nombre = txtNombre.getText().trim();
         String tipo = txtTipo.getText().trim();
         double precio = Double.parseDouble(txtPrecio.getText().trim());
-        double superficieConstruida = Double.parseDouble(txtSuperficieConstruida.getText().trim());
+        double superficieUtil = Double.parseDouble(txtSuperficieUtil.getText().trim());
         double superficieTotal = Double.parseDouble(txtSuperficieTotal.getText().trim());
         String direccion = txtDireccion.getText().trim();
         String poblacion = txtPoblacion.getText().trim();
@@ -56,7 +56,7 @@ public class PanelAnadirInmuebleController implements Initializable {
         String propietarioEmail = txtPropietarioEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios,
+        Inmuebles inmueble = new Inmuebles(nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios,
                 banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon,
                 piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, usuario);
 
@@ -100,7 +100,7 @@ public class PanelAnadirInmuebleController implements Initializable {
         txtNombre.setText("");
         txtTipo.setText("");
         txtPrecio.setText("");
-        txtSuperficieConstruida.setText("");
+        txtSuperficieUtil.setText("");
         txtSuperficieTotal.setText("");
         txtDireccion.setText("");
         txtPoblacion.setText("");

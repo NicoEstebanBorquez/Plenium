@@ -23,14 +23,14 @@ import modelos.InmueblesDAO;
 
 public class PanelInfoInmuebleController implements Initializable {
 
-    // nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, 
+    // nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, 
     // fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
     // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
     // trastero, jardin, propietario, usuario
     protected static int inmuebleSeleccionado;
 
     @FXML
-    private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieConstruida, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,
+    private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieUtil, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,
             labelFechaPublicacion, labelDormitorios, labelBanos, labelAmueblado, labelSemiAmueblado, labelNoAmueblado, labelCocinaEquipada, labelAireAcondicionado,
             labelCalefaccionCentral, labelGasNatural, labelPlacasSolares, labelArmariosEmpotrados, labelTerrazaBalcon, labelPiscina, labelAparcamiento, labelAscensor,
             labelTrastero, labelJardin, labelPropietarioNombre, labelPropietarioApellidos, labelPropietarioNif, labelPropietarioTelefono, labelPropietarioEmail, labelUsuario;
@@ -43,7 +43,7 @@ public class PanelInfoInmuebleController implements Initializable {
         labelNombre.setText(inmueble.getNombre());
         labelTipo.setText(inmueble.getTipo());
         labelPrecio.setText(Double.toString(inmueble.getPrecio()));
-        labelSuperficieConstruida.setText(Double.toString(inmueble.getSuperficieConstruida()));
+        labelSuperficieUtil.setText(Double.toString(inmueble.getSuperficieUtil()));
         labelSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         labelDireccion.setText(inmueble.getDireccion());
         labelPoblacion.setText(inmueble.getPoblacion());

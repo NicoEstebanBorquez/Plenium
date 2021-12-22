@@ -21,7 +21,7 @@ public class PanelEditarInmuebleController implements Initializable {
     protected static int inmuebleSeleccionado;
 
     @FXML
-    private TextField txtReferencia, txtNombre, txtTipo, txtPrecio, txtSuperficieConstruida, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia,
+    private TextField txtReferencia, txtNombre, txtTipo, txtPrecio, txtSuperficieUtil, txtSuperficieTotal, txtDireccion, txtPoblacion, txtProvincia,
             txtFechaPublicacion, txtDormitorios, txtBanos, txtAmueblado, txtSemiAmueblado, txtNoAmueblado, txtCocinaEquipada, txtAireAcondicionado,
             txtCalefaccionCentral, txtGasNatural, txtPlacasSolares, txtArmariosEmpotrados, txtTerrazaBalcon, txtPiscina, txtAparcamiento, txtAscensor,
             txtTrastero, txtJardin, txtPropietarioNombre, txtPropietarioApellidos, txtPropietarioNif, txtPropietarioTelefono, txtPropietarioEmail, txtUsuario;
@@ -32,7 +32,7 @@ public class PanelEditarInmuebleController implements Initializable {
         String nombre = txtNombre.getText().trim();
         String tipo = txtTipo.getText().trim();
         double precio = Double.parseDouble(txtPrecio.getText().trim());
-        double superficieConstruida = Double.parseDouble(txtSuperficieConstruida.getText().trim());
+        double superficieUtil = Double.parseDouble(txtSuperficieUtil.getText().trim());
         double superficieTotal = Double.parseDouble(txtSuperficieTotal.getText().trim());
         String direccion = txtDireccion.getText().trim();
         String poblacion = txtPoblacion.getText().trim();
@@ -62,7 +62,7 @@ public class PanelEditarInmuebleController implements Initializable {
         String propietarioEmail = txtPropietarioEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
 
-        Inmuebles inmueble = new Inmuebles(referencia, nombre, tipo, precio, superficieConstruida, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios,
+        Inmuebles inmueble = new Inmuebles(referencia, nombre, tipo, precio, superficieUtil, superficieTotal, direccion, poblacion, provincia, fechaPublicacion, dormitorios,
                 banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon,
                 piscina, aparcamiento, ascensor, trastero, jardin, propietarioNombre, propietarioApellidos, propietarioNif, propietarioTelefono, propietarioEmail, usuario);
 
@@ -105,7 +105,7 @@ public class PanelEditarInmuebleController implements Initializable {
         txtNombre.setText(inmueble.getNombre());
         txtTipo.setText(inmueble.getTipo());
         txtPrecio.setText(Double.toString(inmueble.getPrecio()));
-        txtSuperficieConstruida.setText(Double.toString(inmueble.getSuperficieConstruida()));
+        txtSuperficieUtil.setText(Double.toString(inmueble.getSuperficieUtil()));
         txtSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         txtDireccion.setText(inmueble.getDireccion());
         txtPoblacion.setText(inmueble.getPoblacion());

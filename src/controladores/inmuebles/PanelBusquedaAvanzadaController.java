@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,7 +27,7 @@ import modelos.InmueblesDAO;
 public class PanelBusquedaAvanzadaController implements Initializable {
 
     @FXML
-    private TextField txtRef, txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtTipo, txtProvincia, txtPoblacion;
+    private TextField txtRef, txtPrecioMin, txtPrecioMax, txtDormitoriosMin, txtTipo, txtPoblacion, txtProvincia;
 
     @FXML
     private TableView<Inmuebles> tablaInmuebles;
@@ -79,7 +82,6 @@ public class PanelBusquedaAvanzadaController implements Initializable {
     @FXML
     public void buscar() {
 
-        int inmuebleBuscado = Integer.parseInt(this.txtRef.getText().trim());
         //Tabla
         listaObservable = FXCollections.observableArrayList();
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
@@ -90,10 +92,41 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
-        Inmuebles inmueble = new InmueblesDAO().obtenerPorId(inmuebleBuscado);
+        Inmuebles inmueble = null;
 
-        this.listaObservable.add(inmueble);
-        this.tablaInmuebles.setItems(listaObservable);
+        //Parámetros de la búsqueda:
+        int precioMin = Integer.parseInt(txtPrecioMin.getText().trim());
+        int precioMax = Integer.parseInt(txtPrecioMax.getText().trim());
+        String dormitoriosMin = txtDormitoriosMin.getText().trim();
+        String poblacion = txtPoblacion.getText().trim();
+        String provincia = txtProvincia.getText().trim();
+        String tipo = txtTipo.getText().trim();
+
+        int dormitoriosMin_b = 0;
+
+        if (!dormitoriosMin.equals("")) {
+            dormitoriosMin_b = Integer.parseInt(dormitoriosMin);
+        }
+
+        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(precioMin, precioMax, dormitoriosMin_b, poblacion, provincia, tipo);
+
+        if (!lista.isEmpty()) {
+            Iterator iterador = lista.iterator();
+
+            while (iterador.hasNext()) {
+                inmueble = (Inmuebles) iterador.next();
+                this.listaObservable.add(inmueble);
+                this.tablaInmuebles.setItems(listaObservable);
+            }
+        } else {
+            listaObservable.clear();
+            this.tablaInmuebles.setItems(listaObservable);
+
+            Alert mensaje = new Alert(Alert.AlertType.ERROR);
+            mensaje.setTitle("Sin resultados");
+            mensaje.setContentText("No se han obtenido resultados.");
+            mensaje.showAndWait();
+        }
     }
 
     @FXML

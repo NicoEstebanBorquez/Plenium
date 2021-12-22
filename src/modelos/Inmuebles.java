@@ -16,7 +16,7 @@ Oficina
 Local comercial
 */
     private double precio;
-    private double superficieConstruida;
+    private double superficieUtil;
     private double superficieTotal;
     private String direccion;
     private String poblacion;
@@ -49,11 +49,11 @@ Local comercial
     public Inmuebles() {
     }
 
-    public Inmuebles(String nombre, String tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(String nombre, String tipo, double precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
-        this.superficieConstruida = superficieConstruida;
+        this.superficieUtil = superficieUtil;
         this.superficieTotal = superficieTotal;
         this.direccion = direccion;
         this.poblacion = poblacion;
@@ -84,12 +84,12 @@ Local comercial
         this.idUsuario = idUsuario;
     }
 
-    public Inmuebles(int idInmueble, String nombre, String tipo, double precio, double superficieConstruida, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(int idInmueble, String nombre, String tipo, double precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.idInmueble = idInmueble;
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
-        this.superficieConstruida = superficieConstruida;
+        this.superficieUtil = superficieUtil;
         this.superficieTotal = superficieTotal;
         this.direccion = direccion;
         this.poblacion = poblacion;
@@ -152,12 +152,12 @@ Local comercial
         this.precio = precio;
     }
 
-    public double getSuperficieConstruida() {
-        return this.superficieConstruida;
+    public double getSuperficieUtil() {
+        return this.superficieUtil;
     }
 
-    public void setSuperficieConstruida(double superficieConstruida) {
-        this.superficieConstruida = superficieConstruida;
+    public void setSuperficieUtil(double superficieUtil) {
+        this.superficieUtil = superficieUtil;
     }
 
     public double getSuperficieTotal() {

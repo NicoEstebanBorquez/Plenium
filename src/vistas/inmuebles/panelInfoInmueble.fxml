@@ -59,9 +59,9 @@
                               <Label fx:id="labelPrecio" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <Label text="Fecha publicación:" GridPane.columnIndex="2" />
                               <Label fx:id="labelFechaPublicacion" text="Label" GridPane.columnIndex="3" />
-                              <Label text="Superficie construida:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                              <Label text="Superficie útil:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                               <Label text="Superficie total:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                              <Label fx:id="labelSuperficieConstruida" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <Label fx:id="labelSuperficieUtil" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <Label fx:id="labelSuperficieTotal" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <Label text="Usuario:" GridPane.rowIndex="3">
                                  <GridPane.margin>
@@ -77,14 +77,12 @@
                                  </GridPane.margin>
                               </Label>
                               <Label fx:id="labelProvincia" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <Label text="Categoría:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
                               <Label text="Dirección:" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                               <Label text="Población:" GridPane.rowIndex="4">
                                  <GridPane.margin>
                                     <Insets left="20.0" />
                                  </GridPane.margin>
                               </Label>
-                              <Label fx:id="labelCategoria" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                               <Label fx:id="labelDireccion" text="Label" GridPane.columnIndex="3" GridPane.rowIndex="5" />
                               <Label fx:id="labelPoblacion" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                            </children>
