@@ -13,12 +13,12 @@
       <TableView fx:id="tablaInmuebles" maxWidth="1100.0" onMouseClicked="#seleccionar" prefHeight="500.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colRef" prefWidth="95.0" resizable="false" text="Ref." />
-          <TableColumn fx:id="colNombre" prefWidth="379.0" resizable="false" text="Nombre" />
-            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="125.0" resizable="false" text="Precio (€)" />
-            <TableColumn fx:id="colDormitorios" prefWidth="100.0" resizable="false" text="Dormitorios" />
-            <TableColumn fx:id="colBanos" prefWidth="100.0" resizable="false" text="Baños" />
-            <TableColumn fx:id="colPoblacion" prefWidth="150.0" resizable="false" text="Población" />
-            <TableColumn fx:id="colProvincia" prefWidth="150.0" resizable="false" text="Provincia" />
+          <TableColumn fx:id="colTipo" prefWidth="112.0" resizable="false" text="Tipo" />
+          <TableColumn fx:id="colNombre" prefWidth="423.0" resizable="false" text="Nombre" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="111.0" resizable="false" text="Precio (€)" />
+            <TableColumn fx:id="colDormitorios" prefWidth="77.0" resizable="false" text="Dorm." />
+            <TableColumn fx:id="colPoblacion" prefWidth="131.0" resizable="false" text="Población" />
+            <TableColumn fx:id="colProvincia" maxWidth="150.0" prefWidth="150.0" resizable="false" text="Provincia" />
         </columns>
       </TableView>
    </center>

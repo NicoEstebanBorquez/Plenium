@@ -27,7 +27,7 @@ public class PanelInfoInmuebleController implements Initializable {
     // fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
     // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
     // trastero, jardin, propietario, usuario
-    protected static int inmuebleSeleccionado;
+    public static int inmuebleSeleccionado;
 
     @FXML
     private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieUtil, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,

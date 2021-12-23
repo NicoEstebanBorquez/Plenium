@@ -189,20 +189,19 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
             </TitledPane>
-            <TitledPane animated="false" maxWidth="900.0" minWidth="900.0" prefWidth="900.0" text="Propiedades seleccionadas">
+            <TitledPane animated="false" collapsible="false" maxWidth="900.0" minHeight="250.0" minWidth="900.0" prefWidth="900.0" text="Propiedades seleccionadas">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="895.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="895.0">
                      <children>
-                        <TableView prefHeight="168.0" prefWidth="890.0" style="-fx-background-color: #ffffff;">
+                        <TableView fx:id="tablaInmuebles" onMouseClicked="#seleccionar" prefHeight="300.0" prefWidth="898.0" style="-fx-background-color: #ffffff;">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Ref." />
-                              <TableColumn prefWidth="75.0" text="Tipo" />
-                              <TableColumn prefWidth="187.0" text="Nombre" />
-                              <TableColumn prefWidth="123.0" text="Ubicación" />
-                              <TableColumn prefWidth="108.0" text="Precio" />
-                              <TableColumn prefWidth="98.0" text="Dormitorios" />
-                              <TableColumn prefWidth="126.0" text="Categoría" />
-                              <TableColumn prefWidth="97.0" text="Publicación" />
+                            <TableColumn fx:id="colRef" prefWidth="75.0" text="Ref." />
+                              <TableColumn fx:id="colTipo" prefWidth="103.0" text="Tipo" />
+                              <TableColumn fx:id="colNombre" prefWidth="325.0" text="Nombre" />
+                              <TableColumn fx:id="colPrecio" prefWidth="84.0" text="Precio (€)" />
+                              <TableColumn fx:id="colDormitorios" prefWidth="62.0" text="Dorm." />
+                              <TableColumn fx:id="colPoblacion" prefWidth="119.0" text="Población" />
+                              <TableColumn fx:id="colProvincia" prefWidth="129.0" text="Provincia" />
                           </columns>
                         </TableView>
                      </children>

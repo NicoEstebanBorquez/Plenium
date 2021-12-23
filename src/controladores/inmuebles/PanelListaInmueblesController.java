@@ -31,7 +31,7 @@ public class PanelListaInmueblesController implements Initializable {
     private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
-    private TableColumn colRef, colNombre, colPrecio, colDormitorios, colBanos, colPoblacion, colProvincia;
+    private TableColumn colRef, colNombre, colPrecio, colTipo, colDormitorios, colPoblacion, colProvincia;
 
     private ObservableList<Inmuebles> listaObservable;
 
@@ -41,17 +41,11 @@ public class PanelListaInmueblesController implements Initializable {
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
+        this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
-        this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
-        /*
-        *
-        * Esto tengo que ver como meterlo en InmueblesDAO
-        * De modo que al llamar a listar() me devuelve el List con los datos
-        * Lo he metido aquí porque por algún motivo solo puedo usarlo una vez porque se me cierra la sesion
-         */
         Inmuebles inmueble = null;
         List<Inmuebles> lista = new InmueblesDAO().listar();
         Iterator iterador = lista.iterator();
@@ -70,7 +64,7 @@ public class PanelListaInmueblesController implements Initializable {
 
         //Se envía el id del inmueble seleccionado al controlador PanelInfoInmueblesController
         PanelInfoInmuebleController.inmuebleSeleccionado = seleccionado;
-
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/vistas/inmuebles/panelInfoInmueble.fxml"));
         //Cargar el padre
         Parent padre = loader.load();
@@ -85,15 +79,15 @@ public class PanelListaInmueblesController implements Initializable {
 
     @FXML
     public void buscar() {
-        
+
         int inmuebleBuscado = Integer.parseInt(this.txtRef.getText().trim());
         //Tabla
         listaObservable = FXCollections.observableArrayList();
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
+         this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
-        this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
@@ -101,11 +95,12 @@ public class PanelListaInmueblesController implements Initializable {
 
         this.listaObservable.add(inmueble);
         this.tablaInmuebles.setItems(listaObservable);
-        
+
         this.txtRef.setText("");
     }
-    
-    @FXML public void actualizar(){
+
+    @FXML
+    public void actualizar() {
         this.mostrarInmuebles();
     }
 
