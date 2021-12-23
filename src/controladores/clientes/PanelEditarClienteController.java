@@ -34,9 +34,9 @@ public class PanelEditarClienteController implements Initializable {
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
-        int tipo = Integer.parseInt(txtTipo.getText().trim());
-        double presupuestoMin = Double.parseDouble(txtPresupuestoMin.getText().trim());
-        double presupuestoMax = Double.parseDouble(txtPresupuestoMax.getText().trim());
+        String tipo = txtTipo.getText().trim();
+        int presupuestoMin = Integer.parseInt(txtPresupuestoMin.getText().trim());
+        int presupuestoMax = Integer.parseInt(txtPresupuestoMax.getText().trim());
         int dormitoriosMin = Integer.parseInt(txtDormitoriosMin.getText().trim());
         int dormitoriosMax = Integer.parseInt(txtDormitoriosMax.getText().trim());
         int terrazaBalcon = Integer.parseInt(txtTerrazaBalcon.getText().trim());
@@ -89,9 +89,9 @@ public class PanelEditarClienteController implements Initializable {
         txtTelefono.setText(cliente.getTelefono());
         txtEmail.setText(cliente.getEmail());
         txtUsuario.setText(Integer.toString(cliente.getIdUsuario()));
-        txtTipo.setText(Integer.toString(cliente.getTipo()));
-        txtPresupuestoMin.setText(Double.toString(cliente.getPresupuestoMin()));
-        txtPresupuestoMax.setText(Double.toString(cliente.getPresupuestoMax()));
+        txtTipo.setText(cliente.getTipo());
+        txtPresupuestoMin.setText(Integer.toString(cliente.getPresupuestoMin()));
+        txtPresupuestoMax.setText(Integer.toString(cliente.getPresupuestoMax()));
         txtDormitoriosMin.setText(Integer.toString(cliente.getDormitoriosMin()));
         txtDormitoriosMax.setText(Integer.toString(cliente.getDormitoriosMax()));
         txtTerrazaBalcon.setText(Integer.toString(cliente.getTerrazaBalcon()));

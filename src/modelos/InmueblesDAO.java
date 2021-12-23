@@ -51,7 +51,7 @@ public class InmueblesDAO {
                 int idInmueble = rs.getInt(1);
                 String nombre = rs.getString(2);
                 String tipo = rs.getString(3);
-                double precio = rs.getDouble(4);
+                int precio = rs.getInt(4);
                 double superficieUtil = rs.getDouble(5);
                 double superficieTotal = rs.getDouble(6);
                 String direccion = rs.getString(7);
@@ -113,7 +113,7 @@ public class InmueblesDAO {
                 int idInmueble = rs.getInt(1);
                 String nombre = rs.getString(2);
                 String tipo = rs.getString(3);
-                double precio = rs.getDouble(4);
+                int precio = rs.getInt(4);
                 double superficieUtil = rs.getDouble(5);
                 double superficieTotal = rs.getDouble(6);
                 String direccion = rs.getString(7);
@@ -185,7 +185,7 @@ public class InmueblesDAO {
                 int idInmueble = rs.getInt(1);
                 String nombre = rs.getString(2);
                 String tipo = rs.getString(3);
-                double precio = rs.getDouble(4);
+                int precio = rs.getInt(4);
                 double superficieUtil = rs.getDouble(5);
                 double superficieTotal = rs.getDouble(6);
                 String direccion = rs.getString(7);
@@ -243,7 +243,7 @@ public class InmueblesDAO {
             ps.setInt(1, 0);
             ps.setString(2, inmueble.getNombre());
             ps.setString(3, inmueble.getTipo());
-            ps.setDouble(4, inmueble.getPrecio());
+            ps.setInt(4, inmueble.getPrecio());
             ps.setDouble(5, inmueble.getSuperficieUtil());
             ps.setDouble(6, inmueble.getSuperficieTotal());
             ps.setString(7, inmueble.getDireccion());
@@ -294,7 +294,7 @@ public class InmueblesDAO {
             ps = cn.prepareStatement(SQL_UPDATE);
             ps.setString(1, inmuebleSeleccionado.getNombre());
             ps.setString(2, inmuebleSeleccionado.getTipo());
-            ps.setDouble(3, inmuebleSeleccionado.getPrecio());
+            ps.setInt(3, inmuebleSeleccionado.getPrecio());
             ps.setDouble(4, inmuebleSeleccionado.getSuperficieUtil());
             ps.setDouble(5, inmuebleSeleccionado.getSuperficieTotal());
             ps.setString(6, inmuebleSeleccionado.getDireccion());

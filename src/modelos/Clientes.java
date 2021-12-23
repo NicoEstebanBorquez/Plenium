@@ -8,9 +8,9 @@ public class Clientes {
     private String nif;
     private String telefono;
     private String email;
-    private int tipo;
-    private double presupuestoMin;
-    private double presupuestoMax;
+    private String tipo;
+    private int presupuestoMin;
+    private int presupuestoMax;
     private int dormitoriosMin;
     private int dormitoriosMax;
     private int terrazaBalcon;
@@ -24,7 +24,7 @@ public class Clientes {
     public Clientes() {
     }
 
-    public Clientes(String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
+    public Clientes(String nombre, String apellidos, String nif, String telefono, String email, String tipo, int presupuestoMin, int presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -44,7 +44,7 @@ public class Clientes {
         this.idUsuario = idUsuario;
     }
 
-    public Clientes(int idCliente, String nombre, String apellidos, String nif, String telefono, String email, int tipo, double presupuestoMin, double presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
+    public Clientes(int idCliente, String nombre, String apellidos, String nif, String telefono, String email, String tipo, int presupuestoMin, int presupuestoMax, int dormitoriosMin, int dormitoriosMax, int terrazaBalcon, int aparcamiento, int piscina, int ascensor, String poblacion, String provincia, int idUsuario) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -113,27 +113,27 @@ public class Clientes {
         this.email = email;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return this.tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
-    public double getPresupuestoMin() {
+    public int getPresupuestoMin() {
         return this.presupuestoMin;
     }
 
-    public void setPresupuestoMin(double presupuestoMin) {
+    public void setPresupuestoMin(int presupuestoMin) {
         this.presupuestoMin = presupuestoMin;
     }
 
-    public double getPresupuestoMax() {
+    public int getPresupuestoMax() {
         return this.presupuestoMax;
     }
 
-    public void setPresupuestoMax(double presupuestoMax) {
+    public void setPresupuestoMax(int presupuestoMax) {
         this.presupuestoMax = presupuestoMax;
     }
 

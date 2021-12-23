@@ -15,7 +15,7 @@ Terreno
 Oficina 
 Local comercial
 */
-    private double precio;
+    private int precio;
     private double superficieUtil;
     private double superficieTotal;
     private String direccion;
@@ -49,7 +49,7 @@ Local comercial
     public Inmuebles() {
     }
 
-    public Inmuebles(String nombre, String tipo, double precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(String nombre, String tipo, int precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.precio = precio;
@@ -84,7 +84,7 @@ Local comercial
         this.idUsuario = idUsuario;
     }
 
-    public Inmuebles(int idInmueble, String nombre, String tipo, double precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
+    public Inmuebles(int idInmueble, String nombre, String tipo, int precio, double superficieUtil, double superficieTotal, String direccion, String poblacion, String provincia, Date fechaPublicacion, int dormitorios, int banos, int amueblado, int semiAmueblado, int noAmueblado, int cocinaEquipada, int aireAcondicionado, int calefaccionCentral, int gasNatural, int placasSolares, int armariosEmpotrados, int terrazaBalcon, int piscina, int aparcamiento, int ascensor, int trastero, int jardin, String propietarioNombre, String propietarioApellidos, String propietarioNif, String propietarioTelefono, String propietarioEmail, int idUsuario) {
         this.idInmueble = idInmueble;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -144,11 +144,11 @@ Local comercial
         this.tipo = tipo;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return this.precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 

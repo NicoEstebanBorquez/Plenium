@@ -31,7 +31,7 @@ public class PanelEditarInmuebleController implements Initializable {
         int referencia = Integer.parseInt(txtReferencia.getText().trim());
         String nombre = txtNombre.getText().trim();
         String tipo = txtTipo.getText().trim();
-        double precio = Double.parseDouble(txtPrecio.getText().trim());
+        int precio = Integer.parseInt(txtPrecio.getText().trim());
         double superficieUtil = Double.parseDouble(txtSuperficieUtil.getText().trim());
         double superficieTotal = Double.parseDouble(txtSuperficieTotal.getText().trim());
         String direccion = txtDireccion.getText().trim();
@@ -104,7 +104,7 @@ public class PanelEditarInmuebleController implements Initializable {
         txtReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
         txtNombre.setText(inmueble.getNombre());
         txtTipo.setText(inmueble.getTipo());
-        txtPrecio.setText(Double.toString(inmueble.getPrecio()));
+        txtPrecio.setText(Integer.toString(inmueble.getPrecio()));
         txtSuperficieUtil.setText(Double.toString(inmueble.getSuperficieUtil()));
         txtSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         txtDireccion.setText(inmueble.getDireccion());

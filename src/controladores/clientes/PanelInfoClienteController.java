@@ -1,6 +1,5 @@
 package controladores.clientes;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Iterator;
@@ -31,7 +30,7 @@ import modelos.Inmuebles;
 import modelos.InmueblesDAO;
 import controladores.inmuebles.PanelInfoInmuebleController;
 
-public class PanelInfoClienteController implements Initializable {
+public class PanelInfoClienteController extends PanelInfoInmuebleController implements Initializable {
 
     protected static int clienteSeleccionado;
 
@@ -40,19 +39,17 @@ public class PanelInfoClienteController implements Initializable {
             labelTipo, labelPresupuestoMin, labelPresupuestoMax, labelDormitoriosMin, labelDormitoriosMax,
             labelTerrazaBalcon, labelAparcamiento, labelPiscina, labelAscensor, labelPoblacion, labelProvincia;
 
-     @FXML
+    @FXML
     private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
     private TableColumn colRef, colTipo, colNombre, colPrecio, colDormitorios, colPoblacion, colProvincia;
 
     private ObservableList<Inmuebles> listaObservable;
-    
-    
+
     public void cargarDatos(int seleccionado) {
-        
-        Clientes cliente = null;
-        cliente = new ClientesDAO().obtenerPorId(seleccionado);
+
+        Clientes cliente = new ClientesDAO().obtenerPorId(seleccionado);
 
         labelReferencia.setText(Integer.toString(cliente.getIdCliente()));
         labelNombre.setText(cliente.getNombre());
@@ -61,9 +58,9 @@ public class PanelInfoClienteController implements Initializable {
         labelTelefono.setText(cliente.getTelefono());
         labelEmail.setText(cliente.getEmail());
         labelUsuario.setText(Integer.toString(cliente.getIdUsuario()));
-        labelTipo.setText(Integer.toString(cliente.getTipo()));
-        labelPresupuestoMin.setText(Double.toString(cliente.getPresupuestoMin()));
-        labelPresupuestoMax.setText(Double.toString(cliente.getPresupuestoMax()));
+        labelTipo.setText(cliente.getTipo());
+        labelPresupuestoMin.setText(Integer.toString(cliente.getPresupuestoMin()));
+        labelPresupuestoMax.setText(Integer.toString(cliente.getPresupuestoMax()));
         labelDormitoriosMin.setText(Integer.toString(cliente.getDormitoriosMin()));
         labelDormitoriosMax.setText(Integer.toString(cliente.getDormitoriosMax()));
         labelTerrazaBalcon.setText(Integer.toString(cliente.getTerrazaBalcon()));
@@ -101,7 +98,7 @@ public class PanelInfoClienteController implements Initializable {
 
     @FXML
     public void eliminarCliente(ActionEvent event) {
-      int clienteEliminado = 0;
+        int clienteEliminado = 0;
 
         Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
         confirmacion.setHeaderText("Confirmación");
@@ -128,7 +125,7 @@ public class PanelInfoClienteController implements Initializable {
             }
         }
     }
-    
+
     @FXML
     public void cerrar(ActionEvent event) {
         this.cerrarInterfaz(event);
@@ -136,7 +133,7 @@ public class PanelInfoClienteController implements Initializable {
 
     public void mostrarInmuebles() {
         //Tabla
-        listaObservable = FXCollections.observableArrayList();
+        /*listaObservable = FXCollections.observableArrayList();
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
         this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
@@ -145,7 +142,6 @@ public class PanelInfoClienteController implements Initializable {
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
-    
         Inmuebles inmueble = null;
         List<Inmuebles> lista = new InmueblesDAO().listar();
         Iterator iterador = lista.iterator();
@@ -154,10 +150,75 @@ public class PanelInfoClienteController implements Initializable {
             inmueble = (Inmuebles) iterador.next();
             this.listaObservable.add(inmueble);
             this.tablaInmuebles.setItems(listaObservable);
+        }*/
+        
+        //Tabla
+        listaObservable = FXCollections.observableArrayList();
+        this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
+        this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
+        this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
+        this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
+       // this.colSuperficie.setCellValueFactory(new PropertyValueFactory("superficieTotal"));
+        this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
+        this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
+        this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
+
+
+        //Parámetros de la búsqueda: ----------------------------------------
+        
+
+        Clientes cliente = new ClientesDAO().obtenerPorId(clienteSeleccionado);
+        
+        int txt_PrecioMin = cliente.getPresupuestoMin();
+        int txt_PrecioMax = cliente.getPresupuestoMax();
+        int txt_dormitoriosMin = cliente.getDormitoriosMin();
+        int txt_dormitoriosMax = cliente.getDormitoriosMax();
+        //int txt_SuperficieMin = cliente.getSuperf..... ;
+        //int txt_SuperficieMax = cliente.getSuperf..... ;
+        String txt_poblacion = cliente.getPoblacion();
+        String txt_provincia = cliente.getProvincia();
+        String txt_tipo = cliente.getTipo();
+
+       
+        int precioMin = 0;
+        int precioMax = 9999999;
+        int dormitoriosMin = 0;
+        int dormitoriosMax = 99;
+        int superficieMin = 0;
+        int superficieMax = 999;
+        String poblacion = "%";
+        String provincia = "%";
+        String tipo = "%";
+        
+        //-----------------------------------------------------------------------------
+
+        Inmuebles inmueble = null;
+        List<Inmuebles> lista = new InmueblesDAO().listarBusquedaAvanzada(txt_PrecioMin, txt_PrecioMax, txt_dormitoriosMin, txt_dormitoriosMax, 0, 999, txt_poblacion, txt_provincia, txt_tipo);
+
+        if (!lista.isEmpty()) {
+            Iterator iterador = lista.iterator();
+
+            while (iterador.hasNext()) {
+                inmueble = (Inmuebles) iterador.next();
+                this.listaObservable.add(inmueble);
+                this.tablaInmuebles.setItems(listaObservable);
+            }
+        } else {
+            
+            /*EL ALERT APARECE ANTES DE ABRIR LA  VENTANA
+            CAMBIARLO PARA QUE SÓLO SE MUESTRE EL MENSAJE:"No se han obtenido resultados" EN LA TABLA*/
+            listaObservable.clear();
+            this.tablaInmuebles.setItems(listaObservable);
+
+            Alert mensaje = new Alert(Alert.AlertType.ERROR);
+            mensaje.setTitle("Sin resultados");
+            mensaje.setContentText("No se han obtenido resultados XXXXXXXXXX.");
+            mensaje.showAndWait();
         }
+        
     }
-    
-     @FXML
+
+    @FXML
     public void seleccionar() throws IOException {
         Inmuebles inmuebleSeleccionado = this.tablaInmuebles.getSelectionModel().getSelectedItem();
         int seleccionado = inmuebleSeleccionado.getIdInmueble();
@@ -176,7 +237,7 @@ public class PanelInfoClienteController implements Initializable {
         escenario.setTitle("Info inmueble");
         escenario.show();
     }
-    
+
     public void cerrarInterfaz(ActionEvent event) {
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
@@ -186,7 +247,7 @@ public class PanelInfoClienteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         cargarDatos(clienteSeleccionado);
-         this.mostrarInmuebles();
+        this.mostrarInmuebles();
     }
 
 }

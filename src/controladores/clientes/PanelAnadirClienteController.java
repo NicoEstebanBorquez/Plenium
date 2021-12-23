@@ -27,9 +27,9 @@ public class PanelAnadirClienteController implements Initializable {
         String telefono = txtTelefono.getText().trim();
         String email = txtEmail.getText().trim();
         int usuario = Integer.parseInt(txtUsuario.getText().trim());
-        int tipo = Integer.parseInt(txtTipo.getText().trim());
-        double presupuestoMin = Double.parseDouble(txtPresupuestoMin.getText().trim());
-        double presupuestoMax = Double.parseDouble(txtPresupuestoMax.getText().trim());
+        String tipo = txtTipo.getText().trim();
+        int presupuestoMin = Integer.parseInt(txtPresupuestoMin.getText().trim());
+        int presupuestoMax = Integer.parseInt(txtPresupuestoMax.getText().trim());
         int dormitoriosMin = Integer.parseInt(txtDormitoriosMin.getText().trim());
         int dormitoriosMax = Integer.parseInt(txtDormitoriosMax.getText().trim());
         int terrazaBalcon = Integer.parseInt(txtTerrazaBalcon.getText().trim());

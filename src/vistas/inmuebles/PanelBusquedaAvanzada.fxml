@@ -13,13 +13,13 @@
       <TableView fx:id="tablaInmuebles" maxHeight="450.0" maxWidth="1100.0" onMouseClicked="#seleccionar" prefHeight="450.0" prefWidth="1100.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="colRef" prefWidth="70.0" resizable="false" text="Ref." />
-          <TableColumn fx:id="colNombre" prefWidth="413.0" resizable="false" text="Nombre" />
-            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="83.0" resizable="false" text="Precio (€)" />
-            <TableColumn fx:id="colSuperficie" prefWidth="61.0" resizable="false" text="m²" />
-            <TableColumn fx:id="colDormitorios" prefWidth="101.0" resizable="false" text="Dormitorios" />
-            <TableColumn fx:id="colBanos" prefWidth="57.0" resizable="false" text="Baños" />
-            <TableColumn fx:id="colPoblacion" prefWidth="159.0" resizable="false" text="Población" />
-            <TableColumn fx:id="colProvincia" maxWidth="177.0" minWidth="0.0" prefWidth="155.0" resizable="false" text="Provincia" />
+          <TableColumn fx:id="colTipo" prefWidth="102.0" resizable="false" text="Tipo" />
+          <TableColumn fx:id="colNombre" prefWidth="513.0" resizable="false" text="Nombre" />
+            <TableColumn fx:id="colPrecio" minWidth="0.0" prefWidth="74.0" resizable="false" text="Precio (€)" />
+            <TableColumn fx:id="colSuperficie" prefWidth="64.0" resizable="false" text="m²" />
+            <TableColumn fx:id="colDormitorios" prefWidth="64.0" resizable="false" text="Dorm." />
+            <TableColumn fx:id="colPoblacion" prefWidth="126.0" resizable="false" text="Población" />
+            <TableColumn fx:id="colProvincia" maxWidth="177.0" minWidth="0.0" prefWidth="86.0" resizable="false" text="Provincia" />
         </columns>
       </TableView>
    </center>

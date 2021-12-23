@@ -43,9 +43,9 @@ public class ClientesDAO {
                 String nif = rs.getString(4);
                 String telefono = rs.getString(5);
                 String email = rs.getString(6);
-                int tipo = rs.getInt(7);
-                double presupuestoMin = rs.getDouble(8);
-                double presupuestoMax = rs.getDouble(9);
+                String tipo = rs.getString(7);
+                int presupuestoMin = rs.getInt(8);
+                int presupuestoMax = rs.getInt(9);
                 int dormitoriosMin = rs.getInt(10);
                 int dormitoriosMax = rs.getInt(11);
                 int terrazaBalcon = rs.getInt(12);
@@ -91,9 +91,9 @@ public class ClientesDAO {
                 String nif = rs.getString(4);
                 String telefono = rs.getString(5);
                 String email = rs.getString(6);
-                int tipo = rs.getInt(7);
-                double presupuestoMin = rs.getDouble(8);
-                double presupuestoMax = rs.getDouble(9);
+                String tipo = rs.getString(7);
+                int presupuestoMin = rs.getInt(8);
+                int presupuestoMax = rs.getInt(9);
                 int dormitoriosMin = rs.getInt(10);
                 int dormitoriosMax = rs.getInt(11);
                 int terrazaBalcon = rs.getInt(12);
@@ -106,42 +106,6 @@ public class ClientesDAO {
 
                 cliente = new Clientes(idCliente, nombre, apellidos, nif, telefono, email, tipo, presupuestoMin, presupuestoMax, dormitoriosMin,
                         dormitoriosMax, terrazaBalcon, aparcamiento, piscina, ascensor, poblacion, provincia, idUsuario);
-
-                /*
-                inmueble.setIdInmueble(idInmueble);
-                inmueble.setNombre(nombre);
-                inmueble.setTipo(tipo);
-                inmueble.setPrecio(precio);
-                inmueble.setSuperficieConstruida(superficieConstruida);
-                inmueble.setSuperficieTotal(superficieTotal);
-                inmueble.setDireccion(direccion);
-                inmueble.setPoblacion(poblacion);
-                inmueble.setProvincia(provincia);
-                inmueble.setCategoria(categoria);
-                inmueble.setFechaPublicacion(fechaPublicacion);
-                inmueble.setDormitorios(dormitorios);
-                inmueble.setBanos(banos);
-                inmueble.setAmueblado(amueblado);
-                inmueble.setSemiAmueblado(semiAmueblado);
-                inmueble.setNoAmueblado(noAmueblado);
-                inmueble.setCocinaEquipada(cocinaEquipada);
-                inmueble.setAireAcondicionado(aireAcondicionado);
-                inmueble.setCalefaccionCentral(calefaccionCentral);
-                inmueble.setGasNatural(gasNatural);
-                inmueble.setPlacasSolares(placasSolares);
-                inmueble.setArmariosEmpotrados(armariosEmpotrados);
-                inmueble.setTerrazaBalcon(terrazaBalcon);
-                inmueble.setPiscina(piscina);
-                inmueble.setAparcamiento(aparcamiento);
-                inmueble.setAscensor(ascensor);
-                inmueble.setTrastero(trastero);
-                inmueble.setJardin(jardin);
-                inmueble.setPropietarioNombre(propietarioNombre);
-                inmueble.setPropietarioApellidos(propietarioApellidos);
-                inmueble.setPropietarioNif(propietarioNif);
-                inmueble.setPropietarioTelefono(propietarioTelefono);
-                inmueble.setPropietarioEmail(propietarioEmail);
-                inmueble.setIdUsuario(idUsuario);*/
             }
 
         } catch (SQLException ex) {
@@ -170,9 +134,9 @@ public class ClientesDAO {
             ps.setString(4, cliente.getNif());
             ps.setString(5, cliente.getTelefono());
             ps.setString(6, cliente.getEmail());
-            ps.setInt(7, cliente.getTipo());
-            ps.setDouble(8, cliente.getPresupuestoMin());
-            ps.setDouble(9, cliente.getPresupuestoMax());
+            ps.setString(7, cliente.getTipo());
+            ps.setInt(8, cliente.getPresupuestoMin());
+            ps.setInt(9, cliente.getPresupuestoMax());
             ps.setInt(10, cliente.getDormitoriosMin());
             ps.setInt(11, cliente.getDormitoriosMax());
             ps.setInt(12, cliente.getTerrazaBalcon());
@@ -206,9 +170,9 @@ public class ClientesDAO {
             ps.setString(3, clienteSeleccionado.getNif());
             ps.setString(4, clienteSeleccionado.getTelefono());
             ps.setString(5, clienteSeleccionado.getEmail());
-            ps.setInt(6, clienteSeleccionado.getTipo());
-            ps.setDouble(7, clienteSeleccionado.getPresupuestoMin());
-            ps.setDouble(8, clienteSeleccionado.getPresupuestoMax());
+            ps.setString(6, clienteSeleccionado.getTipo());
+            ps.setInt(7, clienteSeleccionado.getPresupuestoMin());
+            ps.setInt(8, clienteSeleccionado.getPresupuestoMax());
             ps.setInt(9, clienteSeleccionado.getDormitoriosMin());
             ps.setInt(10, clienteSeleccionado.getDormitoriosMax());
             ps.setInt(11, clienteSeleccionado.getTerrazaBalcon());

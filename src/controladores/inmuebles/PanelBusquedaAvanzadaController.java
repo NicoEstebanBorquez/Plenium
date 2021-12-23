@@ -33,7 +33,7 @@ public class PanelBusquedaAvanzadaController implements Initializable {
     private TableView<Inmuebles> tablaInmuebles;
 
     @FXML
-    private TableColumn colRef, colNombre, colPrecio, colSuperficie, colDormitorios, colBanos, colPoblacion, colProvincia;
+    private TableColumn colRef, colTipo, colNombre, colPrecio, colSuperficie, colDormitorios, colPoblacion, colProvincia;
 
     private ObservableList<Inmuebles> listaObservable;
 
@@ -41,11 +41,11 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         //Tabla
         listaObservable = FXCollections.observableArrayList();
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
+        this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
         this.colSuperficie.setCellValueFactory(new PropertyValueFactory("superficieTotal"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
-        this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 
@@ -86,11 +86,11 @@ public class PanelBusquedaAvanzadaController implements Initializable {
         //Tabla
         listaObservable = FXCollections.observableArrayList();
         this.colRef.setCellValueFactory(new PropertyValueFactory("idInmueble"));
+        this.colTipo.setCellValueFactory(new PropertyValueFactory("tipo"));
         this.colNombre.setCellValueFactory(new PropertyValueFactory("nombre"));
         this.colPrecio.setCellValueFactory(new PropertyValueFactory("precio"));
         this.colSuperficie.setCellValueFactory(new PropertyValueFactory("superficieTotal"));
         this.colDormitorios.setCellValueFactory(new PropertyValueFactory("dormitorios"));
-        this.colBanos.setCellValueFactory(new PropertyValueFactory("banos"));
         this.colPoblacion.setCellValueFactory(new PropertyValueFactory("poblacion"));
         this.colProvincia.setCellValueFactory(new PropertyValueFactory("provincia"));
 

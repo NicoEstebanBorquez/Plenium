@@ -25,7 +25,7 @@ public class PanelAnadirInmuebleController implements Initializable {
     public void guardar(ActionEvent event) {
         String nombre = txtNombre.getText().trim();
         String tipo = txtTipo.getText().trim();
-        double precio = Double.parseDouble(txtPrecio.getText().trim());
+        int precio = Integer.parseInt(txtPrecio.getText().trim());
         double superficieUtil = Double.parseDouble(txtSuperficieUtil.getText().trim());
         double superficieTotal = Double.parseDouble(txtSuperficieTotal.getText().trim());
         String direccion = txtDireccion.getText().trim();

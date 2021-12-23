@@ -27,7 +27,7 @@ public class PanelInfoInmuebleController implements Initializable {
     // fechaPublicacion, dormitorios, banos, amueblado, semiAmueblado, noAmueblado, cocinaEquipada, aireAcondicionado, 
     // calefaccionCentral, gasNatural, placasSolares, armariosEmpotrados, terrazaBalcon, piscina, aparcamiento, ascensor, 
     // trastero, jardin, propietario, usuario
-    public static int inmuebleSeleccionado;
+    protected static int inmuebleSeleccionado;
 
     @FXML
     private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieUtil, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,
@@ -42,7 +42,7 @@ public class PanelInfoInmuebleController implements Initializable {
         labelReferencia.setText(Integer.toString(inmueble.getIdInmueble()));
         labelNombre.setText(inmueble.getNombre());
         labelTipo.setText(inmueble.getTipo());
-        labelPrecio.setText(Double.toString(inmueble.getPrecio()));
+        labelPrecio.setText(Integer.toString(inmueble.getPrecio()));
         labelSuperficieUtil.setText(Double.toString(inmueble.getSuperficieUtil()));
         labelSuperficieTotal.setText(Double.toString(inmueble.getSuperficieTotal()));
         labelDireccion.setText(inmueble.getDireccion());
