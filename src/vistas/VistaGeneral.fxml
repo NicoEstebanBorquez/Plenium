@@ -118,7 +118,7 @@
                         <Insets left="15.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label layoutX="10.0" layoutY="117.0" text="Bahía Dorada Inmobiliaria" textFill="#d8d9da" GridPane.rowIndex="1">
+                  <Label layoutX="10.0" layoutY="117.0" text="Bahía Estates" textFill="#d8d9da" GridPane.rowIndex="1">
                      <font>
                         <Font name="Calibri" size="16.0" />
                      </font>

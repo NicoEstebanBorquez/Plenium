@@ -20,6 +20,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import modelos.Inmuebles;
 import modelos.InmueblesDAO;
+import modelos.Oficinas;
+import modelos.OficinasDAO;
+import modelos.Usuarios;
+import modelos.UsuariosDAO;
 
 public class PanelInfoInmuebleController implements Initializable {
 
@@ -33,9 +37,15 @@ public class PanelInfoInmuebleController implements Initializable {
     private Label labelReferencia, labelNombre, labelTipo, labelPrecio, labelSuperficieUtil, labelSuperficieTotal, labelDireccion, labelPoblacion, labelProvincia,
             labelFechaPublicacion, labelDormitorios, labelBanos, labelAmueblado, labelSemiAmueblado, labelNoAmueblado, labelCocinaEquipada, labelAireAcondicionado,
             labelCalefaccionCentral, labelGasNatural, labelPlacasSolares, labelArmariosEmpotrados, labelTerrazaBalcon, labelPiscina, labelAparcamiento, labelAscensor,
-            labelTrastero, labelJardin, labelPropietarioNombre, labelPropietarioApellidos, labelPropietarioNif, labelPropietarioTelefono, labelPropietarioEmail, labelUsuario;
+            labelTrastero, labelJardin, labelPropietarioNombre, labelPropietarioApellidos, labelPropietarioNif, labelPropietarioTelefono, labelPropietarioEmail;
 
+    @FXML 
+    private Label labelAgente, labelContactoTelefono, labelContactoEmail, labelOficina, labelOficinaTelefono, labelOficinaEmail;
+    
+    
     public void cargarDatos(int seleccionado) {
+        
+        //Datos del inmueble
         Inmuebles inmueble = null;
         inmueble = new InmueblesDAO().obtenerPorId(seleccionado);
 
@@ -71,7 +81,23 @@ public class PanelInfoInmuebleController implements Initializable {
         labelPropietarioNif.setText(inmueble.getPropietarioNif());
         labelPropietarioTelefono.setText(inmueble.getPropietarioTelefono());
         labelPropietarioEmail.setText(inmueble.getPropietarioEmail());
-        labelUsuario.setText(Integer.toString(inmueble.getIdUsuario()));
+
+        
+        //Datos del agente
+        Usuarios usuario = null;
+        usuario = new UsuariosDAO().obtenerPorId(inmueble.getIdUsuario());
+        labelAgente.setText(usuario.getNombre() + " " + usuario.getApellidos());
+        labelContactoTelefono.setText(usuario.getTelefono());
+        labelContactoEmail.setText(usuario.getEmail());
+        
+        
+        //Datos de la oficina
+        Oficinas oficina = null;
+        oficina = new OficinasDAO().obtenerPorId(usuario.getIdOficina());
+        labelOficina.setText(oficina.getNombre());
+        labelOficinaTelefono.setText(oficina.getTelefono());
+        labelOficinaEmail.setText(oficina.getEmail());
+        
     }
 
     @FXML
